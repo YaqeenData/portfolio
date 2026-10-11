@@ -59,7 +59,8 @@ function ellipse(cx: number, cy: number, rx: number, ry: number, rand: () => num
 }
 
 function dot(cx: number, cy: number, r = 2): string {
-  return `M${cx - r} ${cy} a${r} ${r} 0 1 0 ${2 * r} 0 a${r} ${r} 0 1 0 ${-2 * r} 0`;
+  // Rounded so the server and the browser always write identical path data.
+  return `M${f(cx - r)} ${f(cy)} a${r} ${r} 0 1 0 ${f(2 * r)} 0 a${r} ${r} 0 1 0 ${f(-2 * r)} 0`;
 }
 
 function arrow(a: P, b: P, r: () => number, tone: Tone = "ink"): Stroke[] {

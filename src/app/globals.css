@@ -859,6 +859,120 @@ html[dir="rtl"] .cosmos-fade-left {
   }
 }
 
+/* ── III · Project gallery: cards that lift gently and lead to each project ── */
+
+.project-card {
+  height: 100%;
+  color: inherit;
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 0.4s ease,
+    box-shadow 0.45s ease;
+}
+.project-card:hover,
+.project-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--card-accent);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    0 28px 70px var(--glass-shadow),
+    0 0 46px -12px var(--card-accent);
+}
+.project-card:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+}
+.project-card-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background: radial-gradient(60% 70% at 50% 50%, var(--card-glow), transparent 75%);
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.project-card-art > svg,
+.project-card-art > img {
+  max-height: 100%;
+}
+.project-card:hover .project-card-art,
+.project-card:focus-visible .project-card-art {
+  transform: scale(1.025);
+}
+.project-card-cta {
+  color: var(--card-accent);
+}
+.project-card-arrow {
+  transition: translate 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.project-card:hover .project-card-arrow,
+.project-card:focus-visible .project-card-arrow {
+  translate: 6px 0;
+}
+[dir="rtl"] .project-card:hover .project-card-arrow,
+[dir="rtl"] .project-card:focus-visible .project-card-arrow {
+  translate: -6px 0;
+}
+.project-filter {
+  color: var(--ink-2);
+  border-color: var(--chip-border);
+  background: var(--chip);
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+.project-filter:hover,
+.project-filter[aria-pressed="true"] {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.project-nav-link {
+  transition: transform 0.3s ease;
+}
+.project-nav-link:hover {
+  transform: translateY(-2px);
+}
+
+/* ── The Project Lab: a category selector and notebook-paper surfaces ── */
+
+.lab-selector {
+  border: 1px solid var(--chip-border);
+  background: var(--chip);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.lab-tab {
+  color: var(--ink-3);
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.lab-tab:hover {
+  color: var(--ink);
+}
+.lab-tab[aria-pressed="true"] {
+  color: var(--ink);
+  background: var(--secondary-bg);
+  box-shadow:
+    inset 0 0 0 1px var(--focus-edge),
+    0 0 18px var(--focus-glow);
+}
+.lab-count {
+  font-size: 10px;
+  color: var(--ink-4);
+  transition: color 0.3s ease;
+}
+.lab-tab[aria-pressed="true"] .lab-count {
+  color: var(--accent);
+}
+/* Faint ruled lines, like a page from an engineering notebook. */
+.lab-empty,
+.lab-note {
+  border: 1px dashed var(--line-strong);
+  background-color: var(--dash-bg);
+  background-image: repeating-linear-gradient(180deg, transparent 0 31px, var(--line) 31px 32px);
+}
+
 /* ── Overview dialog ── */
 
 dialog.overview {
@@ -930,8 +1044,9 @@ html:not(.js) .intro {
 html.intro-skip .intro {
   display: none;
 }
-/* While the introduction plays, the header name waits — the intro's name becomes it. */
-.js:not(.intro-skip):not(.intro-finished) [data-brand-name] {
+/* While the introduction plays, the header name waits — the intro's name becomes it.
+   (Only on pages that have an introduction; project pages show the name straight away.) */
+.js:not(.intro-skip):not(.intro-finished):has(.intro) [data-brand-name] {
   visibility: hidden;
 }
 .intro-night {
@@ -965,7 +1080,8 @@ html.intro-skip .intro {
   animation: intro-in 0.6s ease 0.6s forwards;
 }
 
-/* The daytime sun: a warm disc, a breathing halo, and slowly turning, shimmering rays. */
+/* The daytime sun: a semi-realistic orb — warm haze in the sky, a breathing corona,
+   faintly diffused light, and a limb-darkened disc with a soft edge. */
 .intro-sun {
   --sun: clamp(64px, 8.5vw, 120px);
   position: absolute;
@@ -982,60 +1098,85 @@ html.intro-skip .intro {
     top: calc(13vh - var(--sun) * 2);
   }
 }
-.sun-halo,
-.sun-disc,
-.sun-glint {
+.sun-haze,
+.sun-corona,
+.sun-veil,
+.sun-disc {
   position: absolute;
   left: 50%;
   top: 50%;
   border-radius: 999px;
   transform: translate(-50%, -50%);
 }
-.sun-halo {
+/* Sunlight scattering through the sky: wide, faint and slightly wider than tall. */
+.sun-haze {
+  width: 230%;
+  height: 170%;
+  background: radial-gradient(
+    closest-side,
+    rgba(255, 251, 242, 0.78),
+    rgba(255, 248, 236, 0.42) 30%,
+    rgba(255, 244, 232, 0.16) 60%,
+    rgba(255, 244, 232, 0) 100%
+  );
+}
+/* The corona: bright close to the disc, falling away smoothly; it breathes very slowly. */
+.sun-corona {
   width: 100%;
   height: 100%;
   background: radial-gradient(
     closest-side,
-    rgba(255, 214, 120, 0.75),
-    rgba(255, 196, 92, 0.35) 38%,
-    rgba(255, 186, 110, 0.12) 64%,
-    rgba(255, 186, 110, 0) 100%
+    rgba(255, 253, 244, 1) 0%,
+    rgba(255, 247, 222, 0.92) 18%,
+    rgba(255, 232, 178, 0.55) 30%,
+    rgba(255, 220, 160, 0.24) 48%,
+    rgba(255, 228, 190, 0.08) 66%,
+    rgba(255, 228, 190, 0) 82%
   );
-  animation: sun-pulse 6.5s ease-in-out infinite;
+  filter: blur(6px);
+  animation: sun-pulse 9s ease-in-out infinite;
 }
-.sun-rays {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  animation: sun-turn 160s linear infinite;
+/* Light diffusing outward: soft, uneven beams, blurred until they read as atmosphere. */
+.sun-veil {
+  width: 92%;
+  height: 92%;
+  background: conic-gradient(
+    from 8deg,
+    rgba(255, 244, 214, 0) 0deg,
+    rgba(255, 244, 214, 0.55) 14deg,
+    rgba(255, 244, 214, 0) 34deg,
+    rgba(255, 244, 214, 0) 62deg,
+    rgba(255, 238, 200, 0.4) 80deg,
+    rgba(255, 238, 200, 0) 104deg,
+    rgba(255, 244, 214, 0.5) 142deg,
+    rgba(255, 244, 214, 0) 166deg,
+    rgba(255, 244, 214, 0) 196deg,
+    rgba(255, 238, 200, 0.45) 218deg,
+    rgba(255, 238, 200, 0) 244deg,
+    rgba(255, 244, 214, 0.35) 286deg,
+    rgba(255, 244, 214, 0) 310deg,
+    rgba(255, 244, 214, 0.5) 338deg,
+    rgba(255, 244, 214, 0) 360deg
+  );
+  -webkit-mask: radial-gradient(closest-side, transparent 24%, #000 34%, rgba(0, 0, 0, 0.5) 62%, transparent 100%);
+  mask: radial-gradient(closest-side, transparent 24%, #000 34%, rgba(0, 0, 0, 0.5) 62%, transparent 100%);
+  filter: blur(12px);
+  opacity: 0.5;
+  will-change: transform;
+  animation: sun-drift 320s linear infinite;
 }
-.sun-ray-group {
-  animation: sun-shimmer 5.5s ease-in-out infinite;
-}
-.sun-ray-group-1 {
-  animation-delay: -2.75s;
-}
+/* The disc: white-hot centre, warming to gold at the limb, with a feathered edge. */
 .sun-disc {
   width: var(--sun);
   height: var(--sun);
-  background: radial-gradient(circle at 38% 34%, #fffbea 0%, #ffe9a8 30%, #ffc96a 68%, #ffad4a 100%);
-  box-shadow:
-    0 0 24px 6px rgba(255, 205, 110, 0.75),
-    0 0 70px 18px rgba(255, 176, 80, 0.35),
-    inset 0 -6px 14px rgba(240, 128, 40, 0.35);
-}
-/* An occasional glint across the disc — the "shimmer". */
-.sun-glint {
-  width: calc(var(--sun) * 0.5);
-  height: calc(var(--sun) * 0.5);
-  margin: calc(var(--sun) * -0.16) 0 0 calc(var(--sun) * -0.18);
   background:
-    linear-gradient(90deg, transparent 46%, rgba(255, 255, 255, 0.95) 50%, transparent 54%),
-    linear-gradient(0deg, transparent 46%, rgba(255, 255, 255, 0.95) 50%, transparent 54%);
-  filter: blur(0.4px) drop-shadow(0 0 6px #ffffff);
-  opacity: 0;
-  animation: sun-glint 9s ease-in-out 2.4s infinite;
+    radial-gradient(circle at 45% 42%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 52%),
+    radial-gradient(closest-side, #fffef9 0%, #fffbee 58%, #fff5da 84%, #fff0cc 96%, rgba(255, 242, 206, 0.85) 100%);
+  box-shadow:
+    0 0 calc(var(--sun) * 0.12) calc(var(--sun) * 0.08) rgba(255, 252, 240, 0.95),
+    0 0 calc(var(--sun) * 0.42) calc(var(--sun) * 0.14) rgba(255, 234, 182, 0.48),
+    0 0 calc(var(--sun) * 0.9) calc(var(--sun) * 0.3) rgba(255, 214, 150, 0.2);
+  filter: blur(1px);
 }
 /* Paused while the night sky is showing. */
 :root:not([data-theme="twilight"]) .intro-sun,
@@ -1056,42 +1197,17 @@ html.intro-skip .intro {
 @keyframes sun-pulse {
   0%,
   100% {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(0.94);
+    opacity: 0.86;
+    transform: translate(-50%, -50%) scale(0.97);
   }
   50% {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1.06);
+    transform: translate(-50%, -50%) scale(1.03);
   }
 }
-@keyframes sun-turn {
+@keyframes sun-drift {
   to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes sun-shimmer {
-  0%,
-  100% {
-    opacity: 0.55;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-@keyframes sun-glint {
-  0%,
-  86%,
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(0deg) scale(0.4);
-  }
-  91% {
-    opacity: 0.9;
-    transform: translate(-50%, -50%) rotate(45deg) scale(1);
-  }
-  96% {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(90deg) scale(0.5);
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 

@@ -26,7 +26,7 @@ export function Headline({
   className = "",
 }: {
   content: HeadlineContent;
-  as?: "h2" | "h3";
+  as?: "h1" | "h2" | "h3";
   id?: string;
   className?: string;
 }) {

@@ -35,17 +35,47 @@ Everything you'll want to change lives in **`src/content/site.ts`**. Components 
 - Replace a `null` with real content and the placeholder disappears automatically:
   - `path.credentials.certifications[n].issuer` — the Snowflake and Databricks certificates' issuer
   - `path.credentials.certifications[n].verifyUrl` — a "Verify" link appears once set (nothing shows while `null`)
-  - `work.projects[n].caseStudyUrl`
-  - `contact.email`, `linkedin`, `github`, `resume`
+  - `contact.email`, `linkedin`, `github`, `kaggle`, `resume`
 - Story and skills: `curiosity.story`, `architecture.layers` (seven areas, each with a short name for
   the diagram and its tools), `path.experience`, `path.credentials`, the About Me timeline in `curiosity.journey`,
   and the languages in `beyond.languages`.
-- Sentinel's "Beyond the Pipeline" block reads from `work.leadership`.
 - Résumé: put the PDF in `public/` (e.g. `public/resume.pdf`) and set `contact.resume: "/resume.pdf"`.
 - Once deployed, set `seo.siteUrl` to the live URL.
 
-To add a project, add an entry to `work.projects`. Each project chooses a `visual`
-("archive", "watch" or "sky") and an `accent` ("amber", "pink" or "blue"); new visuals live in `src/components/work/ProjectArt.tsx`.
+Projects have their own file, `src/content/projects.ts` — see "Projects" below.
+
+## Projects: homepage gallery, Project Lab and one page per project
+
+All projects live in **`src/content/projects.ts`** — one entry each, with its English and
+Arabic text side by side. From that list the site builds, automatically:
+
+- **Homepage** (section III): the projects with `featured: true`; `spotlight: true` gives the
+  wide card. A discreet "Explore all projects →" link leads to the Project Lab.
+- **Project Lab** (`/projects`, `/ar/projects`): every project, grouped into **Engineering**
+  and **The Playground**, with an All · Engineering · Playground selector (kept in the address
+  as `?category=…`, so it survives sharing and switching language).
+- **A page per project**: `/projects/<slug>` and `/ar/projects/<slug>`. Engineering projects get
+  the full case study; playground projects a lighter page (what sparked it, what I built, what
+  I learned). Unknown slugs are a 404.
+- Previous / next links, the Overview dialog, metadata and language alternates.
+
+**Add an engineering project:** copy the Bayan entry, set `type: "engineering"`, a new `slug`
+and `order`, and fill in `text.en` / `text.ar`. Stages (any number), `architecture`, `metrics`,
+`contributions`, `approach`, `challenges` and `lessons` are all optional.
+
+**Add a playground project:** use `type: "playground"` (a commented example sits at the end of
+the list). It needs only `title`, `category`, `summary`, `inspiration`, `built` and `learned`
+in each language, plus `technologies`.
+
+**Images, demos, GitHub:** put files in `public/assets/projects/<slug>/`. Use
+`coverImage: { src: "/assets/projects/<slug>/cover.webp", alt: { en, ar } }` for the card and
+page picture (otherwise a built-in drawing or a notebook sketch is shown); playground projects
+can add more pictures in `images`. Links go in `resources` — `demo`, `github`,
+`kaggle` (a dataset or notebook), `presentation`, `caseStudy` — and only filled-in links get a button.
+
+**Homepage or not:** `featured: true` shows a project on the homepage; remove it to show the
+project only in the Project Lab. `status` ("completed", "in-progress", "prototype",
+"experiment", "archived") adds a small label in the Lab.
 
 ## Two languages: English and Arabic
 
@@ -81,7 +111,7 @@ src/
     hero/             Prologue: Hero + Cosmos (sun, planets, streams, stars, Cancer, clouds)
     sections/         Curiosity + Timeline (scroll-drawn journey, notebook sketches), Beyond (languages),
                       Architecture (assembles on scroll), Path (experience + credentials), Contact
-    work/             Project chapters, their art and selectable pipeline stages
+    projects/         Gallery, cards, project page, stages, illustrations, resources, navigation
     layout/           Header, Overview dialog, Moon Horizon toggle, backdrop, footer
     ui/               Reveal, Type (labels, headlines, placeholders), ArrowIcon, StreamDivider
 ```

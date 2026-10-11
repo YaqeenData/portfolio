@@ -38,18 +38,19 @@ export const sharedViewport: Viewport = {
 
 /**
  * Runs before paint, so there is never a flash of the wrong theme or language:
- *  - mode: the visitor's saved choice, otherwise their system preference (light → twilight/day),
- *    otherwise night;
+ *  - mode: the visitor's saved choice; first-time visitors start in night (dark), the
+ *    portfolio's primary look;
  *  - marks that JavaScript is available so reveal animations can hide content first;
  *  - skips the introduction if it has already played in this browser session;
- *  - on the English page only: a visitor who chose Arabic before is taken straight to /ar.
+ *  - on English pages only: a visitor who chose Arabic before is taken straight to the same
+ *    page in Arabic (/ → /ar, /projects/bayan → /ar/projects/bayan).
  */
 function headScript(locale: Locale) {
   const redirect =
     locale === "en"
-      ? `try{if(localStorage.getItem('lang')==='ar'&&location.pathname==='/'){location.replace('/ar'+location.hash);}}catch(e){}`
+      ? `try{if(localStorage.getItem('lang')==='ar'){var p=location.pathname;location.replace('/ar'+(p==='/'?'':p)+location.hash);}}catch(e){}`
       : "";
-  return `(function(){var d=document.documentElement;${redirect}d.classList.add('js');var t=null;try{t=localStorage.getItem('theme');}catch(e){}if(t!=='night'&&t!=='twilight'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'twilight':'night';}d.dataset.theme=t;try{if(sessionStorage.getItem('introSeen'))d.classList.add('intro-skip');}catch(e){}})();`;
+  return `(function(){var d=document.documentElement;${redirect}d.classList.add('js');var t=null;try{t=localStorage.getItem('theme');}catch(e){}if(t!=='night'&&t!=='twilight'){t='night';}d.dataset.theme=t;try{if(sessionStorage.getItem('introSeen'))d.classList.add('intro-skip');}catch(e){}})();`;
 }
 
 /** The <html> document for one language — each language is its own root layout. */

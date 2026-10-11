@@ -10,7 +10,8 @@ import { Beyond } from "@/components/sections/Beyond";
 import { Contact } from "@/components/sections/Contact";
 import { Curiosity } from "@/components/sections/Curiosity";
 import { Path } from "@/components/sections/Path";
-import { Work } from "@/components/work/Work";
+import { ProjectGallery } from "@/components/projects/ProjectGallery";
+import { homePath } from "@/content/projects";
 
 /**
  * One Night, One Stream — the homepage as a journey:
@@ -24,7 +25,7 @@ import { Work } from "@/components/work/Work";
 export function Home({ locale }: { locale: Locale }) {
   const c = content[locale];
   return (
-    <LocaleProvider locale={locale}>
+    <LocaleProvider locale={locale} alternatePath={homePath(locale === "en" ? "ar" : "en")} onHome>
       <a
         href="#main"
         className="label sr-only z-[100] rounded-full bg-[var(--bg-2)] px-5 py-3 text-xs text-ink focus:not-sr-only focus:fixed focus:start-4 focus:top-4"
@@ -38,7 +39,7 @@ export function Home({ locale }: { locale: Locale }) {
         <Hero c={c} />
         <Curiosity c={c} />
         <Architecture />
-        <Work c={c} />
+        <ProjectGallery />
         <Path c={c} />
         <Beyond c={c} />
         <Contact c={c} />

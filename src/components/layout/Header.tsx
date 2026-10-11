@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useContent } from "@/components/i18n/LocaleProvider";
+import { homePath } from "@/content/projects";
+import { useContent, usePageInfo } from "@/components/i18n/LocaleProvider";
 import { LanguageToggle } from "./LanguageToggle";
 import { Overview } from "./Overview";
 import { ThemeToggle } from "./ThemeToggle";
@@ -9,10 +10,13 @@ import { ThemeToggle } from "./ThemeToggle";
 export function Header() {
   const site = useContent();
   const { ui } = site;
+  const { locale, onHome } = usePageInfo();
+  // On the homepage, sections are plain anchors; elsewhere they lead back to the homepage.
+  const sectionHref = (id: string) => (onHome ? `#${id}` : homePath(locale, `#${id}`));
   const [menuOpen, setMenuOpen] = useState(false);
   const [overviewOpen, setOverviewOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
-  const resumeHref = site.contact.resume ?? "#contact";
+  const resumeHref = site.contact.resume ?? sectionHref("contact");
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -35,7 +39,7 @@ export function Header() {
     <>
       <header className="sticky top-0 z-50 border-b border-line bg-[var(--header-bg)] backdrop-blur-xl transition-colors duration-700">
         <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-5 px-5 py-3.5 sm:px-10 xl:px-16">
-          <a href="#top" className="flex flex-col gap-0.5 no-underline" onClick={() => setMenuOpen(false)}>
+          <a href={onHome ? "#top" : homePath(locale)} className="flex flex-col gap-0.5 no-underline" onClick={() => setMenuOpen(false)}>
             <span data-brand-name className="brand-name whitespace-nowrap font-display text-[19px] text-ink sm:text-[22px]">
               {site.name}
             </span>
@@ -47,7 +51,7 @@ export function Header() {
               {site.nav.map((item) => (
                 <li key={item.id}>
                   <a
-                    href={`#${item.id}`}
+                    href={sectionHref(item.id)}
                     className="label text-[14px] tracking-[0.24em] text-ink-2 no-underline transition-colors hover:text-accent"
                   >
                     {item.label}
@@ -96,7 +100,7 @@ export function Header() {
             {site.nav.map((item) => (
               <li key={item.id} className="border-b border-line">
                 <a
-                  href={`#${item.id}`}
+                  href={sectionHref(item.id)}
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center justify-between py-4 no-underline"
                 >

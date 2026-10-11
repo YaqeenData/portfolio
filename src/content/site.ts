@@ -46,40 +46,6 @@ export type ArchitectureLayer = {
   tools: string[];
 };
 
-export type ProjectStage = {
-  name: string;
-  /** One or two sentences shown when the stage is selected. `null` until written together. */
-  detail: string | null;
-};
-
-export type ProjectFact = { label: string; value: string };
-
-export type Project = {
-  slug: string;
-  name: string;
-  /** Optional name in the other language, shown small beside the title (e.g. Bayan · بيان). */
-  altName?: string;
-  altLang?: "ar" | "en";
-  subtitle: string;
-  /** The one-line hook that opens the chapter. */
-  opening: string;
-  overview: string;
-  /** "archive" → Bayan · "watch" → Sentinel · "sky" → Najm's drone-to-report flow. */
-  visual: "archive" | "watch" | "sky";
-  accent: "amber" | "pink" | "blue";
-  /** Optional architecture, drawn as a small flow above the stages. */
-  flow?: readonly string[];
-  stages: readonly ProjectStage[];
-  facts: readonly ProjectFact[];
-  /** Optional evaluation figures with a note on what they measure. */
-  metrics?: { label: string; note: string; values: readonly ProjectFact[] };
-  stackLabel: string;
-  stack: readonly string[];
-  /** Set to false to show a "[ stack — to add ]" marker after the list. */
-  stackComplete: boolean;
-  caseStudyUrl: string | null;
-};
-
 export type Experience = {
   role: string;
   org: string;
@@ -119,7 +85,7 @@ export const site = {
   },
 
   nav: [
-    { id: "work", label: "Work" },
+    { id: "projects", label: "Projects" },
     { id: "expertise", label: "Expertise" },
     { id: "path", label: "Path" },
     { id: "contact", label: "Contact" },
@@ -135,7 +101,7 @@ export const site = {
     },
     intro:
       "I'm a Data Engineer driven by curiosity, passionate about collecting and engineering data to build meaningful solutions. I thrive on complex challenges, learn quickly, and love discovering problems worth solving with data.",
-    primaryCta: { label: "Explore My Work", href: "#work" },
+    primaryCta: { label: "Explore My Projects", href: "#projects" },
     secondaryCta: { label: "About Me", href: "#curiosity" },
   },
 
@@ -251,143 +217,8 @@ export const site = {
   },
 
   // ── III · What I've built ──────────────────────────────────
-  work: {
+  projects: {
     label: "What I've built",
-    projects: [
-      {
-        slug: "bayan",
-        name: "Bayan",
-        altName: "بيان",
-        altLang: "ar",
-        subtitle: "Saudi Regulations & Decisions Data Hub",
-        opening: "Finding a regulation is easy. Understanding how it changed over time is a different problem.",
-        overview:
-          "Bayan transforms Saudi regulatory information into structured, version-aware datasets to support regulation exploration and historical analysis.",
-        visual: "archive",
-        accent: "amber",
-        flow: ["BOE", "Bronze", "Silver", "Gold", "Power BI"],
-        stages: [
-          {
-            name: "Collect",
-            detail:
-              "Extract regulatory information from the Saudi Bureau of Experts using Python and preserve raw data in S3-compatible object storage.",
-          },
-          {
-            name: "Structure",
-            detail:
-              "Transform raw regulations into relational PostgreSQL entities representing laws, chapters, articles, and their relationships.",
-          },
-          {
-            name: "Version",
-            detail:
-              "Use dedicated version tables to preserve regulation and article history, ensuring historical traceability.",
-          },
-          {
-            name: "Analyze",
-            detail:
-              "Prepare curated regulatory datasets for reporting and exploration through Power BI.",
-          },
-        ],
-        facts: [
-          {
-            label: "Context",
-            value: "Collaborative capstone developed during the Saudi Digital Academy Data Engineering Bootcamp.",
-          },
-        ],
-        stackLabel: "Stack",
-        stack: ["Python", "Apache Airflow", "PostgreSQL", "Docker", "SeaweedFS", "FastAPI", "Power BI"],
-        stackComplete: true,
-        caseStudyUrl: null,
-      },
-      {
-        slug: "sentinel",
-        name: "Sentinel",
-        subtitle: "Healthcare Data Observability",
-        opening: "The pipeline is green. But is the data healthy?",
-        overview:
-          "Sentinel explores how data pipelines can run successfully while silently delivering unreliable data, using synthetic healthcare records to investigate data quality and observability.",
-        visual: "watch",
-        accent: "pink",
-        stages: [
-          {
-            name: "Stream",
-            detail: "Generate synthetic healthcare records using Synthea and FHIR, then ingest them into a controlled data pipeline.",
-          },
-          {
-            name: "Quality",
-            detail: "Profile incoming records and establish quality baselines for missing values, consistency, and record volumes.",
-          },
-          {
-            name: "Drift",
-            detail: "Introduce null spikes, type changes, and volume drops to evaluate data quality detection behavior.",
-          },
-          {
-            name: "Schema",
-            detail:
-              "Track structural changes and organize quality metrics, schema history, and detected incidents.",
-          },
-        ],
-        facts: [
-          { label: "My role", value: "Technical Lead & Data Engineer" },
-          { label: "Context", value: "Data engineering observability project built on synthetic healthcare data." },
-        ],
-        stackLabel: "Technology areas",
-        stack: ["Python", "Synthea", "FHIR", "Cloud storage", "PostgreSQL", "Streaming", "Data quality"],
-        stackComplete: true,
-        caseStudyUrl: null,
-      },
-      {
-        slug: "najm",
-        name: "Najm",
-        altName: "نجم",
-        altLang: "ar",
-        subtitle: "AI-Powered Accident Detection & Reporting",
-        opening: "What if accident reporting could begin before anyone makes a call?",
-        overview:
-          "An AI-assisted accident reporting prototype combining computer vision, drone imagery, backend services, and a mobile application.",
-        visual: "sky",
-        accent: "blue",
-        stages: [
-          { name: "Capture", detail: "Explore the use of drone imagery to gather visual information about road incidents." },
-          {
-            name: "Detect",
-            detail: "Use YOLOv5m to identify objects and accident-related scenes through computer vision.",
-          },
-          { name: "Integrate", detail: "Connect the detection model to backend services using Flask and MySQL." },
-          {
-            name: "Report",
-            detail: "Use a Flutter application to demonstrate an AI-assisted accident reporting workflow.",
-          },
-        ],
-        facts: [
-          { label: "Recognition", value: "Third Place — CCSIT Graduation Projects, King Faisal University, 2024" },
-          { label: "Type", value: "Academic capstone prototype · Najm Accident Reporting System" },
-        ],
-        metrics: {
-          label: "Overall model evaluation",
-          note: "Overall model metrics across all classes — not accident-class performance.",
-          values: [
-            { label: "Precision", value: "0.772" },
-            { label: "Recall", value: "0.798" },
-            { label: "mAP@50", value: "0.799" },
-          ],
-        },
-        stackLabel: "Stack",
-        stack: ["Python", "YOLOv5m", "Flask", "MySQL", "Flutter", "Computer vision"],
-        stackComplete: true,
-        caseStudyUrl: null,
-      },
-    ] satisfies Project[],
-    /** Sentinel's leadership story — soft skills shown through the work, not listed on their own. */
-    leadership: {
-      project: "sentinel",
-      title: "Beyond the Pipeline: Leading the Team",
-      intro: "I lead Sentinel's development while contributing directly to its engineering.",
-      engineering: "Data ingestion, cloud storage, pipeline implementation, data quality, and technical problem-solving.",
-      leading: "Project planning, team coordination, task management, communication, and technical decision-making.",
-      converge: "Sentinel",
-      abilities: ["Leadership", "Adaptability", "Problem solving", "Communication", "Collaboration", "Initiative"],
-    },
     alsoBuilt: ["ETL / ELT pipelines", "Data analytics", "Machine learning", "APIs"],
   },
 
@@ -443,8 +274,8 @@ export const site = {
       certifications: [
         { title: "DataCamp Certified Data Engineer", issuer: "DataCamp", year: "2026", verifyUrl: null },
         { title: "IBM Data Engineering Professional Certificate", issuer: "IBM", year: "2026", verifyUrl: null },
-        { title: "Associate Data Engineer in Snowflake", issuer: null, year: "2026", verifyUrl: null },
-        { title: "Associate Data Engineer in Databricks", issuer: null, year: "2026", verifyUrl: null },
+        { title: "Associate Data Engineer in Snowflake", issuer: "DataCamp", year: "2026", verifyUrl: null },
+        { title: "Associate Data Engineer in Databricks", issuer: "DataCamp", year: "2026", verifyUrl: null },
         {
           title: "Tableau Business Intelligence Analyst Professional Certificate",
           issuer: "Tableau",
@@ -476,6 +307,8 @@ export const site = {
     email: "YaqeenAlhalal@outlook.sa",
     linkedin: "https://www.linkedin.com/in/yaqeen-alhalal-8388541a3/",
     github: "https://github.com/YaqeenData",
+    /** Your Kaggle profile, e.g. "https://www.kaggle.com/<username>" */
+    kaggle: "https://www.kaggle.com/yaqeenalhalal",
     /** e.g. "/resume.pdf" after adding the file to /public */
     resume: "assets/YaqeenAlhalal_DataEngineer.pdf",
   },
@@ -505,24 +338,20 @@ export const site = {
     themeToNight: "Switch to night",
     /** The language switch shows both names; the current one is highlighted. */
     language: { current: "EN", other: "عربي", otherLabel: "اقرأ الموقع بالعربية", group: "Language" },
-    chapter: "Chapter",
-    caseStudy: "Read the case study",
-    caseStudySoon: "Case study · coming soon",
+    chapter: "Project",
     architecture: "Architecture",
     then: "then",
     alsoBuilt: "Also built",
     stageHint: "Select a stage to explore",
     stageOf: "Stage {n} of {total}",
     stagesLabel: "{project} workflow stages",
-    stageMissing: "Stage detail — to write together",
-    stackMissing: "Stack — to add",
     layerHint: "Select a layer to see its tools",
     layerShowTools: "{layer}: show tools",
     orchestratedWith: "Orchestrated with",
     also: "Also",
     engineering: "Engineering",
     leadership: "Leadership",
-    abilitiesLabel: "Abilities this work draws on",
+    abilitiesLabel: "Abilities this project draws on",
     nextSection: "Next · How I engineer",
     education: "Education",
     training: "Specialized training",
@@ -535,6 +364,7 @@ export const site = {
     downloadResume: "Download résumé",
     linkedin: "LinkedIn",
     github: "GitHub",
+    kaggle: "Kaggle",
     linkMissing: "{label} link",
     emailMissing: "Email address",
     backToTop: "Back to the sky",
@@ -548,6 +378,53 @@ export const site = {
     learningPrefix: "learning",
     credentialsSummary: "{certs} certifications · {camps} bootcamps",
     jumpToProjects: "Jump to projects",
+    /** Project gallery and project pages. */
+    exploreProject: "Explore project",
+    featured: "Featured",
+    filterLabel: "Filter projects by area",
+    filterAll: "All",
+    backToProjects: "All projects",
+    previousProject: "Previous project",
+    nextProject: "Next project",
+    resources: "Project resources",
+    resourceLabels: {
+      caseStudy: "Read the case study",
+      demo: "Watch the demo",
+      github: "GitHub repository",
+      kaggle: "View on Kaggle",
+      presentation: "View the presentation",
+    },
+    projectMetaTitle: "{project} — {name}",
+    exploreAllProjects: "Explore all projects",
+    projectStatus: {
+      completed: "Completed",
+      "in-progress": "In progress",
+      prototype: "Prototype",
+      experiment: "Experiment",
+      archived: "Archived",
+    },
+    notes: { label: "Engineering notes", approach: "Approach", challenges: "Challenges", lessons: "Lessons" },
+    playgroundNotes: { inspiration: "What sparked it", built: "What I built", learned: "What I learned" },
+    /** The Project Lab (/projects). */
+    lab: {
+      kicker: "The Project Lab",
+      title: { lead: "Built with purpose. And sometimes,", emphasis: "just curiosity." },
+      subtitle: "From engineering real-world solutions to experimenting with ideas that simply sparked my curiosity.",
+      selectorLabel: "Show projects",
+      all: "All projects",
+      engineering: "Engineering",
+      playground: "Playground",
+      engineeringTitle: "Engineering projects",
+      engineeringIntro: "Professional and academic systems: data engineering, machine learning, software and cloud.",
+      playgroundTitle: "The Playground",
+      playgroundIntro: "Small experiments, personal challenges and ideas built for the joy of building.",
+      emptyTitle: "The Playground is warming up.",
+      emptyBody: "Small experiments, side projects and ideas that simply made me curious will land here soon.",
+      metaTitle: "The Project Lab — {name}",
+    },
+    notFoundTitle: "This page isn't here.",
+    notFoundBody: "The link may be mistyped, or the project hasn't been published yet.",
+    notFoundBack: "Back to the portfolio",
     /** Labels drawn inside the illustrations. */
     cosmos: { collect: "COLLECT", engineer: "ENGINEER", build: "BUILD", cancer: "CANCER" },
     art: {

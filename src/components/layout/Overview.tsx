@@ -2,8 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import { fmt } from "@/content";
-import { useContent, useLocale } from "@/components/i18n/LocaleProvider";
+import { featuredProjects, homePath, projectPath } from "@/content/projects";
+import { useContent, usePageInfo } from "@/components/i18n/LocaleProvider";
 import { Missing } from "@/components/ui/Type";
+import { KaggleIcon } from "@/components/ui/KaggleIcon";
 
 /**
  * The recruiter shortcut: everything important on one screen, no story required.
@@ -11,7 +13,7 @@ import { Missing } from "@/components/ui/Type";
  */
 export function Overview({ open, onClose }: { open: boolean; onClose: () => void }) {
   const site = useContent();
-  const locale = useLocale();
+  const { locale, onHome } = usePageInfo();
   const { ui } = site;
   const ref = useRef<HTMLDialogElement>(null);
 
@@ -22,15 +24,16 @@ export function Overview({ open, onClose }: { open: boolean; onClose: () => void
     if (!open && dialog.open) dialog.close();
   }, [open]);
 
-  const { overview, work, path, beyond, contact } = site;
+  const { overview, path, beyond, contact } = site;
   const { education, certifications } = path.credentials;
   const fluent = beyond.languages.filter((l) => l.status === "fluent").map((l) => l.name);
   const learning = beyond.languages.filter((l) => l.status === "learning").map((l) => l.name);
 
-  const links: { label: string; href: string | null; primary?: boolean }[] = [
+  const links: { label: string; href: string | null; primary?: boolean; icon?: boolean }[] = [
     { label: ui.downloadResume, href: contact.resume, primary: true },
     { label: ui.linkedin, href: contact.linkedin },
     { label: ui.github, href: contact.github },
+    { label: ui.kaggle, href: contact.kaggle, icon: true },
   ];
 
   return (
@@ -78,9 +81,9 @@ export function Overview({ open, onClose }: { open: boolean; onClose: () => void
           <div className="flex flex-col gap-2">
             <dt className="label text-[12px] tracking-[0.3em] text-label-blue">{ui.projects}</dt>
             <dd className="flex flex-col gap-1 text-[16px] leading-relaxed">
-              {work.projects.map((p) => (
-                <a key={p.slug} href={`#${p.slug}`} onClick={onClose} className="no-underline hover:text-accent">
-                  <strong className="font-semibold">{p.name}</strong> — {p.subtitle}
+              {featuredProjects().map((p) => (
+                <a key={p.slug} href={projectPath(locale, p.slug)} className="no-underline hover:text-accent">
+                  <strong className="font-semibold">{p.text[locale].title}</strong> — {p.text[locale].subtitle ?? p.text[locale].summary}
                 </a>
               ))}
             </dd>
@@ -118,6 +121,7 @@ export function Overview({ open, onClose }: { open: boolean; onClose: () => void
                 href={link.href}
                 className={`btn btn-sm ${link.primary ? "btn-primary" : "btn-secondary"}`}
               >
+                {link.icon ? <KaggleIcon /> : null}
                 {link.label}
               </a>
             ) : (
@@ -127,7 +131,7 @@ export function Overview({ open, onClose }: { open: boolean; onClose: () => void
             ),
           )}
           <a
-            href="#work"
+            href={onHome ? "#projects" : homePath(locale, "#projects")}
             onClick={onClose}
             className="label text-[13px] tracking-[0.24em] text-italic no-underline sm:ms-auto"
           >

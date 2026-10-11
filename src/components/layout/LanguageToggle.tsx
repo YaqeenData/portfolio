@@ -1,21 +1,21 @@
 "use client";
 
 import type { MouseEvent } from "react";
-import { localeMeta, type Locale } from "@/content";
-import { useContent, useLocale } from "@/components/i18n/LocaleProvider";
+import type { Locale } from "@/content";
+import { useContent, usePageInfo } from "@/components/i18n/LocaleProvider";
 
 /**
- * EN / عربي — a single link to the same page in the other language.
+ * EN / عربي — a single link to the same page in the other language (a project page switches
+ * to the same project).
  * The current language is highlighted; the choice is remembered for the next visit, and the
  * visitor lands on the section they were reading (each language is its own page, so the
  * switch is a quick page load; the introduction does not replay within the session).
  * On small phones only the other language's name is shown, to keep the header uncrowded.
  */
 export function LanguageToggle() {
-  const locale = useLocale();
+  const { locale, alternatePath: href, onHome } = usePageInfo();
   const { ui } = useContent();
   const other: Locale = locale === "en" ? "ar" : "en";
-  const href = localeMeta[other].path;
 
   function go(e: MouseEvent<HTMLAnchorElement>) {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
@@ -27,13 +27,14 @@ export function LanguageToggle() {
     }
     // Keep the visitor's place: the last section whose top has passed the upper third.
     let hash = "";
-    if (window.scrollY > 200) {
+    if (onHome && window.scrollY > 200) {
       const line = window.innerHeight * 0.35;
       for (const section of document.querySelectorAll<HTMLElement>("main section[id]")) {
         if (section.getBoundingClientRect().top <= line) hash = `#${section.id}`;
       }
     }
-    window.location.assign(href + hash);
+    // Elsewhere, keep the page's options (e.g. the Project Lab's ?category=).
+    window.location.assign(href + (onHome ? hash : window.location.search));
   }
 
   const en = (

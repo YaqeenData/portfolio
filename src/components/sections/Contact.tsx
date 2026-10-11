@@ -1,6 +1,8 @@
 import { fmt, type Content } from "@/content";
 import { Reveal } from "@/components/ui/Reveal";
 import { ChapterLabel, Headline, Missing } from "@/components/ui/Type";
+import { KaggleIcon } from "@/components/ui/KaggleIcon";
+import type { ReactNode } from "react";
 
 function LinkOrMissing({
   href,
@@ -8,6 +10,7 @@ function LinkOrMissing({
   missing,
   primary = false,
   external = false,
+  icon,
 }: {
   href: string | null;
   label: string;
@@ -15,6 +18,8 @@ function LinkOrMissing({
   missing: string;
   primary?: boolean;
   external?: boolean;
+  /** Optional small glyph before the label. */
+  icon?: ReactNode;
 }) {
   if (!href) {
     return (
@@ -29,6 +34,7 @@ function LinkOrMissing({
       className={`btn ${primary ? "btn-primary" : "btn-secondary"}`}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
+      {icon}
       {label}
     </a>
   );
@@ -61,6 +67,7 @@ export function Contact({ c }: { c: Content }) {
           <LinkOrMissing href={contact.resume} label={ui.downloadResume} missing={missing(ui.downloadResume)} primary />
           <LinkOrMissing href={contact.linkedin} label={ui.linkedin} missing={missing(ui.linkedin)} external />
           <LinkOrMissing href={contact.github} label={ui.github} missing={missing(ui.github)} external />
+          <LinkOrMissing href={contact.kaggle} label={ui.kaggle} missing={missing(ui.kaggle)} external icon={<KaggleIcon />} />
         </Reveal>
         <Reveal delay={0.25}>
           {contact.email ? (

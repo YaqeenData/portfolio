@@ -47,13 +47,6 @@ const CLOUDS: [number, number, number, number, number][] = [
   [44, 0.55, 100, -5, 0.6],
 ];
 
-/** Sun rays: [angle deg, length (outer radius), half-width at the base]. Long and short alternate. */
-const RAYS: [number, number, number][] = Array.from({ length: 16 }, (_, i) => [
-  i * 22.5,
-  i % 2 ? 66 : 92 - (i % 4 === 0 ? 0 : 8),
-  i % 2 ? 2.6 : 3.6,
-]);
-
 const HOLD_MS = 2600; // name + title entrance, then a moment to read
 const FLIGHT_MS = 1150; // the name travels into the header
 const SKIP_FLIGHT_MS = 700;
@@ -222,32 +215,13 @@ export function Intro() {
           ))}
         </div>
 
-        {/* Day: a soft bright sky, a shining sun, and clouds drifting across it. */}
+        {/* Day: a soft bright sky, a glowing sun diffusing into it, and clouds drifting across. */}
         <div className="only-twilight intro-day absolute inset-0">
           <div className="intro-sun">
-            <span className="sun-halo" />
-            <svg className="sun-rays" viewBox="-100 -100 200 200" focusable="false">
-              <defs>
-                <linearGradient id="sun-ray" gradientUnits="userSpaceOnUse" x1="0" y1="-30" x2="0" y2="-95">
-                  <stop offset="0" stopColor="#FFC65C" stopOpacity="0.85" />
-                  <stop offset="1" stopColor="#FFD98A" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-              {[0, 1].map((group) => (
-                <g key={group} className={`sun-ray-group sun-ray-group-${group}`}>
-                  {RAYS.filter((_, i) => i % 2 === group).map(([angle, length, half]) => (
-                    <polygon
-                      key={angle}
-                      points={`${-half},-31 ${half},-31 0,${-length}`}
-                      fill="url(#sun-ray)"
-                      transform={`rotate(${angle})`}
-                    />
-                  ))}
-                </g>
-              ))}
-            </svg>
+            <span className="sun-haze" />
+            <span className="sun-corona" />
+            <span className="sun-veil" />
             <span className="sun-disc" />
-            <span className="sun-glint" />
           </div>
 
           {CLOUDS.map(([top, scale, dur, delay, opacity], i) => (
