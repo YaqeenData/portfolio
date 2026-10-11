@@ -187,15 +187,44 @@ function Assembly() {
 /** Phones and tablets: the same system as a stack of slabs that surface one by one. */
 function Stack() {
   const reversed = [...LAYERS].map((l, i) => ({ ...l, i })).reverse();
+  const list = useRef<HTMLOListElement>(null);
+
+  // Start building once the foundation (layer 01, at the bottom) is in view.
+  useEffect(() => {
+    const el = list.current;
+    const foundation = el?.lastElementChild;
+    if (!el || !foundation) return;
+    if (!("IntersectionObserver" in window)) {
+      el.classList.add("is-visible");
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("is-visible");
+          io.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.6 },
+    );
+    io.observe(foundation);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <div className="mx-auto max-w-[1440px] px-6 py-28 sm:px-10 xl:hidden">
       <div className="flex flex-col gap-6">
         <ChapterLabel numeral="II">{architecture.label}</ChapterLabel>
         <Headline content={architecture.title} className="text-[clamp(2.25rem,6vw,3.25rem)] leading-[1.08]" />
       </div>
-      <ol className="mt-14 flex flex-col gap-3">
-        {reversed.map((layer, k) => (
-          <Reveal as="li" key={layer.name} delay={k * 0.06} className="flex items-start gap-5">
+      {/* The stack reveals as one, building upward: 01 settles first at the bottom, 07 last at the top. */}
+      <ol ref={list} className="arch-build mt-14 flex flex-col gap-3">
+        {reversed.map((layer) => (
+          <li
+            key={layer.name}
+            className="flex items-start gap-5"
+            style={{ "--build-delay": `${layer.i * 0.16}s` } as React.CSSProperties}
+          >
             <span
               aria-hidden="true"
               className={`arch-slab mt-1 h-8 w-14 shrink-0 ${layerTone(layer.i)}`}
@@ -206,7 +235,7 @@ function Stack() {
               </span>
               <span className="text-[15px] leading-relaxed text-ink-2">{layer.tools.join(" · ")}</span>
             </span>
-          </Reveal>
+          </li>
         ))}
       </ol>
       <p className="label mt-6 text-[12px] tracking-[0.3em] text-label-orange">
