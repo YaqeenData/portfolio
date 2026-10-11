@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { site } from "@/content/site";
+import { fmt } from "@/content";
+import { useContent, useLocale } from "@/components/i18n/LocaleProvider";
 import { Missing } from "@/components/ui/Type";
 
 /**
@@ -9,6 +10,9 @@ import { Missing } from "@/components/ui/Type";
  * Uses the native <dialog> for focus handling and Escape-to-close.
  */
 export function Overview({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const site = useContent();
+  const locale = useLocale();
+  const { ui } = site;
   const ref = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -24,9 +28,9 @@ export function Overview({ open, onClose }: { open: boolean; onClose: () => void
   const learning = beyond.languages.filter((l) => l.status === "learning").map((l) => l.name);
 
   const links: { label: string; href: string | null; primary?: boolean }[] = [
-    { label: "Download résumé", href: contact.resume, primary: true },
-    { label: "LinkedIn", href: contact.linkedin },
-    { label: "GitHub", href: contact.github },
+    { label: ui.downloadResume, href: contact.resume, primary: true },
+    { label: ui.linkedin, href: contact.linkedin },
+    { label: ui.github, href: contact.github },
   ];
 
   return (
@@ -42,7 +46,7 @@ export function Overview({ open, onClose }: { open: boolean; onClose: () => void
       <div className="flex flex-col gap-8 p-7 sm:p-12">
         <div className="flex items-start justify-between gap-6">
           <div>
-            <p className="label text-[12px] tracking-[0.32em] text-accent">Overview · one screen</p>
+            <p className="label text-[12px] tracking-[0.32em] text-accent">{ui.overviewKicker}</p>
             <h2 id="overview-title" className="mt-2 font-display text-[clamp(2rem,4vw,2.625rem)] font-normal">
               {site.name}
             </h2>
@@ -53,7 +57,7 @@ export function Overview({ open, onClose }: { open: boolean; onClose: () => void
           <button
             type="button"
             onClick={onClose}
-            aria-label="Close overview"
+            aria-label={ui.closeOverview}
             className="btn-secondary flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full"
           >
             <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14">
@@ -64,15 +68,15 @@ export function Overview({ open, onClose }: { open: boolean; onClose: () => void
 
         <dl className="grid gap-x-12 gap-y-7 sm:grid-cols-2">
           <div className="flex flex-col gap-2">
-            <dt className="label text-[12px] tracking-[0.3em] text-label-blue">Focus</dt>
+            <dt className="label text-[12px] tracking-[0.3em] text-label-blue">{ui.focus}</dt>
             <dd className="text-[16px] leading-relaxed">{overview.focus.join(" · ")}</dd>
           </div>
           <div className="flex flex-col gap-2">
-            <dt className="label text-[12px] tracking-[0.3em] text-label-blue">Core stack</dt>
+            <dt className="label text-[12px] tracking-[0.3em] text-label-blue">{ui.coreStack}</dt>
             <dd className="text-[16px] leading-relaxed">{overview.coreStack.join(" · ")}</dd>
           </div>
           <div className="flex flex-col gap-2">
-            <dt className="label text-[12px] tracking-[0.3em] text-label-blue">Projects</dt>
+            <dt className="label text-[12px] tracking-[0.3em] text-label-blue">{ui.projects}</dt>
             <dd className="flex flex-col gap-1 text-[16px] leading-relaxed">
               {work.projects.map((p) => (
                 <a key={p.slug} href={`#${p.slug}`} onClick={onClose} className="no-underline hover:text-accent">
@@ -82,7 +86,7 @@ export function Overview({ open, onClose }: { open: boolean; onClose: () => void
             </dd>
           </div>
           <div className="flex flex-col gap-2">
-            <dt className="label text-[12px] tracking-[0.3em] text-label-blue">Experience</dt>
+            <dt className="label text-[12px] tracking-[0.3em] text-label-blue">{ui.experience}</dt>
             <dd className="flex flex-col gap-1 text-[16px] leading-relaxed">
               {[...path.experience].reverse().map((job) => (
                 <span key={job.role}>
@@ -92,16 +96,16 @@ export function Overview({ open, onClose }: { open: boolean; onClose: () => void
             </dd>
           </div>
           <div className="flex flex-col gap-2">
-            <dt className="label text-[12px] tracking-[0.3em] text-label-blue">Education</dt>
+            <dt className="label text-[12px] tracking-[0.3em] text-label-blue">{ui.education}</dt>
             <dd className="text-[16px] leading-relaxed">
               {education.degree} — {education.school} · {education.notes[0]}
-              <span className="block text-ink-3">{certifications.length} certifications · {path.credentials.training.length} bootcamps</span>
+              <span className="block text-ink-3">{fmt(ui.credentialsSummary, { certs: certifications.length, camps: path.credentials.training.length })}</span>
             </dd>
           </div>
           <div className="flex flex-col gap-2">
-            <dt className="label text-[12px] tracking-[0.3em] text-label-blue">Languages</dt>
+            <dt className="label text-[12px] tracking-[0.3em] text-label-blue">{ui.languages}</dt>
             <dd className="text-[16px] leading-relaxed">
-              {fluent.join(", ")} · learning {learning.join(", ")}
+              {fluent.join(locale === "ar" ? "، " : ", ")} · {ui.learningPrefix} {learning.join(locale === "ar" ? "، " : ", ")}
             </dd>
           </div>
         </dl>
@@ -118,16 +122,19 @@ export function Overview({ open, onClose }: { open: boolean; onClose: () => void
               </a>
             ) : (
               <span key={link.label} className="inline-flex min-h-11 items-center rounded-full border border-dashed border-[var(--line-strong)] px-5">
-                <Missing>{`${link.label} link`}</Missing>
+                <Missing>{fmt(ui.linkMissing, { label: link.label })}</Missing>
               </span>
             ),
           )}
           <a
             href="#work"
             onClick={onClose}
-            className="label text-[13px] tracking-[0.24em] text-italic no-underline sm:ml-auto"
+            className="label text-[13px] tracking-[0.24em] text-italic no-underline sm:ms-auto"
           >
-            Jump to projects →
+            {ui.jumpToProjects}{" "}
+            <span aria-hidden="true" className="inline-block rtl:-scale-x-100">
+              →
+            </span>
           </a>
         </div>
       </div>

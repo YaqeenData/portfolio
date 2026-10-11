@@ -47,15 +47,36 @@ Everything you'll want to change lives in **`src/content/site.ts`**. Components 
 To add a project, add an entry to `work.projects`. Each project chooses a `visual`
 ("archive", "watch" or "sky") and an `accent` ("amber", "pink" or "blue"); new visuals live in `src/components/work/ProjectArt.tsx`.
 
+## Two languages: English and Arabic
+
+- English lives at `/` and Arabic at `/ar` (right-to-left). Each language is its own root
+  layout (`src/app/(en)` and `src/app/(ar)/ar`) rendered by the same shared components, so
+  both pages are fully server-rendered with the right `lang`, `dir`, title, description
+  and `hreflang` alternates.
+- Content: `src/content/site.ts` (English) and `src/content/site.ar.ts` (Arabic). The Arabic
+  file must match the English shape exactly; the type checker reports anything missing.
+  Interface text (buttons, hints, accessibility labels) lives under `ui` in each file.
+- Links, certificate details and other shared values are defined once in `site.ts`; the
+  Arabic file reads them from there, so a link only ever needs adding in one place.
+- The EN / عربي switch in the header remembers the choice (`localStorage.lang`); a visitor who
+  chose Arabic is taken straight to `/ar` on their next visit, and the switch keeps them on
+  the section they were reading.
+- Arabic type: IBM Plex Sans Arabic (loaded only on `/ar`), paired with the existing Latin
+  fonts; letter-spacing is removed for Arabic so letters join correctly.
+- Diagrams (the architecture, the project stages, the Bayan flow) keep their left-to-right
+  geometry in Arabic; only their words are translated.
+
 ## Where things live
 
 ```
 src/
   app/
-    layout.tsx        fonts, metadata, no-flash theme script
-    page.tsx          the homepage, section by section
+    (en)/             English root layout + page  →  /
+    (ar)/ar/          Arabic root layout + page   →  /ar
     globals.css       design tokens (night + twilight), primitives, motion
-  content/site.ts     all portfolio content
+  content/site.ts     English content (+ the Content type)
+  content/site.ar.ts  Arabic content, same shape
+  components/Home.tsx the homepage, section by section (shared by both languages)
   components/
     hero/             Prologue: Hero + Cosmos (sun, planets, streams, stars, Cancer, clouds)
     sections/         Curiosity + Timeline (scroll-drawn journey, notebook sketches), Beyond (languages),

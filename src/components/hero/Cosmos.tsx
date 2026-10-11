@@ -18,6 +18,8 @@ type CosmosProps = {
   className?: string;
   /** Enlarges the small text labels when the universe is drawn at a small size. */
   labelScale?: number;
+  /** The planet and constellation names, in the page's language. */
+  labels: { collect: string; engineer: string; build: string; cancer: string };
 };
 
 // [cx, cy, r, opacity]
@@ -75,6 +77,7 @@ export function Cosmos({
   preserveAspectRatio = "xMidYMid meet",
   className,
   labelScale = 1,
+  labels,
 }: CosmosProps) {
   const ref = (name: string) => `${id}-${name}`;
   const url = (name: string) => `url(#${ref(name)})`;
@@ -184,7 +187,7 @@ export function Cosmos({
           </g>
         </g>
         <text x="1316" y="62" fontSize={10 * labelScale} fill="rgba(201,212,255,0.5)" style={labelStyle}>
-          CANCER
+          {labels.cancer}
         </text>
       </g>
 
@@ -209,7 +212,7 @@ export function Cosmos({
             ))}
           </g>
           <text x="1316" y="62" fontSize={10 * labelScale} fill="rgba(22,41,106,0.4)" style={labelStyle}>
-            CANCER
+            {labels.cancer}
           </text>
         </g>
       </g>
@@ -293,13 +296,13 @@ export function Cosmos({
 
       <g fontSize={12 * labelScale} textAnchor="middle" style={labelStyle}>
         <text x="741" y={470 + 14 * labelScale} style={{ ...labelStyle, fill: "var(--label-blue)" }}>
-          COLLECT
+          {labels.collect}
         </text>
         <text x="1004" y={536 + 14 * labelScale} style={{ ...labelStyle, fill: "var(--label-pink)" }}>
-          ENGINEER
+          {labels.engineer}
         </text>
         <text x="1388" y={316 + 14 * labelScale} style={{ ...labelStyle, fill: "var(--label-orange)" }}>
-          BUILD
+          {labels.build}
         </text>
       </g>
     </svg>

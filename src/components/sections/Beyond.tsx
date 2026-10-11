@@ -1,4 +1,4 @@
-import { site } from "@/content/site";
+import type { Content } from "@/content";
 import { Reveal } from "@/components/ui/Reveal";
 import { ChapterLabel, Headline } from "@/components/ui/Type";
 
@@ -51,8 +51,8 @@ function Constellation({ points, fluent }: { points: [number, number][]; fluent:
   );
 }
 
-export function Beyond() {
-  const { beyond } = site;
+export function Beyond({ c }: { c: Content }) {
+  const { beyond, ui } = c;
   return (
     <section id="beyond" aria-labelledby="beyond-title" className="relative overflow-hidden py-28 sm:py-40">
       <div className="mx-auto flex max-w-[1440px] flex-col items-center px-6 text-center sm:px-10 xl:px-16">
@@ -78,7 +78,7 @@ export function Beyond() {
                   <span
                     className={`label pt-1 text-[12px] tracking-[0.26em] ${fluent ? "text-label-blue" : "text-label-orange"}`}
                   >
-                    {fluent ? "Fluent" : "Learning"}
+                    {fluent ? ui.fluent : ui.learning}
                   </span>
                   {"qualifications" in lang && lang.qualifications ? (
                     <span className="mt-2 flex flex-col items-center gap-1">

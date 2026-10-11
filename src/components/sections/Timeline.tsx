@@ -1,10 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { site } from "@/content/site";
+import { useContent } from "@/components/i18n/LocaleProvider";
 import { SketchSvg } from "./Sketches";
 
-const { journey } = site.curiosity;
 
 const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 
@@ -18,6 +17,8 @@ type Geometry = { d: string; tail: string; w: number; h: number; nodeY: number[]
  * Without JavaScript, or with reduced motion, everything is shown complete and still.
  */
 export function Timeline() {
+  const { curiosity, ui } = useContent();
+  const { journey } = curiosity;
   const wrap = useRef<HTMLDivElement>(null);
   const drawn = useRef<SVGPathElement>(null);
   const particles = useRef<(SVGCircleElement | null)[]>([]);
@@ -156,7 +157,7 @@ export function Timeline() {
   return (
     <div ref={wrap} className={`timeline relative ${geo ? "tl-ready" : ""}`}>
       {/* Without measurements yet (no JS), a plain line stands in for the drawn path. */}
-      <span aria-hidden="true" className="tl-fallback absolute bottom-0 left-[13px] top-0 w-px lg:left-1/2" />
+      <span aria-hidden="true" className="tl-fallback absolute bottom-0 start-[13px] top-0 w-px lg:start-1/2" />
 
       {geo ? (
         <svg
@@ -210,7 +211,7 @@ export function Timeline() {
 
               <div
                 className={`tl-text col-start-2 row-start-1 flex flex-col gap-1.5 ${
-                  textLeft ? "lg:col-start-1 lg:items-end lg:pr-4 lg:text-right" : "lg:col-start-3 lg:pl-4"
+                  textLeft ? "lg:col-start-1 lg:items-end lg:pe-4 lg:text-end" : "lg:col-start-3 lg:ps-4"
                 }`}
               >
                 <p className="tl-kicker label text-[11px] tracking-[0.3em] sm:text-[12px]">
@@ -238,7 +239,7 @@ export function Timeline() {
 
               <div
                 className={`tl-sketch col-start-2 row-start-2 mt-6 w-full max-w-[200px] lg:row-start-1 lg:mt-0 lg:max-w-[230px] ${
-                  textLeft ? "lg:col-start-3 lg:pl-6" : "lg:col-start-1 lg:justify-self-end lg:pr-6"
+                  textLeft ? "lg:col-start-3 lg:ps-6" : "lg:col-start-1 lg:justify-self-end lg:pe-6"
                 }`}
               >
                 <SketchSvg name={m.sketch} />
@@ -252,9 +253,9 @@ export function Timeline() {
       <a
         data-tail-end
         href="#expertise"
-        className="label relative flex w-fit items-center gap-2 pl-[48px] text-[12px] tracking-[0.3em] text-ink-3 no-underline transition-colors hover:text-accent lg:mx-auto lg:pl-0"
+        className="label relative flex w-fit items-center gap-2 ps-[48px] text-[12px] tracking-[0.3em] text-ink-3 no-underline transition-colors hover:text-accent lg:mx-auto lg:ps-0"
       >
-        Next · How I engineer <span aria-hidden="true">↓</span>
+        {ui.nextSection} <span aria-hidden="true">↓</span>
       </a>
     </div>
   );

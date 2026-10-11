@@ -1,22 +1,25 @@
-import { site } from "@/content/site";
+import { fmt, type Content } from "@/content";
 import { Reveal } from "@/components/ui/Reveal";
 import { ChapterLabel, Headline, Missing } from "@/components/ui/Type";
 
 function LinkOrMissing({
   href,
   label,
+  missing,
   primary = false,
   external = false,
 }: {
   href: string | null;
   label: string;
+  /** Placeholder text shown while the link is not provided yet. */
+  missing: string;
   primary?: boolean;
   external?: boolean;
 }) {
   if (!href) {
     return (
       <span className="inline-flex min-h-[3.25rem] items-center rounded-full border border-dashed border-[var(--line-strong)] px-6">
-        <Missing>{`${label} link`}</Missing>
+        <Missing>{missing}</Missing>
       </span>
     );
   }
@@ -32,8 +35,9 @@ function LinkOrMissing({
 }
 
 /** First light: the night ends, the horizon warms, and there is one clear thing to do. */
-export function Contact() {
-  const { contact } = site;
+export function Contact({ c }: { c: Content }) {
+  const { contact, ui } = c;
+  const missing = (label: string) => fmt(ui.linkMissing, { label });
   return (
     <section id="contact" aria-labelledby="contact-title" className="relative overflow-hidden">
       <div
@@ -54,9 +58,9 @@ export function Contact() {
           />
         </Reveal>
         <Reveal delay={0.15} className="flex w-full flex-col items-center gap-4 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-center">
-          <LinkOrMissing href={contact.resume} label="Download résumé" primary />
-          <LinkOrMissing href={contact.linkedin} label="LinkedIn" external />
-          <LinkOrMissing href={contact.github} label="GitHub" external />
+          <LinkOrMissing href={contact.resume} label={ui.downloadResume} missing={missing(ui.downloadResume)} primary />
+          <LinkOrMissing href={contact.linkedin} label={ui.linkedin} missing={missing(ui.linkedin)} external />
+          <LinkOrMissing href={contact.github} label={ui.github} missing={missing(ui.github)} external />
         </Reveal>
         <Reveal delay={0.25}>
           {contact.email ? (
@@ -64,7 +68,7 @@ export function Contact() {
               {contact.email}
             </a>
           ) : (
-            <Missing>Email address</Missing>
+            <Missing>{ui.emailMissing}</Missing>
           )}
         </Reveal>
       </div>

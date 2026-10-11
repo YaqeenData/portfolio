@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useContent } from "@/components/i18n/LocaleProvider";
 
 type Mode = "night" | "twilight";
 
@@ -10,6 +11,7 @@ type Mode = "night" | "twilight";
  * The visual state is driven by CSS on `html[data-theme]`, so it is correct before hydration.
  */
 export function ThemeToggle({ size = 46 }: { size?: number }) {
+  const { ui } = useContent();
   const [mode, setMode] = useState<Mode | null>(null);
 
   useEffect(() => {
@@ -28,7 +30,7 @@ export function ThemeToggle({ size = 46 }: { size?: number }) {
   }
 
   const label =
-    mode === null ? "Switch between night and twilight" : mode === "night" ? "Switch to twilight" : "Switch to night";
+    mode === null ? ui.themeToggle : mode === "night" ? ui.themeToTwilight : ui.themeToNight;
 
   return (
     <button

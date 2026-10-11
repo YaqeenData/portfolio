@@ -226,6 +226,111 @@ body {
   outline-offset: 3px;
 }
 
+/* ── Language & direction ──────────────────────────────────────
+   English is left-to-right, Arabic right-to-left. Layout uses logical properties
+   (start/end), so most of the page mirrors on its own; the rules below cover the rest. */
+
+html {
+  --to-end: 90deg; /* gradient direction toward the end of a line */
+}
+html[dir="rtl"] {
+  --to-end: 270deg;
+}
+
+/* Diagrams keep their drawn geometry: SVG text anchors exactly as designed. */
+html[dir="rtl"] svg {
+  direction: ltr;
+}
+
+/* ── Arabic type system ─────────────────────────────────────
+   Headings: Alexandria. Body and labels: IBM Plex Sans Arabic.
+   In each stack the existing Latin font comes first, so tool names and other English
+   words inside Arabic text keep the English typography; Arabic letters fall through to
+   the Arabic font. Nothing here applies to the English page. */
+
+html[lang="ar"] body {
+  font-family: var(--font-albert), var(--font-plex-ar), "Noto Sans Arabic", Tahoma, sans-serif;
+  font-weight: 400;
+}
+html[lang="ar"] .font-display,
+html[lang="ar"] .font-italic {
+  font-family: var(--font-fraunces), var(--font-alexandria), var(--font-plex-ar), "Noto Sans Arabic", sans-serif;
+  font-weight: 400;
+  word-spacing: 0.04em;
+}
+html[lang="ar"] .label,
+html[lang="ar"] .btn {
+  font-family: var(--font-antonio), var(--font-plex-ar), "Noto Sans Arabic", sans-serif;
+  font-weight: 500;
+}
+/* Large headlines are set light, with the pink emphasis a step heavier. */
+html[lang="ar"] :is(h1, h2).font-display,
+html[lang="ar"] h3.font-display[id$="-title"] {
+  font-weight: 300;
+}
+html[lang="ar"] :is(h1, h2, h3) em {
+  font-weight: 400;
+}
+/* Arabic has no true italic: emphasis keeps its colour and stays upright. */
+.font-italic:lang(ar),
+em:lang(ar) {
+  font-style: normal;
+}
+/* Letter-spacing breaks Arabic letter joining; Latin snippets marked lang="en" keep theirs. */
+:lang(ar) {
+  letter-spacing: 0 !important;
+}
+/* Arabic needs more vertical room than Latin, and headlines wrap into balanced lines. */
+html[lang="ar"] :is(h1, h2, h3, h4) {
+  line-height: 1.42;
+  text-wrap: balance;
+}
+html[lang="ar"] blockquote {
+  line-height: 1.6;
+  text-wrap: balance;
+}
+html[lang="ar"] :is(p, li, dd):not(.label) {
+  line-height: 1.85;
+  text-wrap: pretty;
+}
+/* The skills headline sits in a narrow column: a touch smaller in Arabic keeps it to two lines. */
+html[lang="ar"] .arch-title {
+  font-size: 44px;
+}
+/* A readable minimum size for small Arabic labels. */
+:lang(ar):is(.text-\[10px\], .text-\[11px\], .text-\[12px\]) {
+  font-size: 18px;
+}
+html[dir="rtl"] .cosmos-fade-left {
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, #000 16%);
+  mask-image: linear-gradient(to left, transparent 0%, #000 16%);
+}
+
+/* The language switch: the current language is highlighted. */
+.lang-toggle {
+  font-family: var(--font-antonio), var(--font-plex-ar), "Noto Sans Arabic", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  line-height: 1;
+}
+.lang-toggle .lang-ar {
+  font-family: var(--font-plex-ar), "Noto Sans Arabic", Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0 !important;
+}
+.lang-current {
+  color: var(--ink);
+}
+.lang-other,
+.lang-sep {
+  color: var(--ink-3);
+  transition: color 0.3s ease;
+}
+.lang-toggle:hover .lang-other {
+  color: var(--accent);
+}
+
 /* Theme crossfades: night-only and twilight-only layers. */
 .only-night,
 .only-twilight {
@@ -744,6 +849,13 @@ body {
   }
   .thread::after {
     background: linear-gradient(90deg, var(--label-orange), var(--label-pink));
+  }
+  /* Right-to-left: Engineering sits on the right, so the threads mirror with it. */
+  [dir="rtl"] .thread::before {
+    background: linear-gradient(270deg, var(--label-blue), var(--label-orange));
+  }
+  [dir="rtl"] .thread::after {
+    background: linear-gradient(270deg, var(--label-orange), var(--label-pink));
   }
 }
 

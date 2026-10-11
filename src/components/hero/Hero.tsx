@@ -1,26 +1,33 @@
-import { site } from "@/content/site";
+import type { Content } from "@/content";
 import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { Cosmos } from "./Cosmos";
 
-export function Hero() {
-  const { hero } = site;
+export function Hero({ c }: { c: Content }) {
+  const { hero } = c;
 
   return (
     <section id="top" aria-labelledby="hero-title" className="relative overflow-hidden">
       {/* Desktop: the universe fills the right of the hero, behind the text edge. */}
-      <div className="cosmos-fade-left pointer-events-none absolute inset-y-0 right-0 hidden w-[62%] xl:block">
+      <div className="cosmos-fade-left pointer-events-none absolute inset-y-0 end-0 hidden w-[62%] xl:block">
         <Cosmos
           id="cosmos-wide"
           viewBox="560 0 880 820"
           preserveAspectRatio="xMinYMid slice"
           className="h-full w-full"
+          labels={c.ui.cosmos}
         />
       </div>
 
       <div className="relative mx-auto flex max-w-[1440px] flex-col px-6 sm:px-10 xl:min-h-[820px] xl:flex-row xl:items-center xl:px-16">
         {/* Mobile & tablet: the universe sits above the text, cropped around the sun. */}
         <div className="cosmos-fade-edges pointer-events-none -mx-6 sm:mx-auto sm:w-full sm:max-w-[680px] xl:hidden">
-          <Cosmos id="cosmos-compact" viewBox="640 30 800 610" labelScale={1.7} className="block h-auto w-full" />
+          <Cosmos
+            id="cosmos-compact"
+            viewBox="640 30 800 610"
+            labelScale={1.7}
+            className="block h-auto w-full"
+            labels={c.ui.cosmos}
+          />
         </div>
 
         <div className="relative z-10 flex max-w-[780px] flex-col gap-6 pb-20 pt-2 sm:gap-7 xl:py-24">
@@ -55,10 +62,10 @@ export function Hero() {
 
       <a
         href="#curiosity"
-        className="label absolute bottom-8 left-16 hidden items-center gap-3.5 text-xs tracking-[0.34em] text-ink-4 no-underline transition-colors hover:text-accent xl:flex"
+        className="label absolute bottom-8 start-16 hidden items-center gap-3.5 text-xs tracking-[0.34em] text-ink-4 no-underline transition-colors hover:text-accent xl:flex"
       >
         <span aria-hidden="true" className="h-9 w-px bg-gradient-to-b from-transparent to-blue" />
-        Scroll
+        {c.ui.scroll}
       </a>
     </section>
   );

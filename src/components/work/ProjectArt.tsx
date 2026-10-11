@@ -77,7 +77,9 @@ export function BayanArt({ id }: { id: string }) {
   );
 }
 
-export function SentinelArt({ id }: { id: string }) {
+type ArtLabels = { stream: string; expected: string; drift: string; schema: string; detected: string; report: string };
+
+export function SentinelArt({ id, labels }: { id: string; labels: ArtLabels }) {
   const packets = Array.from({ length: 54 }, (_, i) => {
     const x = 40 + i * 11;
     const inDrift = i >= 22 && i <= 30;
@@ -114,13 +116,13 @@ export function SentinelArt({ id }: { id: string }) {
 
       <circle cx="46" cy="60" r="4" fill="#FF7FAE" className="anim-twinkle" style={{ animationDuration: "2s" }} />
       <text x="60" y="64" fontSize="12" style={{ fontFamily: "var(--font-label)", letterSpacing: "3px", fill: "var(--ink-2)" }}>
-        SYNTHETIC FHIR STREAM · WATCHED
+        {labels.stream}
       </text>
 
       <rect x="34" y="200" width="592" height="64" style={{ fill: "var(--band)" }} />
       <path d="M34 200 H626 M34 264 H626" style={{ stroke: "var(--line-strong)" }} strokeDasharray="3 6" />
       <text x="44" y="292" fontSize="11" style={{ fontFamily: "var(--font-label)", letterSpacing: "3px", fill: "var(--ink-3)" }}>
-        EXPECTED RANGE
+        {labels.expected}
       </text>
 
       <g clipPath={`url(#${id}-clip)`}>
@@ -142,17 +144,17 @@ export function SentinelArt({ id }: { id: string }) {
       </g>
 
       <text x="300" y="168" fontSize="12" style={{ fontFamily: "var(--font-label)", letterSpacing: "3px", fill: "var(--label-pink)" }}>
-        DRIFT
+        {labels.drift}
       </text>
       <path d="M 466 110 V 316" stroke="#FFB15C" strokeOpacity="0.7" strokeDasharray="4 5" />
       <text x="476" y="122" fontSize="12" style={{ fontFamily: "var(--font-label)", letterSpacing: "3px", fill: "var(--label-orange)" }}>
-        SCHEMA V2
+        {labels.schema}
       </text>
     </svg>
   );
 }
 
-export function NajmArt({ id }: { id: string }) {
+export function NajmArt({ id, labels }: { id: string; labels: ArtLabels }) {
   const rotors: [number, number][] = [
     [128, 76],
     [212, 76],
@@ -212,7 +214,7 @@ export function NajmArt({ id }: { id: string }) {
       />
       <rect x="204" y="214" width="84" height="18" rx="4" style={{ fill: "var(--label-blue)" }} />
       <text x="212" y="227" fontSize="11" style={{ fontFamily: "var(--font-label)", letterSpacing: "2.5px", fill: "var(--bg)" }}>
-        DETECTED
+        {labels.detected}
       </text>
       <circle cx="346" cy="232" r="4" fill="#FFB15C" className="anim-twinkle" style={{ animationDuration: "2.4s" }} />
 
@@ -246,7 +248,7 @@ export function NajmArt({ id }: { id: string }) {
       <rect x="500" y="62" width="128" height="240" rx="22" fill={`url(#${id}-glass)`} style={{ stroke: "var(--glass-border)" }} />
       <rect x="546" y="72" width="36" height="5" rx="2.5" style={{ fill: "var(--line-strong)" }} />
       <text x="516" y="106" fontSize="12" style={{ fontFamily: "var(--font-label)", letterSpacing: "3px", fill: "var(--label-orange)" }}>
-        REPORT
+        {labels.report}
       </text>
       <rect x="516" y="118" width="96" height="62" rx="10" style={{ fill: "var(--band)", stroke: "var(--line-strong)" }} />
       <path d="M564 134 c-8 0 -12 6 -12 11 c0 8 12 18 12 18 s12 -10 12 -18 c0 -5 -4 -11 -12 -11 z" style={{ fill: "var(--label-blue)" }} opacity="0.85" />

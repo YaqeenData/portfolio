@@ -2,6 +2,8 @@
 
 import { useRef, useState, type KeyboardEvent } from "react";
 import type { ProjectStage } from "@/content/site";
+import { fmt } from "@/content";
+import { useContent } from "@/components/i18n/LocaleProvider";
 import { Reveal } from "@/components/ui/Reveal";
 import { Missing } from "@/components/ui/Type";
 
@@ -21,6 +23,7 @@ export function StageStrip({
   accent: "amber" | "pink" | "blue";
   project: string;
 }) {
+  const { ui } = useContent();
   const [selected, setSelected] = useState(0);
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
   const current = stages[selected];
@@ -68,10 +71,11 @@ export function StageStrip({
             strokeLinejoin="round"
           />
         </svg>
-        Select a stage to explore
+        {ui.stageHint}
       </p>
 
-      <div className="relative" style={{ "--stage-accent": accentVar } as React.CSSProperties}>
+      {/* The workflow runs left to right in every language, like the architecture diagrams. */}
+      <div dir="ltr" className="relative" style={{ "--stage-accent": accentVar } as React.CSSProperties}>
         {/* The workflow path: a quiet dashed track, lit up to the selected stage. */}
         <div aria-hidden="true" className="stage-track absolute left-[12.5%] right-[12.5%] top-[13px] h-0.5">
           <span className="absolute inset-0 border-t-2 border-dashed border-[var(--line-strong)]" />
@@ -84,7 +88,7 @@ export function StageStrip({
         <ul
           className="relative grid"
           style={{ gridTemplateColumns: `repeat(${stages.length}, minmax(0, 1fr))` }}
-          aria-label={`${project} workflow stages`}
+          aria-label={fmt(ui.stagesLabel, { project })}
           onKeyDown={onKeyDown}
         >
           {stages.map((stage, i) => (
@@ -129,11 +133,11 @@ export function StageStrip({
             {current.name}
           </span>
           <span className="label text-[10px] tracking-[0.22em] text-ink-4">
-            Stage {selected + 1} of {stages.length}
+            {fmt(ui.stageOf, { n: selected + 1, total: stages.length })}
           </span>
         </p>
         <p className="pt-1.5 text-[15px] leading-relaxed text-ink-2">
-          {current.detail ?? <Missing>Stage detail — to write together</Missing>}
+          {current.detail ?? <Missing>{ui.stageMissing}</Missing>}
         </p>
       </div>
     </Reveal>

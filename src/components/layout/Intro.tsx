@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { site } from "@/content/site";
+import { useContent } from "@/components/i18n/LocaleProvider";
 
 /** Deterministic pseudo-random numbers so the server and client draw the same sky. */
 function seeded(seed: number) {
@@ -67,6 +67,7 @@ const EASE = "cubic-bezier(0.65, 0, 0.35, 1)";
  * behind it to reveal the portfolio. Plays once per browser session.
  */
 export function Intro() {
+  const site = useContent();
   const [phase, setPhase] = useState<"playing" | "flying" | "gone">("playing");
   const rootRef = useRef<HTMLDivElement>(null);
   const skyRef = useRef<HTMLDivElement>(null);
@@ -285,7 +286,7 @@ export function Intro() {
           {site.name}
         </p>
         <p ref={addFade} className="intro-title font-italic text-[clamp(1.4rem,3.6vw,2.75rem)] italic text-italic">
-          A {site.role}
+          {site.ui.introRole}
         </p>
         <span ref={addFade} aria-hidden="true" className="intro-rule mt-3 h-px w-28" />
       </div>
@@ -297,9 +298,9 @@ export function Intro() {
           e.stopPropagation();
           skip();
         }}
-        className="intro-skip-btn label absolute bottom-8 right-6 cursor-pointer rounded-full px-5 py-3 text-[12px] tracking-[0.3em] text-ink-2 sm:right-10"
+        className="intro-skip-btn label absolute bottom-8 end-6 cursor-pointer rounded-full px-5 py-3 text-[12px] tracking-[0.3em] text-ink-2 sm:end-10"
       >
-        Skip intro
+        {site.ui.skipIntro}
       </button>
     </div>
   );

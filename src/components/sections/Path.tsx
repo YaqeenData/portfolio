@@ -1,4 +1,4 @@
-import { site } from "@/content/site";
+import type { Content } from "@/content";
 import { Reveal } from "@/components/ui/Reveal";
 import { ChapterLabel, Headline, Missing } from "@/components/ui/Type";
 
@@ -19,8 +19,9 @@ function GroupTitle({ children, tone }: { children: string; tone: string }) {
 }
 
 /** Education, training and certifications: three light groups under the experience stream. */
-function Credentials() {
-  const { credentials } = site.path;
+function Credentials({ c }: { c: Content }) {
+  const { credentials } = c.path;
+  const { ui } = c;
   const { education, training, certifications } = credentials;
   const sealColors = ["var(--label-blue)", "var(--label-pink)", "var(--label-orange)"];
 
@@ -32,7 +33,7 @@ function Credentials() {
 
       <div className="mt-10 grid gap-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)_minmax(0,1.3fr)] lg:gap-12">
         <Reveal className="flex flex-col gap-4">
-          <GroupTitle tone="text-label-blue">Education</GroupTitle>
+          <GroupTitle tone="text-label-blue">{ui.education}</GroupTitle>
           <div className="flex flex-col gap-1.5">
             <p className="font-display text-[24px] leading-tight text-ink">{education.degree}</p>
             <p className="text-[16px] text-ink-2">{education.school}</p>
@@ -48,7 +49,7 @@ function Credentials() {
         </Reveal>
 
         <Reveal delay={0.1} className="flex flex-col gap-4">
-          <GroupTitle tone="text-label-pink">Specialized training</GroupTitle>
+          <GroupTitle tone="text-label-pink">{ui.training}</GroupTitle>
           <ul className="flex flex-col gap-6">
             {training.map((t) => (
               <li key={t.title} className="flex flex-col gap-1">
@@ -69,28 +70,32 @@ function Credentials() {
         </Reveal>
 
         <Reveal delay={0.2} className="flex flex-col gap-4">
-          <GroupTitle tone="text-label-orange">Certifications</GroupTitle>
+          <GroupTitle tone="text-label-orange">{ui.certifications}</GroupTitle>
           <ul className="flex flex-col gap-4">
-            {certifications.map((c, i) => (
-              <li key={c.title} className="flex items-start gap-3.5">
+            {certifications.map((cert, i) => (
+              <li key={cert.title} className="flex items-start gap-3.5">
                 <Seal color={sealColors[i % sealColors.length]} />
                 <span className="flex flex-col gap-0.5">
-                  <span className="text-[16px] leading-snug text-ink">{c.title}</span>
+                  <span lang="en" dir="ltr" className="text-[16px] leading-snug text-ink">
+                    {cert.title}
+                  </span>
                   <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                    {c.issuer ? (
-                      <span className="label text-[11px] tracking-[0.22em] text-ink-3">{c.issuer}</span>
+                    {cert.issuer ? (
+                      <span lang="en" className="label text-[11px] tracking-[0.22em] text-ink-3">
+                        {cert.issuer}
+                      </span>
                     ) : (
-                      <Missing>Issuer</Missing>
+                      <Missing>{ui.issuer}</Missing>
                     )}
-                    <span className="label text-[11px] tracking-[0.22em] text-ink-3">· {c.year}</span>
-                    {c.verifyUrl ? (
+                    <span className="label text-[11px] tracking-[0.22em] text-ink-3">· {cert.year}</span>
+                    {cert.verifyUrl ? (
                       <a
-                        href={c.verifyUrl}
+                        href={cert.verifyUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="label text-[11px] tracking-[0.22em] text-italic no-underline hover:underline"
                       >
-                        · Verify<span className="sr-only"> {c.title} (opens in a new tab)</span>
+                        · {ui.verify}<span className="sr-only"> {cert.title} {ui.opensNewTab}</span>
                       </a>
                     ) : null}
                   </span>
@@ -105,12 +110,12 @@ function Credentials() {
 }
 
 /** Experience on one stream: a quiet, scannable line of nodes. */
-export function Path() {
-  const { path } = site;
+export function Path({ c }: { c: Content }) {
+  const { path } = c;
   return (
     <section id="path" aria-labelledby="path-title" className="mx-auto max-w-[1440px] px-6 py-28 sm:px-10 sm:py-40 xl:px-40">
       <Reveal className="flex flex-col gap-5">
-        <ChapterLabel numeral="IV">{path.label}</ChapterLabel>
+        <ChapterLabel numeral={c.ui.numerals[3]}>{path.label}</ChapterLabel>
         <Headline id="path-title" content={path.title} className="text-[clamp(2.25rem,4vw,2.75rem)]" />
       </Reveal>
 
@@ -118,25 +123,25 @@ export function Path() {
         {/* The stream: vertical on phones, horizontal from large screens up. */}
         <span
           aria-hidden="true"
-          className="absolute bottom-0 left-[7px] top-0 w-0.5 lg:hidden"
+          className="absolute bottom-0 start-[7px] top-0 w-0.5 lg:hidden"
           style={{ background: "linear-gradient(180deg, var(--blue) 0 45%, var(--orange) 45% 85%, transparent)" }}
         />
         <span
           aria-hidden="true"
-          className="absolute left-0 right-[14%] top-[7px] hidden h-0.5 lg:block"
-          style={{ background: "linear-gradient(90deg, transparent, var(--blue) 6% 54%, var(--orange) 54% 100%)" }}
+          className="absolute start-0 end-[14%] top-[7px] hidden h-0.5 lg:block"
+          style={{ background: "linear-gradient(var(--to-end), transparent, var(--blue) 6% 54%, var(--orange) 54% 100%)" }}
         />
         <span
           aria-hidden="true"
-          className="absolute right-0 top-[7px] hidden h-0 w-[14%] border-t-2 border-dashed border-[var(--label-orange)] opacity-50 lg:block"
+          className="absolute end-0 top-[7px] hidden h-0 w-[14%] border-t-2 border-dashed border-[var(--label-orange)] opacity-50 lg:block"
         />
 
         <ol className="relative grid gap-14 lg:grid-cols-2 lg:gap-16">
           {path.experience.map((job, i) => (
-            <Reveal as="li" key={job.role} delay={i * 0.15} className="relative flex flex-col gap-2.5 pl-10 lg:pl-0 lg:pt-12">
+            <Reveal as="li" key={job.role} delay={i * 0.15} className="relative flex flex-col gap-2.5 ps-10 lg:ps-0 lg:pt-12">
               <span
                 aria-hidden="true"
-                className="absolute left-0 top-0 h-4 w-4 rounded-full"
+                className="absolute start-0 top-0 h-4 w-4 rounded-full"
                 style={i === 0 ? { background: "var(--label-blue)" } : { background: "#FFB15C", boxShadow: "0 0 18px #FF8A2B" }}
               />
               <span className={`label text-[12px] tracking-[0.3em] ${i === 0 ? "text-label-blue" : "text-label-orange"}`}>
@@ -147,10 +152,10 @@ export function Path() {
               <p className="label text-[11px] tracking-[0.24em] text-ink-3">{job.place}</p>
               <ul className="mt-2 flex max-w-[54ch] flex-col gap-2">
                 {job.points.map((point) => (
-                  <li key={point} className="relative pl-5 text-[15px] leading-[1.6] text-ink-2">
+                  <li key={point} className="relative ps-5 text-[15px] leading-[1.6] text-ink-2">
                     <span
                       aria-hidden="true"
-                      className="absolute left-0 top-[0.75em] h-px w-2.5"
+                      className="absolute start-0 top-[0.75em] h-px w-2.5"
                       style={{ background: i === 0 ? "var(--label-blue)" : "var(--label-orange)" }}
                     />
                     {point}
@@ -162,7 +167,7 @@ export function Path() {
         </ol>
       </div>
 
-      <Credentials />
+      <Credentials c={c} />
     </section>
   );
 }

@@ -1,4 +1,4 @@
-import { site } from "@/content/site";
+import type { Content } from "@/content";
 import { Reveal } from "@/components/ui/Reveal";
 import { ChapterLabel, Headline } from "@/components/ui/Type";
 import { Timeline } from "./Timeline";
@@ -32,8 +32,8 @@ const POINTS = (() => {
   });
 })();
 
-export function Curiosity() {
-  const { curiosity } = site;
+export function Curiosity({ c }: { c: Content }) {
+  const { curiosity } = c;
   return (
     <section
       id="curiosity"
@@ -43,7 +43,7 @@ export function Curiosity() {
       <div className="relative mx-auto flex min-h-[85vh] max-w-[1440px] items-center px-6 pb-16 pt-28 sm:px-10 xl:px-40">
         <div className="relative flex w-full max-w-[880px] flex-col gap-12">
         <Reveal variant="observe" className="gather flex w-full flex-col gap-8">
-          <ChapterLabel numeral="I" className="gather-text">
+          <ChapterLabel numeral={c.ui.numerals[0]} className="gather-text">
             {curiosity.label}
           </ChapterLabel>
           <Headline

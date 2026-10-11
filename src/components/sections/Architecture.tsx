@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { fmt, localeMeta } from "@/content";
 import { site } from "@/content/site";
-import { Reveal } from "@/components/ui/Reveal";
+import { useContent, useLocale } from "@/components/i18n/LocaleProvider";
 import { ChapterLabel, Headline } from "@/components/ui/Type";
 
-const { architecture } = site;
-const LAYERS = architecture.layers;
-const N = LAYERS.length;
+/** The number of layers is the same in every language. */
+const N = site.architecture.layers.length;
 
 // Art geometry (px) inside a 760 × 630 stage.
 const SIZE = 300;
@@ -34,6 +34,9 @@ function layerTone(i: number) {
  * Reduced motion (and no JavaScript) shows the system fully assembled.
  */
 function Assembly() {
+  const { architecture, ui } = useContent();
+  const dir = localeMeta[useLocale()].dir;
+  const LAYERS = architecture.layers;
   const ref = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState(N);
   // The panel follows the newest layer as it assembles; choosing a layer pins it.
@@ -74,8 +77,8 @@ function Assembly() {
       <div className="sticky top-0 flex h-screen items-center">
         <div className="mx-auto grid w-full max-w-[1440px] grid-cols-[340px_minmax(0,1fr)] items-center gap-10 px-16 pt-20">
           <div className="flex flex-col gap-6">
-            <ChapterLabel numeral="II">{architecture.label}</ChapterLabel>
-            <Headline content={architecture.title} className="text-[52px] leading-[1.08]" />
+            <ChapterLabel numeral={ui.numerals[1]}>{architecture.label}</ChapterLabel>
+            <Headline content={architecture.title} className="arch-title text-[52px] leading-[1.08]" />
             <div className="flex flex-col gap-4 pt-6">
               <div aria-hidden="true" className="flex gap-2.5">
                 {LAYERS.map((l, i) => (
@@ -86,7 +89,7 @@ function Assembly() {
                   />
                 ))}
               </div>
-              <p className="label text-[11px] tracking-[0.28em] text-ink-4">Select a layer to see its tools</p>
+              <p className="label text-[11px] tracking-[0.28em] text-ink-4">{ui.layerHint}</p>
               {/* The layer in focus: its tools surface here, one layer at a time. */}
               <div aria-live={picked !== null ? "polite" : "off"} className="min-h-[188px]">
                 <div key={shown} className="stage-detail glass-pane flex flex-col gap-3 rounded-2xl px-5 py-4">
@@ -106,12 +109,13 @@ function Assembly() {
                 </div>
               </div>
               <p className="text-[15px] leading-relaxed text-ink-3">
-                Also: {architecture.alsoExperienced.join(" · ").toLowerCase()}
+                {ui.also}: {architecture.alsoExperienced.join(" · ")}
               </p>
             </div>
           </div>
 
-          <div className="relative mx-auto h-[630px] w-[760px]">
+          {/* The diagram keeps its geometry in every language; only its words follow the page. */}
+          <div dir="ltr" className="relative mx-auto h-[630px] w-[760px]">
             {LAYERS.map((layer, i) => {
               const cy = BASE_Y - i * GAP;
               return (
@@ -133,11 +137,12 @@ function Assembly() {
             />
             <p
               aria-hidden="true"
+              dir={dir}
               data-state={step >= 2 ? "on" : "off"}
               className="arch-label-fade label absolute text-[12px] tracking-[0.3em] text-label-orange"
               style={{ left: CENTER_X + 26, top: BASE_Y - (N - 1) * GAP - 52 }}
             >
-              Orchestrated with {architecture.orchestration}
+              {ui.orchestratedWith} {architecture.orchestration}
             </p>
             {LAYERS.map((layer, i) => {
               const cy = BASE_Y - i * GAP;
@@ -148,7 +153,8 @@ function Assembly() {
                     type="button"
                     disabled={off}
                     aria-pressed={i === shown}
-                    aria-label={`${layer.name}: show tools`}
+                    aria-label={fmt(ui.layerShowTools, { layer: layer.name })}
+                    dir={dir}
                     onClick={() => setPicked(i)}
                     data-focus={i === shown}
                     className="arch-label-btn absolute flex items-baseline justify-end gap-3 rounded-lg px-2 py-1.5 text-right"
@@ -178,7 +184,9 @@ function Assembly() {
             {l.name}: {l.tools.join(", ")}
           </li>
         ))}
-        <li>Orchestration: {architecture.orchestration}</li>
+        <li>
+          {ui.orchestratedWith} {architecture.orchestration}
+        </li>
       </ol>
     </div>
   );
@@ -186,6 +194,8 @@ function Assembly() {
 
 /** Phones and tablets: the same system as a stack of slabs that surface one by one. */
 function Stack() {
+  const { architecture, ui } = useContent();
+  const LAYERS = architecture.layers;
   const reversed = [...LAYERS].map((l, i) => ({ ...l, i })).reverse();
   const list = useRef<HTMLOListElement>(null);
 
@@ -214,7 +224,7 @@ function Stack() {
   return (
     <div className="mx-auto max-w-[1440px] px-6 py-28 sm:px-10 xl:hidden">
       <div className="flex flex-col gap-6">
-        <ChapterLabel numeral="II">{architecture.label}</ChapterLabel>
+        <ChapterLabel numeral={ui.numerals[1]}>{architecture.label}</ChapterLabel>
         <Headline content={architecture.title} className="text-[clamp(2.25rem,6vw,3.25rem)] leading-[1.08]" />
       </div>
       {/* The stack reveals as one, building upward: 01 settles first at the bottom, 07 last at the top. */}
@@ -239,16 +249,17 @@ function Stack() {
         ))}
       </ol>
       <p className="label mt-6 text-[12px] tracking-[0.3em] text-label-orange">
-        Orchestrated with {architecture.orchestration}
+        {ui.orchestratedWith} {architecture.orchestration}
       </p>
       <p className="mt-6 text-[15px] leading-relaxed text-ink-3">
-        Also: {architecture.alsoExperienced.join(" · ").toLowerCase()}
+        {ui.also}: {architecture.alsoExperienced.join(" · ")}
       </p>
     </div>
   );
 }
 
 export function Architecture() {
+  const { architecture } = useContent();
   return (
     <section id="expertise" aria-label={architecture.label} className="relative">
       <Assembly />

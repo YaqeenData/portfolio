@@ -1,4 +1,5 @@
-import { site, type Project } from "@/content/site";
+import type { Content } from "@/content";
+import type { Project } from "@/content/site";
 import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { Reveal } from "@/components/ui/Reveal";
 import { ChapterLabel, Missing } from "@/components/ui/Type";
@@ -18,18 +19,21 @@ const FLOW_TONE: Record<string, string> = {
   Gold: "#FFB15C",
 };
 
-function Art({ project }: { project: Project }) {
+type UI = Content["ui"];
+
+function Art({ project, ui }: { project: Project; ui: UI }) {
   if (project.visual === "archive") return <BayanArt id={project.slug} />;
-  if (project.visual === "watch") return <SentinelArt id={project.slug} />;
-  return <NajmArt id={project.slug} />;
+  if (project.visual === "watch") return <SentinelArt id={project.slug} labels={ui.art} />;
+  return <NajmArt id={project.slug} labels={ui.art} />;
 }
 
 /** A small architecture diagram: source → medallion layers → reporting. */
-function Flow({ steps, color }: { steps: readonly string[]; color: string }) {
+function Flow({ steps, color, ui }: { steps: readonly string[]; color: string; ui: UI }) {
   return (
     <figure className="flex flex-col items-center gap-3">
-      <figcaption className="label text-[11px] tracking-[0.3em] text-ink-4">Architecture</figcaption>
-      <ol className="flex flex-wrap items-center justify-center gap-y-2">
+      <figcaption className="label text-[11px] tracking-[0.3em] text-ink-4">{ui.architecture}</figcaption>
+      {/* Data flows left to right in every language. */}
+      <ol dir="ltr" lang="en" className="flex flex-wrap items-center justify-center gap-y-2">
         {steps.map((step, i) => (
           <li key={step} className="flex items-center">
             {i > 0 ? (
@@ -43,7 +47,7 @@ function Flow({ steps, color }: { steps: readonly string[]; color: string }) {
                 background: "var(--chip)",
               }}
             >
-              {i > 0 ? <span className="sr-only">then </span> : null}
+              {i > 0 ? <span className="sr-only">{ui.then} </span> : null}
               {step}
             </span>
           </li>
@@ -73,7 +77,7 @@ function Metrics({ metrics, color }: { metrics: NonNullable<Project["metrics"]>;
 }
 
 /** One project = one chapter: its own composition, its own visual world. */
-function Chapter({ project, index }: { project: Project; index: number }) {
+function Chapter({ project, index, ui }: { project: Project; index: number; ui: UI }) {
   const mirror = index % 2 === 1;
   const accent = ACCENT[project.accent];
   const headingId = `${project.slug}-title`;
@@ -91,22 +95,26 @@ function Chapter({ project, index }: { project: Project; index: number }) {
       <div className="relative mx-auto grid max-w-[1440px] items-center gap-14 px-6 sm:px-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-20 xl:px-16">
         <Reveal className={`flex flex-col gap-6 ${mirror ? "lg:order-2" : ""}`}>
           <p className={`label text-[13px] tracking-[0.34em] ${accent.label}`}>
-            Chapter {String(index + 1).padStart(2, "0")}
+            {ui.chapter} {String(index + 1).padStart(2, "0")}
           </p>
           <h3
             id={headingId}
             className="font-display text-[clamp(4.25rem,9vw,8.75rem)] font-normal leading-[0.9] tracking-[-0.03em] text-ink [font-variation-settings:'opsz'_144]"
           >
             {project.name}
-            {project.nameAr ? (
-              <span lang="ar" dir="rtl" className="ms-4 align-middle text-[0.32em] tracking-normal text-ink-3">
-                {project.nameAr}
+            {project.altName ? (
+              <span
+                lang={project.altLang}
+                dir={project.altLang === "ar" ? "rtl" : "ltr"}
+                className="ms-4 align-middle text-[0.32em] tracking-normal text-ink-3"
+              >
+                {project.altName}
               </span>
             ) : null}
           </h3>
           <p className="font-italic text-[clamp(1.25rem,2vw,1.625rem)] italic text-italic">{project.subtitle}</p>
           <blockquote
-            className="max-w-[30ch] border-l-2 pl-5 font-display text-[clamp(1.3rem,1.9vw,1.6rem)] leading-[1.35] text-ink"
+            className="max-w-[30ch] border-s-2 ps-5 font-display text-[clamp(1.3rem,1.9vw,1.6rem)] leading-[1.35] text-ink"
             style={{ borderColor: accent.line }}
           >
             {project.opening}
@@ -128,7 +136,7 @@ function Chapter({ project, index }: { project: Project; index: number }) {
             {!project.stackComplete ? (
               <>
                 {" "}
-                <Missing>Stack — to add</Missing>
+                <Missing>{ui.stackMissing}</Missing>
               </>
             ) : null}
           </p>
@@ -137,16 +145,16 @@ function Chapter({ project, index }: { project: Project; index: number }) {
               href={project.caseStudyUrl}
               className="label inline-flex w-fit items-center gap-3 text-[14px] tracking-[0.24em] text-italic no-underline"
             >
-              Read the case study <ArrowIcon />
+              {ui.caseStudy} <ArrowIcon />
             </a>
           ) : (
-            <p className="label text-[13px] tracking-[0.24em] text-ink-4">Case study · coming soon</p>
+            <p className="label text-[13px] tracking-[0.24em] text-ink-4">{ui.caseStudySoon}</p>
           )}
         </Reveal>
 
         <Reveal delay={0.15} className={`flex flex-col gap-8 ${mirror ? "lg:order-1" : ""}`}>
-          <Art project={project} />
-          {project.flow ? <Flow steps={project.flow} color={accent.line} /> : null}
+          <Art project={project} ui={ui} />
+          {project.flow ? <Flow steps={project.flow} color={accent.line} ui={ui} /> : null}
           {project.metrics ? <Metrics metrics={project.metrics} color={accent.line} /> : null}
           <StageStrip stages={project.stages} accent={project.accent} project={project.name} />
         </Reveal>
@@ -159,8 +167,9 @@ function Chapter({ project, index }: { project: Project; index: number }) {
  * Sentinel's second story: engineering and leadership as two connected responsibilities,
  * with the abilities that link them sitting on the threads in between.
  */
-function Leadership() {
-  const { leadership } = site.work;
+function Leadership({ c }: { c: Content }) {
+  const { leadership } = c.work;
+  const { ui } = c;
   const [lead, emphasis] = leadership.title.split(": ");
   return (
     <section aria-labelledby="leadership-title" className="relative mx-auto max-w-[1180px] px-6 pb-16 sm:px-10">
@@ -173,11 +182,11 @@ function Leadership() {
 
       <div className="mt-12 grid items-center gap-6 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-0">
         <Reveal className="glass-pane flex flex-col gap-2 rounded-2xl px-6 py-5 lg:h-auto">
-          <h5 className="label text-[13px] tracking-[0.3em] text-label-blue">Engineering</h5>
+          <h5 className="label text-[13px] tracking-[0.3em] text-label-blue">{ui.engineering}</h5>
           <p className="text-[16px] leading-relaxed text-ink-2">{leadership.engineering}</p>
         </Reveal>
 
-        <ul aria-label="Abilities this work draws on" className="flex flex-wrap justify-center gap-2 lg:flex-col lg:items-center lg:gap-2.5">
+        <ul aria-label={ui.abilitiesLabel} className="flex flex-wrap justify-center gap-2 lg:flex-col lg:items-center lg:gap-2.5">
           {leadership.abilities.map((ability, i) => (
             <Reveal as="li" key={ability} delay={0.1 + i * 0.08} className="thread flex items-center">
               <span className="label rounded-full border border-[var(--label-orange)] bg-chip px-3.5 py-1.5 text-[11px] tracking-[0.22em] text-label-orange">
@@ -188,7 +197,7 @@ function Leadership() {
         </ul>
 
         <Reveal delay={0.2} className="glass-pane flex flex-col gap-2 rounded-2xl px-6 py-5 lg:h-auto">
-          <h5 className="label text-[13px] tracking-[0.3em] text-label-pink">Leadership</h5>
+          <h5 className="label text-[13px] tracking-[0.3em] text-label-pink">{ui.leadership}</h5>
           <p className="text-[16px] leading-relaxed text-ink-2">{leadership.leading}</p>
         </Reveal>
       </div>
@@ -200,7 +209,7 @@ function Leadership() {
           focusable="false"
           viewBox="0 0 1000 90"
           preserveAspectRatio="none"
-          className="hidden h-[90px] w-full lg:block"
+          className="hidden h-[90px] w-full lg:block rtl:-scale-x-100"
         >
           <path
             d="M210 0 C210 60 500 30 500 88"
@@ -227,13 +236,13 @@ function Leadership() {
   );
 }
 
-export function Work() {
-  const { work } = site;
+export function Work({ c }: { c: Content }) {
+  const { work, ui } = c;
   return (
     <section id="work" aria-labelledby="work-title" className="relative pt-16">
       <div className="mx-auto max-w-[1440px] px-6 sm:px-10 xl:px-16">
         <Reveal>
-          <ChapterLabel numeral="III">{work.label}</ChapterLabel>
+          <ChapterLabel numeral={ui.numerals[2]}>{work.label}</ChapterLabel>
           <h2 id="work-title" className="sr-only">
             {work.label}
           </h2>
@@ -242,13 +251,13 @@ export function Work() {
 
       {work.projects.map((project, i) => (
         <div key={project.slug}>
-          <Chapter project={project} index={i} />
-          {project.slug === work.leadership.project ? <Leadership /> : null}
+          <Chapter project={project} index={i} ui={ui} />
+          {project.slug === work.leadership.project ? <Leadership c={c} /> : null}
         </div>
       ))}
 
       <Reveal className="mx-auto flex max-w-[1440px] flex-wrap items-baseline gap-x-6 gap-y-3 px-6 pb-8 sm:px-10 xl:px-16">
-        <span className="label text-[12px] tracking-[0.32em] text-ink-3">Also built</span>
+        <span className="label text-[12px] tracking-[0.32em] text-ink-3">{ui.alsoBuilt}</span>
         <span className="text-[17px] text-ink-2">{work.alsoBuilt.join(" · ")}</span>
       </Reveal>
     </section>

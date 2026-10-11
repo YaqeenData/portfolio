@@ -1,4 +1,5 @@
-export function ArrowIcon({ className }: { className?: string }) {
+/** A forward arrow; it points the reading direction (mirrored in right-to-left pages). */
+export function ArrowIcon({ className = "" }: { className?: string }) {
   return (
     <svg
       aria-hidden="true"
@@ -6,7 +7,7 @@ export function ArrowIcon({ className }: { className?: string }) {
       width="26"
       height="12"
       viewBox="0 0 26 12"
-      className={className}
+      className={`rtl:-scale-x-100 ${className}`}
     >
       <path
         d="M0 6h23M18 1l5 5-5 5"

@@ -1,6 +1,9 @@
 /**
  * All portfolio content lives here, separate from the components that present it.
  *
+ * This file is the English resource; `site.ar.ts` holds the Arabic one with exactly the same
+ * shape (the type checker enforces it). Links and other shared values live only here.
+ *
  * Editing rules:
  *  - `null` means "not provided yet". Components render a clearly marked placeholder
  *    instead of inventing anything, so the site never shows unverified claims.
@@ -54,8 +57,9 @@ export type ProjectFact = { label: string; value: string };
 export type Project = {
   slug: string;
   name: string;
-  /** Optional Arabic name, shown beside the title. */
-  nameAr?: string;
+  /** Optional name in the other language, shown small beside the title (e.g. Bayan · بيان). */
+  altName?: string;
+  altLang?: "ar" | "en";
   subtitle: string;
   /** The one-line hook that opens the chapter. */
   opening: string;
@@ -64,13 +68,13 @@ export type Project = {
   visual: "archive" | "watch" | "sky";
   accent: "amber" | "pink" | "blue";
   /** Optional architecture, drawn as a small flow above the stages. */
-  flow?: string[];
-  stages: ProjectStage[];
-  facts: ProjectFact[];
+  flow?: readonly string[];
+  stages: readonly ProjectStage[];
+  facts: readonly ProjectFact[];
   /** Optional evaluation figures with a note on what they measure. */
-  metrics?: { label: string; note: string; values: ProjectFact[] };
+  metrics?: { label: string; note: string; values: readonly ProjectFact[] };
   stackLabel: string;
-  stack: string[];
+  stack: readonly string[];
   /** Set to false to show a "[ stack — to add ]" marker after the list. */
   stackComplete: boolean;
   caseStudyUrl: string | null;
@@ -114,12 +118,13 @@ export const site = {
     siteUrl: null as string | null,
   },
 
-    nav: [
-    { id: "work", label: "Projects" },
+  nav: [
+    { id: "work", label: "Work" },
     { id: "expertise", label: "Expertise" },
     { id: "path", label: "Path" },
     { id: "contact", label: "Contact" },
   ] satisfies NavItem[],
+
   // ── Prologue ───────────────────────────────────────────────
   hero: {
     eyebrow: ["Yaqeen Alhalal", "Data Engineer"] as const,
@@ -241,7 +246,8 @@ export const site = {
         tools: ["Power BI", "Tableau", "Linear", "Jira", "Agile workflows"],
       },
     ] satisfies ArchitectureLayer[],
-    alsoExperienced: ["Data science", "Machine learning", "Data analytics", "Streaming systems"],
+    /** Shown in lower case after "Also:", as in the original design. */
+    alsoExperienced: ["data science", "machine learning", "data analytics", "streaming systems"],
   },
 
   // ── III · What I've built ──────────────────────────────────
@@ -251,6 +257,8 @@ export const site = {
       {
         slug: "bayan",
         name: "Bayan",
+        altName: "بيان",
+        altLang: "ar",
         subtitle: "Saudi Regulations & Decisions Data Hub",
         opening: "Finding a regulation is easy. Understanding how it changed over time is a different problem.",
         overview:
@@ -331,6 +339,8 @@ export const site = {
       {
         slug: "najm",
         name: "Najm",
+        altName: "نجم",
+        altLang: "ar",
         subtitle: "AI-Powered Accident Detection & Reporting",
         opening: "What if accident reporting could begin before anyone makes a call?",
         overview:
@@ -433,8 +443,8 @@ export const site = {
       certifications: [
         { title: "DataCamp Certified Data Engineer", issuer: "DataCamp", year: "2026", verifyUrl: null },
         { title: "IBM Data Engineering Professional Certificate", issuer: "IBM", year: "2026", verifyUrl: null },
-        { title: "Associate Data Engineer in Snowflake", issuer: "DataCamp", year: "2026", verifyUrl: null },
-        { title: "Associate Data Engineer in Databricks", issuer: "DataCamp", year: "2026", verifyUrl: null },
+        { title: "Associate Data Engineer in Snowflake", issuer: null, year: "2026", verifyUrl: null },
+        { title: "Associate Data Engineer in Databricks", issuer: null, year: "2026", verifyUrl: null },
         {
           title: "Tableau Business Intelligence Analyst Professional Certificate",
           issuer: "Tableau",
@@ -475,4 +485,101 @@ export const site = {
     focus: ["Data pipelines", "ETL / ELT", "Data modeling", "Data quality & observability", "APIs & integration"],
     coreStack: ["Python", "SQL", "Apache Airflow", "dbt", "PostgreSQL", "Docker", "Spark", "Kafka", "FastAPI", "Azure · GCP · AWS"],
   },
+
+  // ── Interface text (buttons, labels, hints, accessibility) ─
+  ui: {
+    /** Chapter numerals: I · Curiosity … IV · The path. */
+    numerals: ["I", "II", "III", "IV"],
+    skipToContent: "Skip to content",
+    skipIntro: "Skip intro",
+    introRole: "A Data Engineer",
+    scroll: "Scroll",
+    primaryNav: "Primary",
+    sectionsNav: "Sections",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    overview: "Overview",
+    resume: "Résumé",
+    themeToggle: "Switch between night and twilight",
+    themeToTwilight: "Switch to twilight",
+    themeToNight: "Switch to night",
+    /** The language switch shows both names; the current one is highlighted. */
+    language: { current: "EN", other: "عربي", otherLabel: "اقرأ الموقع بالعربية", group: "Language" },
+    chapter: "Chapter",
+    caseStudy: "Read the case study",
+    caseStudySoon: "Case study · coming soon",
+    architecture: "Architecture",
+    then: "then",
+    alsoBuilt: "Also built",
+    stageHint: "Select a stage to explore",
+    stageOf: "Stage {n} of {total}",
+    stagesLabel: "{project} workflow stages",
+    stageMissing: "Stage detail — to write together",
+    stackMissing: "Stack — to add",
+    layerHint: "Select a layer to see its tools",
+    layerShowTools: "{layer}: show tools",
+    orchestratedWith: "Orchestrated with",
+    also: "Also",
+    engineering: "Engineering",
+    leadership: "Leadership",
+    abilitiesLabel: "Abilities this work draws on",
+    nextSection: "Next · How I engineer",
+    education: "Education",
+    training: "Specialized training",
+    certifications: "Certifications",
+    issuer: "Issuer",
+    verify: "Verify",
+    opensNewTab: "(opens in a new tab)",
+    fluent: "Fluent",
+    learning: "Learning",
+    downloadResume: "Download résumé",
+    linkedin: "LinkedIn",
+    github: "GitHub",
+    linkMissing: "{label} link",
+    emailMissing: "Email address",
+    backToTop: "Back to the sky",
+    overviewKicker: "Overview · one screen",
+    closeOverview: "Close overview",
+    focus: "Focus",
+    coreStack: "Core stack",
+    projects: "Projects",
+    experience: "Experience",
+    languages: "Languages",
+    learningPrefix: "learning",
+    credentialsSummary: "{certs} certifications · {camps} bootcamps",
+    jumpToProjects: "Jump to projects",
+    /** Labels drawn inside the illustrations. */
+    cosmos: { collect: "COLLECT", engineer: "ENGINEER", build: "BUILD", cancer: "CANCER" },
+    art: {
+      stream: "SYNTHETIC FHIR STREAM · WATCHED",
+      expected: "EXPECTED RANGE",
+      drift: "DRIFT",
+      schema: "SCHEMA V2",
+      detected: "DETECTED",
+      report: "REPORT",
+    },
+  },
 } as const;
+
+/** Fields whose values drive visuals rather than text: kept as exact literals in every language. */
+type KeepKeys = "status" | "visual" | "accent" | "sketch";
+
+type Widen<T> = T extends string
+  ? string
+  : T extends boolean
+    ? boolean
+    : T extends readonly (infer U)[]
+      ? readonly Widen<U>[]
+      : T extends object
+        ? {
+            readonly [K in keyof T]: K extends KeepKeys ? T[K] : K extends "altLang" ? "ar" | "en" : Widen<T[K]>;
+          }
+        : T;
+
+/** The shape every language resource must match. */
+export type Content = Widen<typeof site>;
+
+/** Fill "{name}" placeholders in an interface string. */
+export function fmt(template: string, values: Record<string, string | number>): string {
+  return template.replace(/\{(\w+)\}/g, (_, key: string) => String(values[key] ?? ""));
+}
