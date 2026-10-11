@@ -129,7 +129,7 @@ export const site = {
       },
       {
         chapter: "The Exploration",
-        title: "Data Science & Machine Learning",
+        title: "Data Science & Machine Learning Bootcamp",
         place: "Tuwaiq Academy",
         when: "Jan–Mar 2025",
         line: "Exploring how data reveals patterns, powers predictions, and helps solve complex problems.",
@@ -146,7 +146,7 @@ export const site = {
       },
       {
         chapter: "The Expansion",
-        title: "Cloud & Data Engineering",
+        title: "Data Engineering Bootcamp",
         place: "Saudi Digital Academy",
         when: "Aug–Oct 2026",
         line: "Strengthening my engineering skills through cloud infrastructure, orchestration, and end-to-end pipeline development.",
