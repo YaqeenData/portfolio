@@ -3647,7 +3647,7 @@ const site = {
     nav: [
         {
             id: "work",
-            label: "Work"
+            label: "Projects"
         },
         {
             id: "expertise",
@@ -4109,13 +4109,13 @@ const site = {
                 },
                 {
                     title: "Associate Data Engineer in Snowflake",
-                    issuer: null,
+                    issuer: "DataCamp",
                     year: "2026",
                     verifyUrl: null
                 },
                 {
                     title: "Associate Data Engineer in Databricks",
-                    issuer: null,
+                    issuer: "DataCamp",
                     year: "2026",
                     verifyUrl: null
                 },

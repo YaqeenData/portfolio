@@ -114,13 +114,12 @@ export const site = {
     siteUrl: null as string | null,
   },
 
-  nav: [
-    { id: "work", label: "Work" },
+    nav: [
+    { id: "work", label: "Projects" },
     { id: "expertise", label: "Expertise" },
     { id: "path", label: "Path" },
     { id: "contact", label: "Contact" },
   ] satisfies NavItem[],
-
   // ── Prologue ───────────────────────────────────────────────
   hero: {
     eyebrow: ["Yaqeen Alhalal", "Data Engineer"] as const,
@@ -435,8 +434,8 @@ export const site = {
       certifications: [
         { title: "DataCamp Certified Data Engineer", issuer: "DataCamp", year: "2026", verifyUrl: null },
         { title: "IBM Data Engineering Professional Certificate", issuer: "IBM", year: "2026", verifyUrl: null },
-        { title: "Associate Data Engineer in Snowflake", issuer: null, year: "2026", verifyUrl: null },
-        { title: "Associate Data Engineer in Databricks", issuer: null, year: "2026", verifyUrl: null },
+        { title: "Associate Data Engineer in Snowflake", issuer: "DataCamp", year: "2026", verifyUrl: null },
+        { title: "Associate Data Engineer in Databricks", issuer: "DataCamp", year: "2026", verifyUrl: null },
         {
           title: "Tableau Business Intelligence Analyst Professional Certificate",
           issuer: "Tableau",
