@@ -1,0 +1,1194 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────────
+   Confluence design tokens
+   Night is the primary world; twilight is the same world at dusk.
+   Every colour in the UI comes from these variables.
+   Rule: orange always sits between pink and blue — never blend them.
+   ────────────────────────────────────────────────────────────── */
+
+:root,
+[data-theme="night"] {
+  color-scheme: dark;
+
+  --bg: #070d22;
+  --bg-2: #0c1740;
+  --bg-glow: #16296a;
+
+  --ink: #f3f5ff;
+  --ink-2: #c9d2f0;
+  --ink-3: #8c9ac8;
+  --ink-4: #6e7ba8;
+
+  --accent: #ffb15c;
+  --italic: #ff7fae;
+  --blue: #6e95ff;
+  --blue-deep: #2456e6;
+  --pink: #ff7fae;
+  --orange: #ff8a2b;
+
+  --label-blue: #8faeff;
+  --label-pink: #ff9cc2;
+  --label-orange: #ffb15c;
+
+  --line: rgba(150, 175, 255, 0.16);
+  --line-strong: rgba(150, 175, 255, 0.4);
+
+  --glass-1: rgba(110, 149, 255, 0.18);
+  --glass-2: rgba(36, 70, 200, 0.06);
+  --glass-border: rgba(150, 175, 255, 0.3);
+  --glass-highlight: rgba(255, 255, 255, 0.14);
+  --glass-shadow: rgba(2, 6, 20, 0.45);
+  --ghost: rgba(110, 149, 255, 0.08);
+  --ghost-border: rgba(150, 175, 255, 0.2);
+  --focus-edge: rgba(255, 170, 110, 0.6);
+  --focus-glow: rgba(255, 138, 43, 0.22);
+
+  --chip: rgba(110, 149, 255, 0.1);
+  --chip-border: rgba(150, 175, 255, 0.3);
+
+  --secondary-bg: rgba(110, 149, 255, 0.14);
+  --secondary-border: rgba(150, 175, 255, 0.45);
+  --secondary-ink: #f3f5ff;
+  --primary-shadow: 0 0 34px rgba(255, 138, 43, 0.45);
+
+  --header-bg: rgba(7, 13, 34, 0.72);
+  --focus: #ffb15c;
+
+  --dash: rgba(150, 175, 255, 0.38);
+  --dash-bg: rgba(110, 149, 255, 0.04);
+  --skeleton: rgba(174, 184, 224, 0.22);
+  --placeholder-ink: #ffb15c;
+
+  /* cosmos */
+  --stream-blue: #6e95ff;
+  --stream-pink: #ff7fae;
+  --stream-orange: #ffa04d;
+  --pulse-blue: #d6e3ff;
+  --pulse-orange: #ffe6c2;
+  --orbit-outer: rgba(110, 149, 255, 0.32);
+  --orbit-inner: rgba(255, 127, 174, 0.26);
+  --pb-hi: #dce7ff;
+  --pb-mid: #6e95ff;
+  --pb-lo: #1a3596;
+  --pp-hi: #ffe6f0;
+  --pp-mid: #ff7fae;
+  --pp-lo: #a8305e;
+  --po-hi: #fff2e4;
+  --po-mid: #ffa04d;
+  --po-lo: #b24c0c;
+  --moonlet: #ffd6b0;
+  --ring-dot: #dce7ff;
+
+  /* story */
+  --strata-1: rgba(110, 149, 255, 0.24);
+  --strata-2: rgba(36, 70, 200, 0.06);
+  --strata-border: rgba(150, 175, 255, 0.42);
+  --doc-fill: rgba(255, 245, 238, 0.1);
+  --doc-stroke: rgba(255, 220, 190, 0.38);
+  --doc-line: rgba(255, 255, 255, 0.28);
+  --band: rgba(110, 149, 255, 0.08);
+  --overview-bg: linear-gradient(150deg, rgba(22, 41, 106, 0.96), rgba(10, 20, 52, 0.97));
+  --sketch-ink: rgba(201, 210, 240, 0.55);
+  --sketch-opacity: 0.72;
+}
+
+[data-theme="twilight"] {
+  color-scheme: light;
+
+  --bg: #fff5ee;
+  --bg-2: #ffdcc4;
+  --bg-glow: #ffb896;
+
+  --ink: #16296a;
+  --ink-2: #3a2430;
+  --ink-3: #6b3f33;
+  --ink-4: #a0705e;
+
+  --accent: #b8401a;
+  --italic: #c42a66;
+  --blue: #1f4fd8;
+  --blue-deep: #1f4fd8;
+  --pink: #e9457e;
+  --orange: #f06a12;
+
+  --label-blue: #1f4fd8;
+  --label-pink: #a8225a;
+  --label-orange: #a33a10;
+
+  --line: rgba(22, 41, 106, 0.12);
+  --line-strong: rgba(22, 41, 106, 0.3);
+
+  --glass-1: rgba(255, 255, 255, 0.66);
+  --glass-2: rgba(255, 255, 255, 0.3);
+  --glass-border: #ffffff;
+  --glass-highlight: #ffffff;
+  --glass-shadow: rgba(220, 100, 60, 0.18);
+  --ghost: rgba(255, 255, 255, 0.36);
+  --ghost-border: rgba(255, 255, 255, 0.85);
+  --focus-edge: #ff8a2b;
+  --focus-glow: rgba(255, 138, 43, 0.18);
+
+  --chip: rgba(255, 255, 255, 0.55);
+  --chip-border: rgba(22, 41, 106, 0.18);
+
+  --secondary-bg: rgba(255, 255, 255, 0.6);
+  --secondary-border: #ffffff;
+  --secondary-ink: #16296a;
+  --primary-shadow: 0 12px 34px rgba(240, 106, 18, 0.35);
+
+  --header-bg: rgba(255, 245, 238, 0.75);
+  --focus: #1f4fd8;
+
+  --dash: rgba(22, 41, 106, 0.3);
+  --dash-bg: rgba(255, 255, 255, 0.22);
+  --skeleton: rgba(58, 36, 48, 0.16);
+  --placeholder-ink: #a33a10;
+
+  --stream-blue: #1f4fd8;
+  --stream-pink: #e9457e;
+  --stream-orange: #f06a12;
+  --pulse-blue: #ffffff;
+  --pulse-orange: #ffffff;
+  --orbit-outer: rgba(22, 41, 106, 0.3);
+  --orbit-inner: rgba(233, 69, 126, 0.35);
+  --pb-hi: #b9ccff;
+  --pb-mid: #2456e6;
+  --pb-lo: #132e86;
+  --pp-hi: #ffd3e3;
+  --pp-mid: #e9457e;
+  --pp-lo: #9e2453;
+  --po-hi: #fff2e4;
+  --po-mid: #f06a12;
+  --po-lo: #a3400a;
+  --moonlet: #ffffff;
+  --ring-dot: #1f4fd8;
+
+  --strata-1: rgba(255, 255, 255, 0.62);
+  --strata-2: rgba(255, 255, 255, 0.22);
+  --strata-border: #ffffff;
+  --doc-fill: rgba(255, 255, 255, 0.72);
+  --doc-stroke: rgba(163, 58, 16, 0.3);
+  --doc-line: rgba(58, 36, 48, 0.22);
+  --band: rgba(255, 255, 255, 0.45);
+  --overview-bg: linear-gradient(150deg, rgba(255, 248, 242, 0.97), rgba(255, 228, 210, 0.97));
+  --sketch-ink: rgba(22, 41, 106, 0.5);
+  --sketch-opacity: 0.9;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-ink-4: var(--ink-4);
+  --color-accent: var(--accent);
+  --color-italic: var(--italic);
+  --color-blue: var(--blue);
+  --color-pink: var(--pink);
+  --color-orange: var(--orange);
+  --color-label-blue: var(--label-blue);
+  --color-label-pink: var(--label-pink);
+  --color-label-orange: var(--label-orange);
+  --color-line: var(--line);
+  --color-chip: var(--chip);
+  --color-placeholder: var(--placeholder-ink);
+
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-italic: var(--font-bodoni), "Didot", Georgia, serif;
+  --font-label: var(--font-antonio), "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: var(--font-albert), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: color 0.8s ease;
+}
+
+::selection {
+  background: rgba(255, 138, 43, 0.35);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* Theme crossfades: night-only and twilight-only layers. */
+.only-night,
+.only-twilight {
+  transition: opacity 1.4s ease;
+}
+[data-theme="twilight"] .only-night {
+  opacity: 0;
+}
+:root:not([data-theme="twilight"]) .only-twilight {
+  opacity: 0;
+}
+
+/* Hero universe edges dissolve into the sky instead of ending in a hard line. */
+.cosmos-fade-left {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 16%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 16%);
+}
+.cosmos-fade-edges {
+  -webkit-mask-image:
+    linear-gradient(to bottom, #000 82%, transparent 100%),
+    linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to bottom, #000 82%, transparent 100%),
+    linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-composite: intersect;
+}
+
+/* Moon Horizon toggle: the moon sets as the sun rises; clouds drift in. */
+.theme-toggle {
+  border: 1px solid var(--secondary-border);
+  box-shadow: 0 0 22px rgba(36, 86, 230, 0.5);
+  transition:
+    border-color 0.8s ease,
+    box-shadow 0.8s ease;
+}
+[data-theme="twilight"] .theme-toggle {
+  box-shadow: 0 0 22px rgba(255, 138, 43, 0.5);
+}
+.tt-moon,
+.tt-sun,
+.tt-clouds {
+  transition:
+    transform 1s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.9s ease;
+}
+.tt-sun {
+  transform: translateY(34px);
+  transition-delay: 0.1s;
+}
+.tt-clouds {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+[data-theme="twilight"] .tt-moon {
+  transform: translateY(34px);
+  opacity: 0;
+}
+[data-theme="twilight"] .tt-sun {
+  transform: none;
+  transition-delay: 0.25s;
+}
+[data-theme="twilight"] .tt-clouds {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.5s;
+}
+
+/* ── Primitives ─────────────────────────────────────────────── */
+
+@layer components {
+  .label {
+    font-family: var(--font-label);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 3.25rem;
+    padding: 0 1.875rem;
+    border-radius: 999px;
+    font-family: var(--font-label);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.35s ease,
+      border-color 0.35s ease,
+      background-color 0.35s ease;
+  }
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+  .btn-primary {
+    color: #2a1206;
+    background: linear-gradient(180deg, #ffa04d, #ff8a2b);
+    box-shadow:
+      var(--primary-shadow),
+      inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  }
+  .btn-primary:hover {
+    box-shadow:
+      0 0 46px rgba(255, 138, 43, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  }
+  .btn-secondary {
+    color: var(--secondary-ink);
+    background: var(--secondary-bg);
+    border: 1px solid var(--secondary-border);
+    box-shadow: inset 0 1px 0 var(--glass-highlight);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .btn-secondary:hover {
+    border-color: var(--focus-edge);
+  }
+  .btn-sm {
+    min-height: 2.75rem;
+    padding: 0 1.375rem;
+    font-size: 0.8125rem;
+  }
+
+  .glass-pane {
+    position: relative;
+    height: 100%;
+    border-radius: 1.75rem;
+    background: linear-gradient(150deg, var(--glass-1), var(--glass-2));
+    border: 1px solid var(--glass-border);
+    box-shadow:
+      inset 0 1px 0 var(--glass-highlight),
+      0 24px 60px var(--glass-shadow);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition:
+      border-color 0.5s ease,
+      box-shadow 0.5s ease;
+  }
+}
+
+/* ── Motion: Breath ─────────────────────────────────────────── */
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(0.94);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+@keyframes flow {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes stream {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-11px);
+  }
+}
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.anim-breathe {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: breathe 5s ease-in-out infinite;
+}
+.anim-flow {
+  animation: flow 6s linear infinite;
+}
+.anim-bob {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bob 7s ease-in-out infinite;
+}
+.anim-twinkle {
+  animation: twinkle 5s ease-in-out infinite;
+}
+.anim-drift {
+  animation: drift 20s ease-in-out infinite;
+}
+.anim-stream {
+  animation: stream 0.9s linear infinite;
+}
+
+/* ── I · Curiosity: raw points settle into one ordered line ── */
+
+.js .gather .particle {
+  transform: translate(var(--dx), var(--dy));
+  opacity: 0.55;
+  transition:
+    transform 1.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d),
+    opacity 1.9s ease var(--d);
+}
+.js .gather.is-visible .particle {
+  transform: none;
+  opacity: 1;
+}
+.js .gather .gather-text {
+  opacity: 0;
+  filter: blur(8px);
+  transition:
+    opacity 1.2s ease 0.5s,
+    filter 1.2s ease 0.5s;
+}
+.js .gather.is-visible .gather-text {
+  opacity: 1;
+  filter: none;
+}
+
+/* Notebook sketches: thin, quiet, a touch softer at night and inkier by day. */
+.sketch {
+  opacity: var(--sketch-opacity);
+  transition: opacity 0.8s ease;
+}
+
+/* ── I · The journey: one line drawn through six milestones ── */
+
+.tl-fallback {
+  background: linear-gradient(180deg, var(--blue), var(--orange) 55%, var(--pink));
+  opacity: 0.6;
+}
+.tl-ready .tl-fallback {
+  display: none;
+}
+.tl-track {
+  stroke: var(--line-strong);
+  opacity: 0.55;
+}
+.tl-drawn {
+  filter: drop-shadow(0 0 6px rgba(255, 138, 43, 0.35));
+}
+.tl-tail {
+  stroke: var(--label-orange);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.tl-tail[data-on="true"] {
+  opacity: 0.7;
+}
+.tl-particle {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 4px var(--orange));
+}
+
+.tl-node {
+  width: 22px;
+  height: 22px;
+}
+.tl-node-core {
+  width: 11px;
+  height: 11px;
+  background: var(--bg);
+  border: 1.5px solid var(--line-strong);
+  transition:
+    background-color 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease,
+    transform 0.5s cubic-bezier(0.3, 0.8, 0.2, 1);
+}
+.tl-node-ring {
+  inset: -5px;
+  border: 1px solid var(--label-orange);
+  opacity: 0;
+}
+.tl-item[data-lit="true"] .tl-node-core {
+  background: var(--ink);
+  border-color: var(--ink);
+  box-shadow: 0 0 14px var(--blue);
+  transform: scale(1.1);
+}
+.tl-item[data-prime] .tl-node-core {
+  width: 15px;
+  height: 15px;
+}
+.tl-item[data-prime][data-lit="true"] .tl-node-core {
+  background: #ffb15c;
+  border-color: #ffb15c;
+  box-shadow:
+    0 0 18px #ff8a2b,
+    0 0 36px rgba(255, 138, 43, 0.45);
+}
+.tl-item[data-prime][data-lit="true"] .tl-node-ring {
+  animation: tl-pulse 2.8s ease-in-out infinite;
+}
+.tl-kicker {
+  color: var(--label-blue);
+}
+.tl-item[data-prime] .tl-kicker {
+  color: var(--label-orange);
+}
+.tl-title {
+  font-size: clamp(1.45rem, 2.2vw, 1.75rem);
+}
+.tl-item[data-prime] .tl-title {
+  font-size: clamp(1.65rem, 2.6vw, 2.1rem);
+}
+
+/* Before the line reaches a milestone, its words and sketch wait (space is kept — no shift). */
+.tl-ready .tl-item .tl-text {
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.8s ease;
+}
+.tl-ready .tl-item[data-lit="false"] .tl-text {
+  opacity: 0;
+  transform: translateY(14px);
+  filter: blur(6px);
+}
+.js .tl-ready .tl-sketch path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 1.3s ease-in-out;
+}
+.js .tl-ready .tl-item[data-lit="true"] .tl-sketch path {
+  stroke-dashoffset: 0;
+}
+.tl-ready .tl-sketch text {
+  opacity: 0;
+  transition: opacity 0.6s ease 0.8s;
+}
+.tl-ready .tl-item[data-lit="true"] .tl-sketch text {
+  opacity: 1;
+}
+
+@keyframes tl-pulse {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.35);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tl-ready .tl-item .tl-text,
+  .tl-ready .tl-sketch text {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .js .tl-ready .tl-sketch path {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ── II · How I engineer: the architecture assembles ── */
+
+.arch-plane {
+  position: absolute;
+  border-radius: 40px;
+  background: linear-gradient(135deg, var(--strata-1), var(--strata-2));
+  border: 1px solid var(--strata-border);
+  box-shadow: 0 0 40px rgba(36, 86, 230, 0.16);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transform: rotateX(60deg) rotateZ(-45deg);
+  transition:
+    opacity 0.7s ease,
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 0.6s ease;
+}
+.arch-plane.arch-foundation {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 160, 90, 0.38), var(--strata-2) 62%);
+}
+.arch-plane.arch-warm {
+  background: linear-gradient(135deg, rgba(255, 177, 92, 0.24), var(--strata-2));
+}
+.arch-plane[data-state="next"] {
+  opacity: 0.5;
+  background: transparent;
+  border: 1.5px dashed var(--label-orange);
+  box-shadow: none;
+  transform: translateY(-28px) rotateX(60deg) rotateZ(-45deg);
+}
+.arch-plane[data-state="off"] {
+  opacity: 0;
+  transform: translateY(-60px) rotateX(60deg) rotateZ(-45deg);
+}
+.arch-plane[data-focus="true"][data-state="on"] {
+  border-color: var(--label-orange);
+  box-shadow: 0 0 46px rgba(255, 138, 43, 0.28);
+}
+.arch-label-btn {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.arch-label-btn:disabled {
+  cursor: default;
+}
+.arch-label-btn:not(:disabled):hover,
+.arch-label-btn[data-focus="true"] {
+  background: var(--chip);
+}
+.arch-label-btn .arch-label-name {
+  transition: letter-spacing 0.3s ease;
+}
+.arch-label-btn:not(:disabled):hover .arch-label-name {
+  letter-spacing: 0.32em;
+}
+.arch-spine {
+  position: absolute;
+  width: 6px;
+  border-radius: 999px;
+  background: linear-gradient(0deg, rgba(255, 170, 90, 0.95), rgba(255, 140, 60, 0.2));
+  filter: blur(1.5px);
+  transition: opacity 0.8s ease;
+}
+.arch-spine[data-state="off"],
+.arch-label-fade[data-state="off"] {
+  opacity: 0;
+}
+.arch-label-fade {
+  transition: opacity 0.6s ease;
+}
+.arch-label-fade[data-state="next"] {
+  opacity: 0.4;
+}
+.arch-slab {
+  border-radius: 10px;
+  transform: skewX(-24deg);
+  background: linear-gradient(90deg, var(--strata-1), var(--strata-2));
+  border: 1px solid var(--strata-border);
+}
+.arch-slab.arch-foundation {
+  background: linear-gradient(90deg, rgba(255, 160, 90, 0.45), var(--strata-2));
+}
+.arch-slab.arch-warm {
+  background: linear-gradient(90deg, rgba(255, 177, 92, 0.4), var(--strata-2));
+}
+
+/* ── Sentinel · leadership: abilities sit on the threads between two responsibilities ── */
+
+@media (min-width: 1024px) {
+  .thread {
+    width: 100%;
+  }
+  .thread::before,
+  .thread::after {
+    content: "";
+    flex: 1 1 0;
+    min-width: 44px;
+    height: 1px;
+    opacity: 0.65;
+  }
+  .thread::before {
+    background: linear-gradient(90deg, var(--label-blue), var(--label-orange));
+  }
+  .thread::after {
+    background: linear-gradient(90deg, var(--label-orange), var(--label-pink));
+  }
+}
+
+/* ── Overview dialog ── */
+
+dialog.overview {
+  background: var(--overview-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.45);
+}
+dialog.overview::backdrop {
+  background: rgba(4, 8, 22, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+/* ── Reveal: things surface from the blur as visitors explore ── */
+
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(2.25rem);
+  filter: blur(8px);
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+.js [data-reveal-draw] path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 1.4s ease-in-out;
+}
+.js [data-reveal-draw].is-visible path {
+  stroke-dashoffset: 0;
+}
+
+/* ── Accessibility: respect reduced motion ─────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+  .js [data-reveal-draw] path {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ── Introduction: night or day sky; the name then flies into the header ── */
+
+.intro-sky {
+  background: var(--bg);
+}
+/* Without JavaScript the introduction simply fades away on its own. */
+html:not(.js) .intro {
+  animation: intro-out 0.9s ease 3s forwards;
+}
+html.intro-skip .intro {
+  display: none;
+}
+/* While the introduction plays, the header name waits — the intro's name becomes it. */
+.js:not(.intro-skip):not(.intro-finished) [data-brand-name] {
+  visibility: hidden;
+}
+.intro-night {
+  background: radial-gradient(70% 60% at 50% 45%, #16296a 0%, #0c1740 45%, #070d22 100%);
+}
+.intro-day {
+  /* soft day sky: clear blue fading to a warm, light horizon (no pink-on-blue blending) */
+  background: linear-gradient(180deg, #cfe2ff 0%, #e6efff 38%, #fff5ee 72%, #ffe6d4 100%);
+}
+.intro-cloud {
+  animation: intro-cloud linear infinite;
+  will-change: transform;
+}
+.intro-name {
+  opacity: 0;
+  animation: intro-in 1.3s cubic-bezier(0.2, 0.7, 0.2, 1) 0.25s forwards;
+}
+.intro-title {
+  opacity: 0;
+  animation: intro-in 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.85s forwards;
+}
+.intro-rule {
+  background: linear-gradient(90deg, transparent, var(--orange), transparent);
+  transform: scaleX(0);
+  animation: intro-rule 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) 1.3s forwards;
+}
+.intro-skip-btn {
+  border: 1px solid var(--secondary-border);
+  background: var(--secondary-bg);
+  opacity: 0;
+  animation: intro-in 0.6s ease 0.6s forwards;
+}
+
+/* The daytime sun: a warm disc, a breathing halo, and slowly turning, shimmering rays. */
+.intro-sun {
+  --sun: clamp(64px, 8.5vw, 120px);
+  position: absolute;
+  width: calc(var(--sun) * 4);
+  height: calc(var(--sun) * 4);
+  right: calc(13vw - var(--sun) * 2);
+  top: calc(14vh - var(--sun) * 2);
+  pointer-events: none;
+  animation: sun-rise 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.1s both;
+}
+@media (max-width: 640px) {
+  .intro-sun {
+    right: calc(22vw - var(--sun) * 2);
+    top: calc(13vh - var(--sun) * 2);
+  }
+}
+.sun-halo,
+.sun-disc,
+.sun-glint {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+}
+.sun-halo {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    closest-side,
+    rgba(255, 214, 120, 0.75),
+    rgba(255, 196, 92, 0.35) 38%,
+    rgba(255, 186, 110, 0.12) 64%,
+    rgba(255, 186, 110, 0) 100%
+  );
+  animation: sun-pulse 6.5s ease-in-out infinite;
+}
+.sun-rays {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: sun-turn 160s linear infinite;
+}
+.sun-ray-group {
+  animation: sun-shimmer 5.5s ease-in-out infinite;
+}
+.sun-ray-group-1 {
+  animation-delay: -2.75s;
+}
+.sun-disc {
+  width: var(--sun);
+  height: var(--sun);
+  background: radial-gradient(circle at 38% 34%, #fffbea 0%, #ffe9a8 30%, #ffc96a 68%, #ffad4a 100%);
+  box-shadow:
+    0 0 24px 6px rgba(255, 205, 110, 0.75),
+    0 0 70px 18px rgba(255, 176, 80, 0.35),
+    inset 0 -6px 14px rgba(240, 128, 40, 0.35);
+}
+/* An occasional glint across the disc — the "shimmer". */
+.sun-glint {
+  width: calc(var(--sun) * 0.5);
+  height: calc(var(--sun) * 0.5);
+  margin: calc(var(--sun) * -0.16) 0 0 calc(var(--sun) * -0.18);
+  background:
+    linear-gradient(90deg, transparent 46%, rgba(255, 255, 255, 0.95) 50%, transparent 54%),
+    linear-gradient(0deg, transparent 46%, rgba(255, 255, 255, 0.95) 50%, transparent 54%);
+  filter: blur(0.4px) drop-shadow(0 0 6px #ffffff);
+  opacity: 0;
+  animation: sun-glint 9s ease-in-out 2.4s infinite;
+}
+/* Paused while the night sky is showing. */
+:root:not([data-theme="twilight"]) .intro-sun,
+:root:not([data-theme="twilight"]) .intro-sun * {
+  animation-play-state: paused;
+}
+
+@keyframes sun-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes sun-pulse {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+}
+@keyframes sun-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sun-shimmer {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes sun-glint {
+  0%,
+  86%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.4);
+  }
+  91% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+  }
+  96% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(90deg) scale(0.5);
+  }
+}
+
+/* Shooting stars: a bright head with a glowing trail that fades behind it. */
+.shooting-star {
+  position: absolute;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(201, 212, 255, 0), rgba(201, 212, 255, 0.35) 55%, #ffffff);
+  filter: drop-shadow(0 0 6px rgba(200, 215, 255, 0.7));
+  transform-origin: 100% 50%;
+  opacity: 0;
+  animation-name: shoot;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.35, 1);
+  animation-iteration-count: infinite;
+}
+.shooting-star::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  margin-top: -2.5px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow:
+    0 0 8px 2px rgba(255, 255, 255, 0.9),
+    0 0 18px 4px rgba(255, 226, 196, 0.45);
+}
+
+@keyframes shoot {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--angle)) translateX(0) scaleX(0.2);
+  }
+  3% {
+    opacity: 1;
+  }
+  12% {
+    opacity: 0.9;
+    transform: rotate(var(--angle)) translateX(calc(var(--travel) * 0.85)) scaleX(1);
+  }
+  16% {
+    opacity: 0;
+    transform: rotate(var(--angle)) translateX(var(--travel)) scaleX(0.6);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--angle)) translateX(var(--travel)) scaleX(0.6);
+  }
+}
+@keyframes intro-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+@keyframes intro-rule {
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes intro-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes intro-cloud {
+  from {
+    transform: translateX(-30vw);
+  }
+  to {
+    transform: translateX(110vw);
+  }
+}
+
+/* Reduced motion: a still introduction for a moment (no shooting stars, no flight). */
+@media (prefers-reduced-motion: reduce) {
+  .intro-name,
+  .intro-title,
+  .intro-skip-btn {
+    opacity: 1 !important;
+  }
+  .intro-rule {
+    transform: none !important;
+  }
+  .intro-cloud {
+    transform: translateX(var(--cloud-x, 20vw));
+  }
+  .shooting-star {
+    display: none;
+  }
+}
+
+/* ── Project stages: a workflow you can step through ── */
+
+.stage-hint svg {
+  animation: hint-nudge 2.6s ease-in-out infinite;
+}
+.stage-track {
+  transform-origin: left center;
+}
+.js .stage-strip .stage-track {
+  transform: scaleX(0);
+  transition: transform 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s;
+}
+.js .stage-strip.is-visible .stage-track {
+  transform: none;
+}
+.js .stage-strip .stage-btn {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.6s ease var(--stage-delay),
+    transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) var(--stage-delay);
+}
+.js .stage-strip.is-visible .stage-btn {
+  opacity: 1;
+  transform: none;
+}
+.stage-fill {
+  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px var(--stage-accent);
+}
+.stage-btn {
+  cursor: pointer;
+}
+.stage-node {
+  transition: transform 0.3s cubic-bezier(0.3, 0.8, 0.2, 1);
+}
+.stage-core {
+  width: 11px;
+  height: 11px;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink-3);
+  background: var(--bg);
+  transition:
+    width 0.35s ease,
+    height 0.35s ease,
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+.stage-ring {
+  border: 1px solid var(--stage-accent);
+  opacity: 0;
+}
+.stage-name {
+  color: var(--ink-3);
+  transition: color 0.3s ease;
+}
+.stage-btn:hover .stage-node,
+.stage-btn:focus-visible .stage-node {
+  transform: scale(1.2);
+}
+.stage-btn:hover .stage-core,
+.stage-btn:focus-visible .stage-core {
+  border-color: var(--stage-accent);
+  box-shadow: 0 0 14px var(--stage-accent);
+}
+.stage-btn:hover .stage-name,
+.stage-btn:focus-visible .stage-name {
+  color: var(--stage-accent);
+}
+.stage-btn[data-state="done"] .stage-core {
+  background: var(--stage-accent);
+  border-color: var(--stage-accent);
+  opacity: 0.75;
+}
+.stage-btn[data-state="active"] .stage-core {
+  width: 17px;
+  height: 17px;
+  background: var(--stage-accent);
+  border-color: var(--stage-accent);
+  box-shadow: 0 0 20px var(--stage-accent);
+}
+.stage-btn[data-state="active"] .stage-ring {
+  opacity: 0.55;
+  transform: scale(1.25);
+}
+.stage-btn[data-state="active"] .stage-name {
+  color: var(--stage-accent);
+}
+.stage-btn[data-state="next"] .stage-ring {
+  animation: stage-invite 2.6s ease-in-out infinite;
+}
+.stage-detail {
+  animation: detail-in 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes stage-invite {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.35);
+  }
+}
+@keyframes detail-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes hint-nudge {
+  0%,
+  70%,
+  100% {
+    transform: translate(0, 0);
+  }
+  80% {
+    transform: translate(2px, 2px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .stage-strip .stage-btn,
+  .js .stage-strip .stage-track {
+    opacity: 1;
+    transform: none;
+  }
+}
