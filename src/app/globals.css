@@ -694,6 +694,30 @@ body {
   background: linear-gradient(90deg, var(--strata-1), var(--strata-2));
   border: 1px solid var(--strata-border);
 }
+
+/* Phones & tablets: faint until built, then each layer settles onto the one below it,
+   from the foundation up. */
+.js .arch-build > li {
+  opacity: 0.14;
+  transform: translateY(-14px);
+  filter: blur(3px);
+  transition:
+    opacity 0.7s ease var(--build-delay),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) var(--build-delay),
+    filter 0.7s ease var(--build-delay);
+}
+.js .arch-build.is-visible > li {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .arch-build > li {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
 .arch-slab.arch-foundation {
   background: linear-gradient(90deg, rgba(255, 160, 90, 0.45), var(--strata-2));
 }
