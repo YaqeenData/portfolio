@@ -1,0 +1,530 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────────
+   Confluence design tokens
+   Night is the primary world; twilight is the same world at dusk.
+   Every colour in the UI comes from these variables.
+   Rule: orange always sits between pink and blue — never blend them.
+   ────────────────────────────────────────────────────────────── */
+
+:root,
+[data-theme="night"] {
+  color-scheme: dark;
+
+  --bg: #070d22;
+  --bg-2: #0c1740;
+  --bg-glow: #16296a;
+
+  --ink: #f3f5ff;
+  --ink-2: #c9d2f0;
+  --ink-3: #8c9ac8;
+  --ink-4: #6e7ba8;
+
+  --accent: #ffb15c;
+  --italic: #ff7fae;
+  --blue: #6e95ff;
+  --blue-deep: #2456e6;
+  --pink: #ff7fae;
+  --orange: #ff8a2b;
+
+  --label-blue: #8faeff;
+  --label-pink: #ff9cc2;
+  --label-orange: #ffb15c;
+
+  --line: rgba(150, 175, 255, 0.16);
+  --line-strong: rgba(150, 175, 255, 0.4);
+
+  --glass-1: rgba(110, 149, 255, 0.18);
+  --glass-2: rgba(36, 70, 200, 0.06);
+  --glass-border: rgba(150, 175, 255, 0.3);
+  --glass-highlight: rgba(255, 255, 255, 0.14);
+  --glass-shadow: rgba(2, 6, 20, 0.45);
+  --ghost: rgba(110, 149, 255, 0.08);
+  --ghost-border: rgba(150, 175, 255, 0.2);
+  --focus-edge: rgba(255, 170, 110, 0.6);
+  --focus-glow: rgba(255, 138, 43, 0.22);
+
+  --chip: rgba(110, 149, 255, 0.1);
+  --chip-border: rgba(150, 175, 255, 0.3);
+
+  --secondary-bg: rgba(110, 149, 255, 0.14);
+  --secondary-border: rgba(150, 175, 255, 0.45);
+  --secondary-ink: #f3f5ff;
+  --primary-shadow: 0 0 34px rgba(255, 138, 43, 0.45);
+
+  --header-bg: rgba(7, 13, 34, 0.72);
+  --focus: #ffb15c;
+
+  --dash: rgba(150, 175, 255, 0.38);
+  --dash-bg: rgba(110, 149, 255, 0.04);
+  --skeleton: rgba(174, 184, 224, 0.22);
+  --placeholder-ink: #ffb15c;
+
+  /* cosmos */
+  --stream-blue: #6e95ff;
+  --stream-pink: #ff7fae;
+  --stream-orange: #ffa04d;
+  --pulse-blue: #d6e3ff;
+  --pulse-orange: #ffe6c2;
+  --orbit-outer: rgba(110, 149, 255, 0.32);
+  --orbit-inner: rgba(255, 127, 174, 0.26);
+  --pb-hi: #dce7ff;
+  --pb-mid: #6e95ff;
+  --pb-lo: #1a3596;
+  --pp-hi: #ffe6f0;
+  --pp-mid: #ff7fae;
+  --pp-lo: #a8305e;
+  --po-hi: #fff2e4;
+  --po-mid: #ffa04d;
+  --po-lo: #b24c0c;
+  --moonlet: #ffd6b0;
+  --ring-dot: #dce7ff;
+}
+
+[data-theme="twilight"] {
+  color-scheme: light;
+
+  --bg: #fff5ee;
+  --bg-2: #ffdcc4;
+  --bg-glow: #ffb896;
+
+  --ink: #16296a;
+  --ink-2: #3a2430;
+  --ink-3: #6b3f33;
+  --ink-4: #a0705e;
+
+  --accent: #b8401a;
+  --italic: #c42a66;
+  --blue: #1f4fd8;
+  --blue-deep: #1f4fd8;
+  --pink: #e9457e;
+  --orange: #f06a12;
+
+  --label-blue: #1f4fd8;
+  --label-pink: #a8225a;
+  --label-orange: #a33a10;
+
+  --line: rgba(22, 41, 106, 0.12);
+  --line-strong: rgba(22, 41, 106, 0.3);
+
+  --glass-1: rgba(255, 255, 255, 0.66);
+  --glass-2: rgba(255, 255, 255, 0.3);
+  --glass-border: #ffffff;
+  --glass-highlight: #ffffff;
+  --glass-shadow: rgba(220, 100, 60, 0.18);
+  --ghost: rgba(255, 255, 255, 0.36);
+  --ghost-border: rgba(255, 255, 255, 0.85);
+  --focus-edge: #ff8a2b;
+  --focus-glow: rgba(255, 138, 43, 0.18);
+
+  --chip: rgba(255, 255, 255, 0.55);
+  --chip-border: rgba(22, 41, 106, 0.18);
+
+  --secondary-bg: rgba(255, 255, 255, 0.6);
+  --secondary-border: #ffffff;
+  --secondary-ink: #16296a;
+  --primary-shadow: 0 12px 34px rgba(240, 106, 18, 0.35);
+
+  --header-bg: rgba(255, 245, 238, 0.75);
+  --focus: #1f4fd8;
+
+  --dash: rgba(22, 41, 106, 0.3);
+  --dash-bg: rgba(255, 255, 255, 0.22);
+  --skeleton: rgba(58, 36, 48, 0.16);
+  --placeholder-ink: #a33a10;
+
+  --stream-blue: #1f4fd8;
+  --stream-pink: #e9457e;
+  --stream-orange: #f06a12;
+  --pulse-blue: #ffffff;
+  --pulse-orange: #ffffff;
+  --orbit-outer: rgba(22, 41, 106, 0.3);
+  --orbit-inner: rgba(233, 69, 126, 0.35);
+  --pb-hi: #b9ccff;
+  --pb-mid: #2456e6;
+  --pb-lo: #132e86;
+  --pp-hi: #ffd3e3;
+  --pp-mid: #e9457e;
+  --pp-lo: #9e2453;
+  --po-hi: #fff2e4;
+  --po-mid: #f06a12;
+  --po-lo: #a3400a;
+  --moonlet: #ffffff;
+  --ring-dot: #1f4fd8;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-ink-4: var(--ink-4);
+  --color-accent: var(--accent);
+  --color-italic: var(--italic);
+  --color-blue: var(--blue);
+  --color-pink: var(--pink);
+  --color-orange: var(--orange);
+  --color-label-blue: var(--label-blue);
+  --color-label-pink: var(--label-pink);
+  --color-label-orange: var(--label-orange);
+  --color-line: var(--line);
+  --color-chip: var(--chip);
+  --color-placeholder: var(--placeholder-ink);
+
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-italic: var(--font-bodoni), "Didot", Georgia, serif;
+  --font-label: var(--font-antonio), "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: var(--font-albert), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: color 0.8s ease;
+}
+
+::selection {
+  background: rgba(255, 138, 43, 0.35);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* Theme crossfades: night-only and twilight-only layers. */
+.only-night,
+.only-twilight {
+  transition: opacity 1.4s ease;
+}
+[data-theme="twilight"] .only-night {
+  opacity: 0;
+}
+:root:not([data-theme="twilight"]) .only-twilight {
+  opacity: 0;
+}
+
+/* Hero universe edges dissolve into the sky instead of ending in a hard line. */
+.cosmos-fade-left {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 16%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 16%);
+}
+.cosmos-fade-edges {
+  -webkit-mask-image:
+    linear-gradient(to bottom, #000 82%, transparent 100%),
+    linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to bottom, #000 82%, transparent 100%),
+    linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-composite: intersect;
+}
+
+/* Moon Horizon toggle: the moon sets as the sun rises; clouds drift in. */
+.theme-toggle {
+  border: 1px solid var(--secondary-border);
+  box-shadow: 0 0 22px rgba(36, 86, 230, 0.5);
+  transition:
+    border-color 0.8s ease,
+    box-shadow 0.8s ease;
+}
+[data-theme="twilight"] .theme-toggle {
+  box-shadow: 0 0 22px rgba(255, 138, 43, 0.5);
+}
+.tt-moon,
+.tt-sun,
+.tt-clouds {
+  transition:
+    transform 1s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.9s ease;
+}
+.tt-sun {
+  transform: translateY(34px);
+  transition-delay: 0.1s;
+}
+.tt-clouds {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+[data-theme="twilight"] .tt-moon {
+  transform: translateY(34px);
+  opacity: 0;
+}
+[data-theme="twilight"] .tt-sun {
+  transform: none;
+  transition-delay: 0.25s;
+}
+[data-theme="twilight"] .tt-clouds {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.5s;
+}
+
+/* ── Primitives ─────────────────────────────────────────────── */
+
+@layer components {
+  .label {
+    font-family: var(--font-label);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 3.25rem;
+    padding: 0 1.875rem;
+    border-radius: 999px;
+    font-family: var(--font-label);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.35s ease,
+      border-color 0.35s ease,
+      background-color 0.35s ease;
+  }
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+  .btn-primary {
+    color: #2a1206;
+    background: linear-gradient(180deg, #ffa04d, #ff8a2b);
+    box-shadow:
+      var(--primary-shadow),
+      inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  }
+  .btn-primary:hover {
+    box-shadow:
+      0 0 46px rgba(255, 138, 43, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  }
+  .btn-secondary {
+    color: var(--secondary-ink);
+    background: var(--secondary-bg);
+    border: 1px solid var(--secondary-border);
+    box-shadow: inset 0 1px 0 var(--glass-highlight);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .btn-secondary:hover {
+    border-color: var(--focus-edge);
+  }
+  .btn-sm {
+    min-height: 2.75rem;
+    padding: 0 1.375rem;
+    font-size: 0.8125rem;
+  }
+
+  /* Soft Pane with a hint of Layered: a hidden sheet rises on focus/hover. */
+  .glass-card {
+    position: relative;
+    padding-top: 0.875rem;
+  }
+  .glass-ghost {
+    position: absolute;
+    left: 1.625rem;
+    right: 1.625rem;
+    top: 0;
+    height: 3.75rem;
+    border-radius: 1.5rem;
+    background: var(--ghost);
+    border: 1px solid var(--ghost-border);
+    transition:
+      transform 0.5s cubic-bezier(0.3, 0.8, 0.2, 1),
+      background-color 0.5s ease;
+  }
+  .glass-pane {
+    position: relative;
+    height: 100%;
+    border-radius: 1.75rem;
+    background: linear-gradient(150deg, var(--glass-1), var(--glass-2));
+    border: 1px solid var(--glass-border);
+    box-shadow:
+      inset 0 1px 0 var(--glass-highlight),
+      0 24px 60px var(--glass-shadow);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition:
+      border-color 0.5s ease,
+      box-shadow 0.5s ease;
+  }
+  .glass-card:hover .glass-ghost,
+  .glass-card:focus-within .glass-ghost {
+    transform: translateY(-0.75rem);
+  }
+  .glass-card:hover .glass-pane,
+  .glass-card:focus-within .glass-pane {
+    border-color: var(--focus-edge);
+    box-shadow:
+      inset 0 1px 0 var(--glass-highlight),
+      0 0 44px var(--focus-glow),
+      0 24px 60px var(--glass-shadow);
+  }
+
+  .dash-box {
+    border: 1px dashed var(--dash);
+    background: var(--dash-bg);
+    border-radius: 1.5rem;
+  }
+  .skeleton {
+    height: 0.625rem;
+    border-radius: 999px;
+    background: var(--skeleton);
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    border: 1px solid var(--chip-border);
+    padding: 0.4375rem 0.875rem;
+    font-family: var(--font-label);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .tool {
+    border-radius: 0.75rem;
+    background: var(--chip);
+    padding: 0.5rem 0.875rem;
+    font-size: 0.9375rem;
+    color: var(--ink-2);
+  }
+  .placeholder-title {
+    font-style: italic;
+    color: var(--ink-3);
+  }
+}
+
+/* ── Motion: Breath ─────────────────────────────────────────── */
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(0.94);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+@keyframes flow {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.anim-breathe {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: breathe 5s ease-in-out infinite;
+}
+.anim-flow {
+  animation: flow 6s linear infinite;
+}
+.anim-bob {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bob 7s ease-in-out infinite;
+}
+.anim-twinkle {
+  animation: twinkle 5s ease-in-out infinite;
+}
+.anim-drift {
+  animation: drift 20s ease-in-out infinite;
+}
+
+/* ── Reveal: things surface from the blur as visitors explore ── */
+
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(2.25rem);
+  filter: blur(8px);
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+.js [data-reveal-draw] path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 1.4s ease-in-out;
+}
+.js [data-reveal-draw].is-visible path {
+  stroke-dashoffset: 0;
+}
+
+/* ── Accessibility: respect reduced motion ─────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+  .js [data-reveal-draw] path {
+    stroke-dashoffset: 0;
+  }
+}
