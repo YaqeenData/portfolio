@@ -251,7 +251,6 @@ export const site = {
       {
         slug: "bayan",
         name: "Bayan",
-        nameAr: "بيان",
         subtitle: "Saudi Regulations & Decisions Data Hub",
         opening: "Finding a regulation is easy. Understanding how it changed over time is a different problem.",
         overview:
