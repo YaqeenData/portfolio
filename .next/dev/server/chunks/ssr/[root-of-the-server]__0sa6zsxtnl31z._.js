@@ -185,14 +185,15 @@ const sharedViewport = {
 };
 /**
  * Runs before paint, so there is never a flash of the wrong theme or language:
- *  - mode: the visitor's saved choice, otherwise their system preference (light → twilight/day),
- *    otherwise night;
+ *  - mode: the visitor's saved choice; first-time visitors start in night (dark), the
+ *    portfolio's primary look;
  *  - marks that JavaScript is available so reveal animations can hide content first;
  *  - skips the introduction if it has already played in this browser session;
- *  - on the English page only: a visitor who chose Arabic before is taken straight to /ar.
+ *  - on English pages only: a visitor who chose Arabic before is taken straight to the same
+ *    page in Arabic (/ → /ar, /projects/bayan → /ar/projects/bayan).
  */ function headScript(locale) {
-    const redirect = locale === "en" ? `try{if(localStorage.getItem('lang')==='ar'&&location.pathname==='/'){location.replace('/ar'+location.hash);}}catch(e){}` : "";
-    return `(function(){var d=document.documentElement;${redirect}d.classList.add('js');var t=null;try{t=localStorage.getItem('theme');}catch(e){}if(t!=='night'&&t!=='twilight'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'twilight':'night';}d.dataset.theme=t;try{if(sessionStorage.getItem('introSeen'))d.classList.add('intro-skip');}catch(e){}})();`;
+    const redirect = locale === "en" ? `try{if(localStorage.getItem('lang')==='ar'){var p=location.pathname;location.replace('/ar'+(p==='/'?'':p)+location.hash);}}catch(e){}` : "";
+    return `(function(){var d=document.documentElement;${redirect}d.classList.add('js');var t=null;try{t=localStorage.getItem('theme');}catch(e){}if(t!=='night'&&t!=='twilight'){t='night';}d.dataset.theme=t;try{if(sessionStorage.getItem('introSeen'))d.classList.add('intro-skip');}catch(e){}})();`;
 }
 function RootDocument({ locale, fontVars = "", children }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("html", {
@@ -209,25 +210,25 @@ function RootDocument({ locale, fontVars = "", children }) {
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/components/layout/RootDocument.tsx",
-                    lineNumber: 74,
+                    lineNumber: 75,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/layout/RootDocument.tsx",
-                lineNumber: 73,
+                lineNumber: 74,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("body", {
                 children: children
             }, void 0, false, {
                 fileName: "[project]/src/components/layout/RootDocument.tsx",
-                lineNumber: 76,
+                lineNumber: 77,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/layout/RootDocument.tsx",
-        lineNumber: 66,
+        lineNumber: 67,
         columnNumber: 5
     }, this);
 }
@@ -316,7 +317,7 @@ const siteAr = {
     },
     nav: [
         {
-            id: "work",
+            id: "projects",
             label: "المشاريع"
         },
         {
@@ -325,7 +326,7 @@ const siteAr = {
         },
         {
             id: "path",
-            label: "الرحلة"
+            label: "المسيرة"
         },
         {
             id: "contact",
@@ -345,8 +346,8 @@ const siteAr = {
         },
         intro: "مهندسة بيانات يحرّكني الفضول؛ أجمع البيانات وأهندسها لأبني منها حلولًا ذات قيمة. تستهويني التحديات المعقدة، وأتعلّم بسرعة، وأستمتع باكتشاف المشكلات التي تستحق أن تُحلّ بالبيانات.",
         primaryCta: {
-            label: "استعرض أعمالي",
-            href: "#work"
+            label: "استعرض مشاريعي",
+            href: "#projects"
         },
         secondaryCta: {
             label: "تعرّف عليّ",
@@ -515,197 +516,8 @@ const siteAr = {
         ]
     },
     // ── III · What I've built ──────────────────────────────────
-    work: {
+    projects: {
         label: "مشاريع بنيتُها",
-        projects: [
-            {
-                slug: "bayan",
-                name: "بيان",
-                altName: "Bayan",
-                altLang: "en",
-                subtitle: "منصة بيانات الأنظمة والقرارات السعودية",
-                opening: "الوصول إلى النظام سهل، لكن تتبّع تغيّره عبر الزمن مشكلة مختلفة تمامًا.",
-                overview: "يحوّل «بيان» المعلومات التنظيمية السعودية إلى بيانات منظّمة تحفظ إصدارات كل نظام، لتسهيل استكشاف الأنظمة وتحليل تطوّرها.",
-                visual: "archive",
-                accent: "amber",
-                flow: [
-                    "BOE",
-                    "Bronze",
-                    "Silver",
-                    "Gold",
-                    "Power BI"
-                ],
-                stages: [
-                    {
-                        name: "الجمع",
-                        detail: "استخراج بيانات الأنظمة من هيئة الخبراء بمجلس الوزراء باستخدام Python، وحفظ البيانات الخام كما هي في Object Storage متوافق مع S3."
-                    },
-                    {
-                        name: "الهيكلة",
-                        detail: "تحويل النصوص الخام إلى كيانات علائقية في PostgreSQL تمثّل الأنظمة والفصول والمواد والعلاقات بينها."
-                    },
-                    {
-                        name: "الإصدارات",
-                        detail: "جداول مخصّصة للإصدارات تحفظ تاريخ كل نظام وكل مادة، فيبقى أي تعديل قابلًا للتتبّع."
-                    },
-                    {
-                        name: "التحليل",
-                        detail: "تجهيز مجموعات بيانات منقّحة للتقارير والاستكشاف عبر Power BI."
-                    }
-                ],
-                facts: [
-                    {
-                        label: "السياق",
-                        value: "مشروع تخرّج جماعي ضمن معسكر هندسة البيانات في الأكاديمية السعودية الرقمية."
-                    }
-                ],
-                stackLabel: "التقنيات",
-                stack: [
-                    "Python",
-                    "Apache Airflow",
-                    "PostgreSQL",
-                    "Docker",
-                    "SeaweedFS",
-                    "FastAPI",
-                    "Power BI"
-                ],
-                stackComplete: true,
-                caseStudyUrl: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$content$2f$site$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["site"].work.projects[0].caseStudyUrl
-            },
-            {
-                slug: "sentinel",
-                name: "Sentinel",
-                subtitle: "مراقبة موثوقية البيانات الصحية",
-                opening: "خط البيانات يعمل بلا أخطاء، لكن هل البيانات نفسها سليمة؟",
-                overview: "يدرس Sentinel كيف يمكن لخط بيانات أن يعمل بنجاح في الظاهر، بينما يمرّر بيانات غير موثوقة دون أن يلاحظ أحد. ويعتمد على سجلات صحية اصطناعية لاختبار جودة البيانات ومراقبتها.",
-                visual: "watch",
-                accent: "pink",
-                stages: [
-                    {
-                        name: "البث",
-                        detail: "توليد سجلات صحية اصطناعية بمعيار FHIR باستخدام Synthea، ثم إدخالها في خط بيانات مضبوط."
-                    },
-                    {
-                        name: "الجودة",
-                        detail: "تحليل السجلات الواردة، وبناء خط أساس للجودة يشمل القيم المفقودة، والاتساق، وأحجام السجلات."
-                    },
-                    {
-                        name: "الانحراف",
-                        detail: "افتعال ارتفاع مفاجئ في القيم الفارغة، وتغيير أنواع البيانات، وانخفاض في الحجم؛ لاختبار قدرة النظام على رصدها."
-                    },
-                    {
-                        name: "المخطط",
-                        detail: "تتبّع التغيّرات في بنية البيانات (Schema)، وتنظيم مقاييس الجودة وسجلّ التغييرات والحوادث المرصودة."
-                    }
-                ],
-                facts: [
-                    {
-                        label: "دوري",
-                        value: "قائدة تقنية ومهندسة بيانات"
-                    },
-                    {
-                        label: "السياق",
-                        value: "مشروع لمراقبة جودة البيانات، مبني على بيانات صحية اصطناعية."
-                    }
-                ],
-                stackLabel: "مجالات تقنية",
-                stack: [
-                    "Python",
-                    "Synthea",
-                    "FHIR",
-                    "Cloud Storage",
-                    "PostgreSQL",
-                    "Streaming",
-                    "جودة البيانات"
-                ],
-                stackComplete: true,
-                caseStudyUrl: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$content$2f$site$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["site"].work.projects[1].caseStudyUrl
-            },
-            {
-                slug: "najm",
-                name: "نجم",
-                altName: "Najm",
-                altLang: "en",
-                subtitle: "رصد الحوادث والإبلاغ عنها بالذكاء الاصطناعي",
-                opening: "ماذا لو بدأ الإبلاغ عن الحادث قبل أن يتصل أحد؟",
-                overview: "نموذج أولي للإبلاغ عن الحوادث بمساعدة الذكاء الاصطناعي، يجمع بين الرؤية الحاسوبية وصور الطائرات المسيّرة وخدمات Backend وتطبيق جوّال.",
-                visual: "sky",
-                accent: "blue",
-                stages: [
-                    {
-                        name: "الالتقاط",
-                        detail: "استكشاف استخدام صور الطائرات المسيّرة لجمع معلومات بصرية عن حوادث الطرق."
-                    },
-                    {
-                        name: "الرصد",
-                        detail: "استخدام YOLOv5m للتعرّف على الأجسام والمشاهد المرتبطة بالحوادث."
-                    },
-                    {
-                        name: "الربط",
-                        detail: "ربط نموذج الرصد بخدمات Backend مبنية بـ Flask وMySQL."
-                    },
-                    {
-                        name: "الإبلاغ",
-                        detail: "تطبيق Flutter يعرض سير عمل للإبلاغ عن الحوادث بمساعدة الذكاء الاصطناعي."
-                    }
-                ],
-                facts: [
-                    {
-                        label: "الإنجاز",
-                        value: "المركز الثالث في مشاريع التخرج بكلية علوم الحاسب وتقنية المعلومات (CCSIT)، جامعة الملك فيصل، 2024"
-                    },
-                    {
-                        label: "النوع",
-                        value: "نموذج أولي أكاديمي (مشروع تخرّج) · نظام نجم للإبلاغ عن الحوادث"
-                    }
-                ],
-                metrics: {
-                    label: "التقييم العام للنموذج",
-                    note: "مقاييس عامة للنموذج على جميع الفئات، وليست أداءه في فئة الحوادث تحديدًا.",
-                    values: [
-                        {
-                            label: "Precision",
-                            value: "0.772"
-                        },
-                        {
-                            label: "Recall",
-                            value: "0.798"
-                        },
-                        {
-                            label: "mAP@50",
-                            value: "0.799"
-                        }
-                    ]
-                },
-                stackLabel: "التقنيات",
-                stack: [
-                    "Python",
-                    "YOLOv5m",
-                    "Flask",
-                    "MySQL",
-                    "Flutter",
-                    "الرؤية الحاسوبية"
-                ],
-                stackComplete: true,
-                caseStudyUrl: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$content$2f$site$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["site"].work.projects[2].caseStudyUrl
-            }
-        ],
-        leadership: {
-            project: "sentinel",
-            title: "ما وراء بناء الأنظمة: قيادة الفريق",
-            intro: "أقود تطوير Sentinel، وأشارك بنفسي في بنائه الهندسي.",
-            engineering: "إدخال البيانات، والتخزين السحابي، وبناء خطوط البيانات، وضمان جودتها، وحل المشكلات التقنية.",
-            leading: "تخطيط المشروع، وتنسيق عمل الفريق، وإدارة المهام، والتواصل، واتخاذ القرارات التقنية.",
-            converge: "Sentinel",
-            abilities: [
-                "القيادة",
-                "المرونة",
-                "حل المشكلات",
-                "التواصل",
-                "العمل الجماعي",
-                "المبادرة"
-            ]
-        },
         alsoBuilt: [
             "خطوط ETL / ELT",
             "تحليل البيانات",
@@ -817,6 +629,7 @@ const siteAr = {
         email: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$content$2f$site$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["site"].contact.email,
         linkedin: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$content$2f$site$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["site"].contact.linkedin,
         github: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$content$2f$site$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["site"].contact.github,
+        kaggle: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$content$2f$site$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["site"].contact.kaggle,
         resume: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$content$2f$site$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["site"].contact.resume
     },
     overview: {
@@ -856,23 +669,19 @@ const siteAr = {
             group: "اللغة"
         },
         chapter: "المشروع",
-        caseStudy: "اقرأ دراسة الحالة",
-        caseStudySoon: "دراسة الحالة · قريبًا",
         architecture: "مسار البيانات",
         then: "ثم",
         alsoBuilt: "بنيتُ أيضًا",
         stageHint: "اختر مرحلة لعرض تفاصيلها",
         stageOf: "المرحلة {n} من {total}",
         stagesLabel: "مراحل العمل في مشروع {project}",
-        stageMissing: "تفاصيل المرحلة — قريبًا",
-        stackMissing: "التقنيات — قريبًا",
         layerHint: "اختر طبقة لعرض أدواتها",
         layerShowTools: "{layer}: عرض الأدوات",
         orchestratedWith: "التنسيق عبر",
         also: "مجالات أخرى",
         engineering: "الهندسة",
         leadership: "القيادة",
-        abilitiesLabel: "مهارات يعتمد عليها هذا الدور",
+        abilitiesLabel: "مهارات يعتمد عليها هذا المشروع",
         nextSection: "التالي: كيف أبني الأنظمة",
         education: "التعليم",
         training: "التدريب المتخصص",
@@ -885,6 +694,7 @@ const siteAr = {
         downloadResume: "تحميل السيرة الذاتية",
         linkedin: "LinkedIn",
         github: "GitHub",
+        kaggle: "Kaggle",
         linkMissing: "رابط {label}",
         emailMissing: "البريد الإلكتروني",
         backToTop: "العودة إلى الأعلى",
@@ -898,6 +708,63 @@ const siteAr = {
         learningPrefix: "وأتعلّم",
         credentialsSummary: "الشهادات: {certs} · المعسكرات التدريبية: {camps}",
         jumpToProjects: "انتقل إلى المشاريع",
+        exploreProject: "استكشف المشروع",
+        featured: "مشروع مميّز",
+        filterLabel: "تصفية المشاريع حسب المجال",
+        filterAll: "الكل",
+        backToProjects: "كل المشاريع",
+        previousProject: "المشروع السابق",
+        nextProject: "المشروع التالي",
+        resources: "موارد المشروع",
+        resourceLabels: {
+            caseStudy: "اقرأ دراسة الحالة",
+            demo: "شاهد العرض التوضيحي",
+            github: "مستودع GitHub",
+            kaggle: "عرض على Kaggle",
+            presentation: "اطّلع على العرض التقديمي"
+        },
+        projectMetaTitle: "{project} | {name}",
+        exploreAllProjects: "استكشف كل المشاريع",
+        projectStatus: {
+            completed: "مكتمل",
+            "in-progress": "قيد التطوير",
+            prototype: "نموذج أولي",
+            experiment: "تجربة",
+            archived: "مؤرشف"
+        },
+        notes: {
+            label: "ملاحظات هندسية",
+            approach: "المنهجية",
+            challenges: "التحديات",
+            lessons: "الدروس المستفادة"
+        },
+        playgroundNotes: {
+            inspiration: "ما الذي ألهمني",
+            built: "ما الذي بنيته",
+            learned: "ما الذي تعلّمته"
+        },
+        lab: {
+            kicker: "مختبر المشاريع",
+            title: {
+                lead: "مشاريع لهدف. وأخرى بدافع",
+                emphasis: "الفضول."
+            },
+            subtitle: "من بناء حلول هندسية لمشكلات واقعية إلى تجارب بدأت بفكرة أثارت فضولي.",
+            selectorLabel: "عرض المشاريع",
+            all: "كل المشاريع",
+            engineering: "الهندسية",
+            playground: "ساحة التجارب",
+            engineeringTitle: "المشاريع الهندسية",
+            engineeringIntro: "أنظمة مهنية وأكاديمية في هندسة البيانات وتعلّم الآلة والبرمجيات والسحابة.",
+            playgroundTitle: "ساحة التجارب",
+            playgroundIntro: "تجارب صغيرة وتحديات شخصية وأفكار بنيتها لمتعة البناء.",
+            emptyTitle: "ساحة التجارب قيد التجهيز.",
+            emptyBody: "تجارب صغيرة ومشاريع جانبية وأفكار أثارت فضولي، ستجد طريقها إلى هنا قريبًا.",
+            metaTitle: "مختبر المشاريع | {name}"
+        },
+        notFoundTitle: "لم نعثر على هذه الصفحة.",
+        notFoundBody: "قد يكون الرابط غير صحيح، أو أن المشروع لم يُنشر بعد.",
+        notFoundBack: "العودة إلى الصفحة الرئيسية",
         cosmos: {
             collect: "جمع",
             engineer: "هندسة",
@@ -909,7 +776,7 @@ const siteAr = {
             expected: "النطاق المتوقع",
             drift: "انحراف",
             schema: "SCHEMA V2",
-            detected: "رُصِد الحادث",
+            detected: "تم الرصد",
             report: "البلاغ"
         }
     }
@@ -945,14 +812,14 @@ const site = {
         "Build"
     ],
     seo: {
-        title: "Yaqeen Alhalal — Data Engineer",
+        title: "Yaqeen Alhalal | Data Engineer",
         description: "Data Engineer driven by curiosity, passionate about collecting and engineering data to build meaningful solutions.",
         /** Set to the deployed URL (e.g. "https://yaqeen.dev") to enable absolute social-card URLs. */ siteUrl: null
     },
     nav: [
         {
-            id: "work",
-            label: "Work"
+            id: "projects",
+            label: "Projects"
         },
         {
             id: "expertise",
@@ -980,8 +847,8 @@ const site = {
         },
         intro: "I'm a Data Engineer driven by curiosity, passionate about collecting and engineering data to build meaningful solutions. I thrive on complex challenges, learn quickly, and love discovering problems worth solving with data.",
         primaryCta: {
-            label: "Explore My Work",
-            href: "#work"
+            label: "Explore My Projects",
+            href: "#projects"
         },
         secondaryCta: {
             label: "About Me",
@@ -1014,7 +881,7 @@ const site = {
             },
             {
                 chapter: "The Exploration",
-                title: "Data Science & Machine Learning",
+                title: "Data Science & Machine Learning Bootcamp",
                 place: "Tuwaiq Academy",
                 when: "Jan–Mar 2025",
                 line: "Exploring how data reveals patterns, powers predictions, and helps solve complex problems.",
@@ -1031,7 +898,7 @@ const site = {
             },
             {
                 chapter: "The Expansion",
-                title: "Cloud & Data Engineering",
+                title: "Data Engineering Bootcamp",
                 place: "Saudi Digital Academy",
                 when: "Aug–Oct 2026",
                 line: "Strengthening my engineering skills through cloud infrastructure, orchestration, and end-to-end pipeline development.",
@@ -1150,197 +1017,8 @@ const site = {
         ]
     },
     // ── III · What I've built ──────────────────────────────────
-    work: {
+    projects: {
         label: "What I've built",
-        projects: [
-            {
-                slug: "bayan",
-                name: "Bayan",
-                altName: "بيان",
-                altLang: "ar",
-                subtitle: "Saudi Regulations & Decisions Data Hub",
-                opening: "Finding a regulation is easy. Understanding how it changed over time is a different problem.",
-                overview: "Bayan transforms Saudi regulatory information into structured, version-aware datasets to support regulation exploration and historical analysis.",
-                visual: "archive",
-                accent: "amber",
-                flow: [
-                    "BOE",
-                    "Bronze",
-                    "Silver",
-                    "Gold",
-                    "Power BI"
-                ],
-                stages: [
-                    {
-                        name: "Collect",
-                        detail: "Extract regulatory information from the Saudi Bureau of Experts using Python and preserve raw data in S3-compatible object storage."
-                    },
-                    {
-                        name: "Structure",
-                        detail: "Transform raw regulations into relational PostgreSQL entities representing laws, chapters, articles, and their relationships."
-                    },
-                    {
-                        name: "Version",
-                        detail: "Use dedicated version tables to preserve regulation and article history, ensuring historical traceability."
-                    },
-                    {
-                        name: "Analyze",
-                        detail: "Prepare curated regulatory datasets for reporting and exploration through Power BI."
-                    }
-                ],
-                facts: [
-                    {
-                        label: "Context",
-                        value: "Collaborative capstone developed during the Saudi Digital Academy Data Engineering Bootcamp."
-                    }
-                ],
-                stackLabel: "Stack",
-                stack: [
-                    "Python",
-                    "Apache Airflow",
-                    "PostgreSQL",
-                    "Docker",
-                    "SeaweedFS",
-                    "FastAPI",
-                    "Power BI"
-                ],
-                stackComplete: true,
-                caseStudyUrl: null
-            },
-            {
-                slug: "sentinel",
-                name: "Sentinel",
-                subtitle: "Healthcare Data Observability",
-                opening: "The pipeline is green. But is the data healthy?",
-                overview: "Sentinel explores how data pipelines can run successfully while silently delivering unreliable data, using synthetic healthcare records to investigate data quality and observability.",
-                visual: "watch",
-                accent: "pink",
-                stages: [
-                    {
-                        name: "Stream",
-                        detail: "Generate synthetic healthcare records using Synthea and FHIR, then ingest them into a controlled data pipeline."
-                    },
-                    {
-                        name: "Quality",
-                        detail: "Profile incoming records and establish quality baselines for missing values, consistency, and record volumes."
-                    },
-                    {
-                        name: "Drift",
-                        detail: "Introduce null spikes, type changes, and volume drops to evaluate data quality detection behavior."
-                    },
-                    {
-                        name: "Schema",
-                        detail: "Track structural changes and organize quality metrics, schema history, and detected incidents."
-                    }
-                ],
-                facts: [
-                    {
-                        label: "My role",
-                        value: "Technical Lead & Data Engineer"
-                    },
-                    {
-                        label: "Context",
-                        value: "Data engineering observability project built on synthetic healthcare data."
-                    }
-                ],
-                stackLabel: "Technology areas",
-                stack: [
-                    "Python",
-                    "Synthea",
-                    "FHIR",
-                    "Cloud storage",
-                    "PostgreSQL",
-                    "Streaming",
-                    "Data quality"
-                ],
-                stackComplete: true,
-                caseStudyUrl: null
-            },
-            {
-                slug: "najm",
-                name: "Najm",
-                altName: "نجم",
-                altLang: "ar",
-                subtitle: "AI-Powered Accident Detection & Reporting",
-                opening: "What if accident reporting could begin before anyone makes a call?",
-                overview: "An AI-assisted accident reporting prototype combining computer vision, drone imagery, backend services, and a mobile application.",
-                visual: "sky",
-                accent: "blue",
-                stages: [
-                    {
-                        name: "Capture",
-                        detail: "Explore the use of drone imagery to gather visual information about road incidents."
-                    },
-                    {
-                        name: "Detect",
-                        detail: "Use YOLOv5m to identify objects and accident-related scenes through computer vision."
-                    },
-                    {
-                        name: "Integrate",
-                        detail: "Connect the detection model to backend services using Flask and MySQL."
-                    },
-                    {
-                        name: "Report",
-                        detail: "Use a Flutter application to demonstrate an AI-assisted accident reporting workflow."
-                    }
-                ],
-                facts: [
-                    {
-                        label: "Recognition",
-                        value: "Third Place — CCSIT Graduation Projects, King Faisal University, 2024"
-                    },
-                    {
-                        label: "Type",
-                        value: "Academic capstone prototype · Najm Accident Reporting System"
-                    }
-                ],
-                metrics: {
-                    label: "Overall model evaluation",
-                    note: "Overall model metrics across all classes — not accident-class performance.",
-                    values: [
-                        {
-                            label: "Precision",
-                            value: "0.772"
-                        },
-                        {
-                            label: "Recall",
-                            value: "0.798"
-                        },
-                        {
-                            label: "mAP@50",
-                            value: "0.799"
-                        }
-                    ]
-                },
-                stackLabel: "Stack",
-                stack: [
-                    "Python",
-                    "YOLOv5m",
-                    "Flask",
-                    "MySQL",
-                    "Flutter",
-                    "Computer vision"
-                ],
-                stackComplete: true,
-                caseStudyUrl: null
-            }
-        ],
-        /** Sentinel's leadership story — soft skills shown through the work, not listed on their own. */ leadership: {
-            project: "sentinel",
-            title: "Beyond the Pipeline: Leading the Team",
-            intro: "I lead Sentinel's development while contributing directly to its engineering.",
-            engineering: "Data ingestion, cloud storage, pipeline implementation, data quality, and technical problem-solving.",
-            leading: "Project planning, team coordination, task management, communication, and technical decision-making.",
-            converge: "Sentinel",
-            abilities: [
-                "Leadership",
-                "Adaptability",
-                "Problem solving",
-                "Communication",
-                "Collaboration",
-                "Initiative"
-            ]
-        },
         alsoBuilt: [
             "ETL / ELT pipelines",
             "Data analytics",
@@ -1417,13 +1095,13 @@ const site = {
                 },
                 {
                     title: "Associate Data Engineer in Snowflake",
-                    issuer: null,
+                    issuer: "DataCamp",
                     year: "2026",
                     verifyUrl: null
                 },
                 {
                     title: "Associate Data Engineer in Databricks",
-                    issuer: null,
+                    issuer: "DataCamp",
                     year: "2026",
                     verifyUrl: null
                 },
@@ -1482,6 +1160,7 @@ const site = {
         email: "YaqeenAlhalal@outlook.sa",
         linkedin: "https://www.linkedin.com/in/yaqeen-alhalal-8388541a3/",
         github: "https://github.com/YaqeenData",
+        /** Your Kaggle profile, e.g. "https://www.kaggle.com/<username>" */ kaggle: "https://www.kaggle.com/yaqeenalhalal",
         /** e.g. "/resume.pdf" after adding the file to /public */ resume: "assets/YaqeenAlhalal_DataEngineer.pdf"
     },
     // ── Recruiter overview (one screen, opened from the header) ─
@@ -1533,24 +1212,20 @@ const site = {
             otherLabel: "اقرأ الموقع بالعربية",
             group: "Language"
         },
-        chapter: "Chapter",
-        caseStudy: "Read the case study",
-        caseStudySoon: "Case study · coming soon",
+        chapter: "Project",
         architecture: "Architecture",
         then: "then",
         alsoBuilt: "Also built",
         stageHint: "Select a stage to explore",
         stageOf: "Stage {n} of {total}",
         stagesLabel: "{project} workflow stages",
-        stageMissing: "Stage detail — to write together",
-        stackMissing: "Stack — to add",
         layerHint: "Select a layer to see its tools",
         layerShowTools: "{layer}: show tools",
         orchestratedWith: "Orchestrated with",
         also: "Also",
         engineering: "Engineering",
         leadership: "Leadership",
-        abilitiesLabel: "Abilities this work draws on",
+        abilitiesLabel: "Abilities this project draws on",
         nextSection: "Next · How I engineer",
         education: "Education",
         training: "Specialized training",
@@ -1563,6 +1238,7 @@ const site = {
         downloadResume: "Download résumé",
         linkedin: "LinkedIn",
         github: "GitHub",
+        kaggle: "Kaggle",
         linkMissing: "{label} link",
         emailMissing: "Email address",
         backToTop: "Back to the sky",
@@ -1576,6 +1252,63 @@ const site = {
         learningPrefix: "learning",
         credentialsSummary: "{certs} certifications · {camps} bootcamps",
         jumpToProjects: "Jump to projects",
+        /** Project gallery and project pages. */ exploreProject: "Explore project",
+        featured: "Featured",
+        filterLabel: "Filter projects by area",
+        filterAll: "All",
+        backToProjects: "All projects",
+        previousProject: "Previous project",
+        nextProject: "Next project",
+        resources: "Project resources",
+        resourceLabels: {
+            caseStudy: "Read the case study",
+            demo: "Watch the demo",
+            github: "GitHub repository",
+            kaggle: "View on Kaggle",
+            presentation: "View the presentation"
+        },
+        projectMetaTitle: "{project} — {name}",
+        exploreAllProjects: "Explore all projects",
+        projectStatus: {
+            completed: "Completed",
+            "in-progress": "In progress",
+            prototype: "Prototype",
+            experiment: "Experiment",
+            archived: "Archived"
+        },
+        notes: {
+            label: "Engineering notes",
+            approach: "Approach",
+            challenges: "Challenges",
+            lessons: "Lessons"
+        },
+        playgroundNotes: {
+            inspiration: "What sparked it",
+            built: "What I built",
+            learned: "What I learned"
+        },
+        /** The Project Lab (/projects). */ lab: {
+            kicker: "The Project Lab",
+            title: {
+                lead: "Built with purpose. And sometimes,",
+                emphasis: "just curiosity."
+            },
+            subtitle: "From engineering real-world solutions to experimenting with ideas that simply sparked my curiosity.",
+            selectorLabel: "Show projects",
+            all: "All projects",
+            engineering: "Engineering",
+            playground: "Playground",
+            engineeringTitle: "Engineering projects",
+            engineeringIntro: "Professional and academic systems: data engineering, machine learning, software and cloud.",
+            playgroundTitle: "The Playground",
+            playgroundIntro: "Small experiments, personal challenges and ideas built for the joy of building.",
+            emptyTitle: "The Playground is warming up.",
+            emptyBody: "Small experiments, side projects and ideas that simply made me curious will land here soon.",
+            metaTitle: "The Project Lab — {name}"
+        },
+        notFoundTitle: "This page isn't here.",
+        notFoundBody: "The link may be mistyped, or the project hasn't been published yet.",
+        notFoundBack: "Back to the portfolio",
         /** Labels drawn inside the illustrations. */ cosmos: {
             collect: "COLLECT",
             engineer: "ENGINEER",

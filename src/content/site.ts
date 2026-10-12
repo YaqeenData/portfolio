@@ -77,7 +77,7 @@ export const site = {
   philosophy: ["Collect", "Engineer", "Build"] as const,
 
   seo: {
-    title: "Yaqeen Alhalal — Data Engineer",
+    title: "Yaqeen Alhalal | Data Engineer",
     description:
       "Data Engineer driven by curiosity, passionate about collecting and engineering data to build meaningful solutions.",
     /** Set to the deployed URL (e.g. "https://yaqeen.dev") to enable absolute social-card URLs. */
