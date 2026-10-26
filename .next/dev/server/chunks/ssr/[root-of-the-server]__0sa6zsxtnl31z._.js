@@ -193,7 +193,7 @@ const sharedViewport = {
  *    page in Arabic (/ → /ar, /projects/bayan → /ar/projects/bayan).
  */ function headScript(locale) {
     const redirect = locale === "en" ? `try{if(localStorage.getItem('lang')==='ar'){var p=location.pathname;location.replace('/ar'+(p==='/'?'':p)+location.hash);}}catch(e){}` : "";
-    return `(function(){var d=document.documentElement;${redirect}d.classList.add('js');var t=null;try{t=localStorage.getItem('theme');}catch(e){}if(t!=='night'&&t!=='twilight'){t='night';}d.dataset.theme=t;try{if(sessionStorage.getItem('introSeen'))d.classList.add('intro-skip');}catch(e){}})();`;
+    return `(function(){var d=document.documentElement;${redirect}d.classList.add('js');var t=null;try{t=localStorage.getItem('theme');}catch(e){}if(t!=='night'&&t!=='twilight'){t='night';}d.dataset.theme=t;var f=document.getElementById('site-favicon');if(f)f.href=t==='twilight'?'/favicon-light.svg':'/favicon-dark.svg';try{if(sessionStorage.getItem('introSeen'))d.classList.add('intro-skip');}catch(e){}})();`;
 }
 function RootDocument({ locale, fontVars = "", children }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("html", {
@@ -204,16 +204,46 @@ function RootDocument({ locale, fontVars = "", children }) {
         className: `${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$layout$2f$fonts$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__["latinFontVars"]} ${fontVars}`,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("head", {
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("script", {
-                    dangerouslySetInnerHTML: {
-                        __html: headScript(locale)
-                    }
-                }, void 0, false, {
-                    fileName: "[project]/src/components/layout/RootDocument.tsx",
-                    lineNumber: 75,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("link", {
+                        rel: "icon",
+                        href: "/favicon.ico",
+                        sizes: "32x32"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/layout/RootDocument.tsx",
+                        lineNumber: 75,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("link", {
+                        id: "site-favicon",
+                        rel: "icon",
+                        type: "image/svg+xml",
+                        href: "/favicon-dark.svg",
+                        suppressHydrationWarning: true
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/layout/RootDocument.tsx",
+                        lineNumber: 76,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("link", {
+                        rel: "apple-touch-icon",
+                        href: "/apple-touch-icon.png"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/layout/RootDocument.tsx",
+                        lineNumber: 77,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("script", {
+                        dangerouslySetInnerHTML: {
+                            __html: headScript(locale)
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/layout/RootDocument.tsx",
+                        lineNumber: 78,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "[project]/src/components/layout/RootDocument.tsx",
                 lineNumber: 74,
                 columnNumber: 7
@@ -222,7 +252,7 @@ function RootDocument({ locale, fontVars = "", children }) {
                 children: children
             }, void 0, false, {
                 fileName: "[project]/src/components/layout/RootDocument.tsx",
-                lineNumber: 77,
+                lineNumber: 80,
                 columnNumber: 7
             }, this)
         ]

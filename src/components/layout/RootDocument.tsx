@@ -50,7 +50,7 @@ function headScript(locale: Locale) {
     locale === "en"
       ? `try{if(localStorage.getItem('lang')==='ar'){var p=location.pathname;location.replace('/ar'+(p==='/'?'':p)+location.hash);}}catch(e){}`
       : "";
-  return `(function(){var d=document.documentElement;${redirect}d.classList.add('js');var t=null;try{t=localStorage.getItem('theme');}catch(e){}if(t!=='night'&&t!=='twilight'){t='night';}d.dataset.theme=t;try{if(sessionStorage.getItem('introSeen'))d.classList.add('intro-skip');}catch(e){}})();`;
+  return `(function(){var d=document.documentElement;${redirect}d.classList.add('js');var t=null;try{t=localStorage.getItem('theme');}catch(e){}if(t!=='night'&&t!=='twilight'){t='night';}d.dataset.theme=t;var f=document.getElementById('site-favicon');if(f)f.href=t==='twilight'?'/favicon-light.svg':'/favicon-dark.svg';try{if(sessionStorage.getItem('introSeen'))d.classList.add('intro-skip');}catch(e){}})();`;
 }
 
 /** The <html> document for one language — each language is its own root layout. */
@@ -72,6 +72,9 @@ export function RootDocument({
       className={`${latinFontVars} ${fontVars}`}
     >
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link id="site-favicon" rel="icon" type="image/svg+xml" href="/favicon-dark.svg" suppressHydrationWarning />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script dangerouslySetInnerHTML={{ __html: headScript(locale) }} />
       </head>
       <body>{children}</body>

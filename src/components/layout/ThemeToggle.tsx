@@ -20,6 +20,8 @@ export function ThemeToggle({ size = 46 }: { size?: number }) {
 
   function toggle() {
     const next: Mode = document.documentElement.dataset.theme === "twilight" ? "night" : "twilight";
+    const icon = document.getElementById("site-favicon") as HTMLLinkElement | null;
+    if (icon) icon.href = next === "twilight" ? "/favicon-light.svg" : "/favicon-dark.svg";
     document.documentElement.dataset.theme = next;
     try {
       localStorage.setItem("theme", next);
