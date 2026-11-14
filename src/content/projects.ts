@@ -440,6 +440,43 @@ export const projects: Project[] = [
   },
 
   // ── Playground ──────────────────────────────────────────────
+  {
+    slug: "falcons-analysis",
+    type: "playground",
+    order: 10,
+    status: "in-progress",
+    categories: ["data-engineering", "analytics"],
+    accent: "blue",
+    technologies: ["DuckDB", "Power BI", "Sentiment analysis", "YouTube"],
+    resources: {},
+    text: {
+      en: {
+        title: "Falcons Analysis",
+        subtitle: "Team Falcons on YouTube",
+        category: "Data Pipeline / Analytics",
+        summary:
+          "Analyzing Team Falcons' YouTube content: video performance, creator channels, and what the comments are really saying.",
+        inspiration:
+          "Curiosity about what drives Team Falcons' YouTube content: which videos perform, how each content creator's channel is doing, and how the audience responds in the comments.",
+        built:
+          "A pipeline that collects video, channel, and comment data into DuckDB, comment sentiment analysis that also classifies intent (requests, sarcasm, abuse), and a Power BI dashboard on top.",
+        learned: "Still in progress. Lessons will land here as the project grows.",
+      },
+      ar: {
+        title: "تحليل Falcons",
+        altName: "Falcons Analysis",
+        altLang: "en",
+        subtitle: "فريق Falcons على YouTube",
+        category: "خط بيانات / تحليلات",
+        summary: "تحليل محتوى فريق Falcons على YouTube: أداء المقاطع، وقنوات صنّاع المحتوى، وما تقوله التعليقات فعلًا.",
+        inspiration:
+          "فضول لفهم ما يحرّك محتوى فريق Falcons على YouTube: أي المقاطع تحقق أداءً أفضل، وكيف تسير قناة كل صانع محتوى، وكيف يتفاعل الجمهور في التعليقات.",
+        built:
+          "خط بيانات يجمع بيانات المقاطع والقنوات والتعليقات في DuckDB، وتحليل لمشاعر التعليقات يصنّف نيّتها أيضًا (طلب، سخرية، إساءة)، ولوحة Power BI مبنية فوقها.",
+        learned: "المشروع ما زال قيد التطوير، وستُضاف الدروس هنا مع تقدّمه.",
+      },
+    },
+  },
   // Small experiments go here with type: "playground". A minimal entry:
   // {
   //   slug: "my-experiment", type: "playground", order: 10, status: "experiment",
