@@ -434,6 +434,13 @@ export const site = {
       schema: "SCHEMA V2",
       detected: "DETECTED",
       report: "REPORT",
+      request: "REQUEST",
+      sarcasm: "SARCASM",
+      abuse: "ABUSE",
+      other: "OTHER",
+      positive: "POSITIVE",
+      neutral: "NEUTRAL",
+      negative: "NEGATIVE",
     },
   },
 } as const;

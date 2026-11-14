@@ -263,3 +263,182 @@ export function NajmArt({ id, labels }: { id: string; labels: ArtLabels }) {
     </svg>
   );
 }
+
+type FalconsLabels = {
+  request: string;
+  sarcasm: string;
+  abuse: string;
+  other: string;
+  positive: string;
+  neutral: string;
+  negative: string;
+};
+
+/**
+ * A peregrine in a stoop, drawn facing right around (0, 0): wings half folded and swept
+ * back, hooked beak, yellow cere and eye ring, the dark "moustache" stripe, and a narrow
+ * tail. A generic bird, not the team's mark.
+ */
+function DivingFalcon({ transform }: { transform: string }) {
+  return (
+    <g transform={transform}>
+      {/* Far wing, partly hidden behind the body. */}
+      <path
+        d="M 24 -8 C 8 -22, -16 -32, -46 -36 L -40 -32 L -46 -31 L -38 -27 L -43 -25 C -28 -18, -14 -12, -2 -7 Z"
+        style={{ fill: "var(--ink-3)" }}
+      />
+      {/* Tail: narrow, slightly fanned, with a darker tip band. */}
+      <path d="M -28 -3 L -66 -7 Q -71 0 -66 7 L -28 4 Z" style={{ fill: "var(--ink-2)" }} />
+      <path d="M -60 -6.4 L -66 -7 Q -71 0 -66 7 L -60 6.4 Q -64 0 -60 -6.4 Z" style={{ fill: "var(--ink-3)" }} />
+      {/* Body: a teardrop, deepest at the chest. */}
+      <path
+        d="M 56 -6 C 46 -12, 28 -13, 10 -11 C -8 -8, -22 -5, -32 -2 L -32 4 C -22 6, -8 9, 10 11 C 28 12, 46 10, 56 6 Z"
+        style={{ fill: "var(--ink-2)" }}
+      />
+      {/* Barring on the chest. */}
+      <path
+        d="M 30 6 q 3 2 6 0 M 20 7 q 3 2 6 0 M 10 7.5 q 3 2 6 0 M 25 2 q 3 2 6 0 M 15 2.5 q 3 2 6 0"
+        fill="none"
+        style={{ stroke: "var(--ink-3)" }}
+        strokeWidth="1"
+        strokeLinecap="round"
+        opacity="0.7"
+      />
+      {/* Near wing: longer, its primaries separated at the tip. */}
+      <path
+        d="M 26 2 C 12 18, -14 34, -54 44 L -46 39 L -55 39 L -45 34 L -52 33 L -42 29 C -26 22, -12 14, -2 6 Z"
+        style={{ fill: "var(--ink-2)" }}
+      />
+      <path
+        d="M -20 20 C -30 27, -40 32, -54 44 L -46 39 L -55 39 L -45 34 L -52 33 L -42 29 C -34 26, -27 23, -20 20 Z"
+        style={{ fill: "var(--ink-3)" }}
+      />
+      <path
+        d="M 18 6 C 6 16, -10 26, -30 34 M 10 6 C -2 14, -14 20, -26 25"
+        fill="none"
+        style={{ stroke: "var(--ink-3)" }}
+        strokeWidth="1"
+        opacity="0.6"
+      />
+      {/* Head: dark hood, moustache stripe, eye, hooked beak. */}
+      <path d="M 40 -10 C 48 -14, 58 -11, 62 -5 C 60 -1, 54 0, 48 -1 C 44 -3, 41 -6, 40 -10 Z" style={{ fill: "var(--ink-3)" }} />
+      <path d="M 52 -2 C 51 2, 49 5, 46 7 L 49 7 C 52 5, 54 2, 54 -1 Z" style={{ fill: "var(--ink-3)" }} />
+      <circle cx="55" cy="-5" r="2.6" style={{ fill: "var(--label-orange)" }} />
+      <circle cx="55.4" cy="-5" r="1.4" fill="#0B1026" />
+      <path d="M 61 -5 L 64 -4.5 L 63 -1.5 Z" style={{ fill: "var(--label-orange)" }} />
+      <path d="M 63.5 -4.6 C 67 -4, 68.4 -1.6, 67 1.6 C 66 0, 64.6 -0.8, 63 -1.4 Z" style={{ fill: "var(--ink-3)" }} />
+    </g>
+  );
+}
+
+/**
+ * Falcons Analysis, "the dive": a falcon stoops toward a video; under it, the comments'
+ * overall sentiment, and beside it, comments sorted by intent (request / sarcasm / abuse / other)
+ * feeding a chart. The team's logo sits on the video like a channel watermark.
+ * The proportions are illustrative, not measured results.
+ */
+export function FalconsArt({ id, labels }: { id: string; labels: FalconsLabels }) {
+  const circumference = 2 * Math.PI * 36;
+  const lanes = [
+    { y: 138, label: labels.request, color: "var(--label-blue)", share: 0.28, chips: [470, 520] },
+    { y: 168, label: labels.sarcasm, color: "var(--label-orange)", share: 0.18, chips: [496] },
+    { y: 198, label: labels.abuse, color: "var(--stream-pink)", share: 0.14, chips: [530] },
+    { y: 228, label: labels.other, color: "var(--ink-4)", share: 0.4, chips: [462, 500, 530] },
+  ];
+  // Sentiment bar under the video: x from 170 to 390, 3px gaps between segments.
+  const sentiment = [
+    { label: labels.positive, color: "#14B26C", share: 0.46 },
+    { label: labels.neutral, color: "var(--ink-4)", share: 0.32 },
+    { label: labels.negative, color: "var(--stream-pink)", share: 0.22 },
+  ];
+  let barX = 170;
+  let offset = 0;
+  return (
+    <svg viewBox="0 0 660 360" className="h-auto w-full" aria-hidden="true" focusable="false">
+      <defs>
+        <radialGradient id={`${id}-glow`}>
+          <stop offset="0" stopColor="#6E95FF" stopOpacity="0.24" />
+          <stop offset="1" stopColor="#6E95FF" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id={`${id}-glass`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" style={{ stopColor: "var(--glass-1)" }} />
+          <stop offset="1" style={{ stopColor: "var(--glass-2)" }} />
+        </linearGradient>
+      </defs>
+      <ellipse cx="330" cy="190" rx="320" ry="170" fill={`url(#${id}-glow)`} />
+      <g transform="translate(0 22)">
+        {/* Speed lines and the stoop. */}
+        <g style={{ stroke: "var(--label-blue)" }} strokeOpacity="0.45" strokeLinecap="round" strokeWidth="1.5">
+          <path d="M22 18 L 62 50" className="anim-twinkle" style={{ animationDuration: "3s" }} />
+          <path d="M48 6 L 86 36" className="anim-twinkle" style={{ animationDuration: "3s", animationDelay: "-1s" }} />
+          <path d="M12 42 L 48 70" className="anim-twinkle" style={{ animationDuration: "3s", animationDelay: "-2s" }} />
+        </g>
+        <g className="anim-bob" style={{ animationDuration: "5s" }}>
+          <DivingFalcon transform="translate(110 70) rotate(36) scale(1.05)" />
+        </g>
+
+        {/* The video, with the team's logo as a channel watermark. */}
+        <rect x="170" y="110" width="220" height="132" rx="16" fill={`url(#${id}-glass)`} style={{ stroke: "var(--glass-border)" }} />
+        <polygon points="266,152 266,200 304,176" style={{ fill: "var(--stream-pink)" }} />
+        <path d="M188 226 H 372" style={{ stroke: "var(--line-strong)" }} strokeWidth="3" strokeLinecap="round" />
+        <path d="M188 226 H 300" style={{ stroke: "var(--label-blue)" }} strokeWidth="3" strokeLinecap="round" />
+        <image href="/assets/projects/falcons-analysis/team-falcons-logo.png" x="348" y="120" width="30" height="36" opacity="0.95" />
+
+        {/* Overall sentiment of the comments. */}
+        {sentiment.map((part) => {
+          const width = part.share * 220 - 3;
+          const x = barX;
+          barX += part.share * 220;
+          return (
+            <g key={part.color}>
+              <rect x={x} y="256" width={width} height="7" rx="3.5" style={{ fill: part.color }} />
+              <text x={x} y="280" fontSize="10" style={{ fontFamily: "var(--font-label)", letterSpacing: "2px", fill: part.color }}>
+                {part.label}
+              </text>
+            </g>
+          );
+        })}
+
+        {/* Comments leave the video and are sorted by intent. */}
+        {lanes.map((lane, i) => (
+          <g key={lane.y}>
+            <path
+              d={`M390 ${152 + i * 16} C 404 ${152 + i * 16}, 406 ${lane.y}, 420 ${lane.y} H 552`}
+              fill="none"
+              style={{ stroke: "var(--line-strong)" }}
+              strokeDasharray="3 6"
+            />
+            <text x="420" y={lane.y - 9} fontSize="11" style={{ fontFamily: "var(--font-label)", letterSpacing: "3px", fill: lane.color }}>
+              {lane.label}
+            </text>
+            {lane.chips.map((x, j) => (
+              <g key={x} className="anim-bob" style={{ animationDuration: `${4 + i + j}s`, animationDelay: `${-(i + j) * 0.8}s` }}>
+                <rect x={x} y={lane.y - 7} width="22" height="14" rx="5" style={{ fill: lane.color }} />
+              </g>
+            ))}
+          </g>
+        ))}
+
+        {/* What the comments add up to. */}
+        <g transform="rotate(-90 604 186)" fill="none" strokeWidth="14">
+          {lanes.map((lane) => {
+            const length = lane.share * circumference;
+            const arc = (
+              <circle
+                key={lane.y}
+                cx="604"
+                cy="186"
+                r="36"
+                style={{ stroke: lane.color }}
+                strokeDasharray={`${(length - 3).toFixed(1)} ${(circumference - length + 3).toFixed(1)}`}
+                strokeDashoffset={(-offset).toFixed(1)}
+              />
+            );
+            offset += length;
+            return arc;
+          })}
+        </g>
+      </g>
+    </svg>
+  );
+}

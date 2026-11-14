@@ -112,7 +112,7 @@ export type ProjectResources = {
 export type ProjectImage = { src: string; alt: Record<Locale, string> };
 
 /** The drawn illustrations that ship with the site. */
-export type Illustration = "archive" | "watch" | "sky";
+export type Illustration = "archive" | "watch" | "sky" | "dive";
 
 type BaseProject = {
   slug: string;
@@ -447,6 +447,7 @@ export const projects: Project[] = [
     status: "in-progress",
     categories: ["data-engineering", "analytics"],
     accent: "blue",
+    illustration: "dive",
     technologies: ["DuckDB", "Power BI", "Sentiment analysis", "YouTube"],
     resources: {},
     text: {

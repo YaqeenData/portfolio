@@ -347,6 +347,13 @@ export const siteAr: Content = {
       schema: "SCHEMA V2",
       detected: "تم الرصد",
       report: "البلاغ",
+      request: "طلب",
+      sarcasm: "سخرية",
+      abuse: "إساءة",
+      other: "أخرى",
+      positive: "إيجابي",
+      neutral: "محايد",
+      negative: "سلبي",
     },
   },
 };
