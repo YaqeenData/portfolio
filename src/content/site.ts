@@ -249,6 +249,13 @@ export const site = {
           "Developed secure APIs using Python, FastAPI, and WSO2 API Manager for data sharing, monitoring, and monetization initiatives.",
         ],
       },
+      {
+        role: "Junior Data Engineer",
+        org: "Apex AI Arabia",
+        dates: "Nov 2026 – Present",
+        place: "Riyadh, Saudi Arabia",
+        points: [],
+      },
     ] satisfies Experience[],
     credentials: {
       label: "Education, training & certifications",

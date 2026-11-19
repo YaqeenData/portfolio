@@ -181,6 +181,13 @@ export const siteAr: Content = {
           "طوّرت واجهات API آمنة باستخدام Python وFastAPI وWSO2 API Manager، لدعم مبادرات مشاركة البيانات ومراقبتها وتحقيق عائد منها.",
         ],
       },
+      {
+        role: "مهندسة بيانات مبتدئة",
+        org: "Apex AI Arabia",
+        dates: "نوفمبر 2026 – حتى الآن",
+        place: "الرياض، المملكة العربية السعودية",
+        points: [],
+      },
     ],
     credentials: {
       label: "التعليم والتدريب والشهادات",

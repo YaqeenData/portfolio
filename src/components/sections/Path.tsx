@@ -136,7 +136,7 @@ export function Path({ c }: { c: Content }) {
           className="absolute end-0 top-[7px] hidden h-0 w-[14%] border-t-2 border-dashed border-[var(--label-orange)] opacity-50 lg:block"
         />
 
-        <ol className="relative grid gap-14 lg:grid-cols-2 lg:gap-16">
+        <ol className="relative grid gap-14 lg:grid-cols-3 lg:gap-12">
           {path.experience.map((job, i) => (
             <Reveal as="li" key={job.role} delay={i * 0.15} className="relative flex flex-col gap-2.5 ps-10 lg:ps-0 lg:pt-12">
               <span
@@ -150,7 +150,7 @@ export function Path({ c }: { c: Content }) {
               <h3 className="font-display text-[26px] font-normal leading-tight text-ink">{job.role}</h3>
               <p className="text-[16px] leading-snug text-ink-2">{job.org}</p>
               <p className="label text-[11px] tracking-[0.24em] text-ink-3">{job.place}</p>
-              <ul className="mt-2 flex max-w-[54ch] flex-col gap-2">
+              {job.points.length > 0 && <ul className="mt-2 flex max-w-[54ch] flex-col gap-2">
                 {job.points.map((point) => (
                   <li key={point} className="relative ps-5 text-[15px] leading-[1.6] text-ink-2">
                     <span
@@ -161,7 +161,7 @@ export function Path({ c }: { c: Content }) {
                     {point}
                   </li>
                 ))}
-              </ul>
+              </ul>}
             </Reveal>
           ))}
         </ol>
