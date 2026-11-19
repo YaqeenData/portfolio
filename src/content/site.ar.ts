@@ -361,6 +361,10 @@ export const siteAr: Content = {
       positive: "إيجابي",
       neutral: "محايد",
       negative: "سلبي",
+      cafe: "كوفي",
+      restaurant: "مطعم",
+      museum: "متحف",
+      route: "اليوم الأول · مسارك",
     },
   },
 };

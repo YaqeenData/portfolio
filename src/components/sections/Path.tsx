@@ -124,12 +124,12 @@ export function Path({ c }: { c: Content }) {
         <span
           aria-hidden="true"
           className="absolute bottom-0 start-[7px] top-0 w-0.5 lg:hidden"
-          style={{ background: "linear-gradient(180deg, var(--blue) 0 45%, var(--orange) 45% 85%, transparent)" }}
+          style={{ background: "linear-gradient(180deg, var(--blue) 0 64%, var(--orange) 64% 88%, transparent)" }}
         />
         <span
           aria-hidden="true"
           className="absolute start-0 end-[14%] top-[7px] hidden h-0.5 lg:block"
-          style={{ background: "linear-gradient(var(--to-end), transparent, var(--blue) 6% 54%, var(--orange) 54% 100%)" }}
+          style={{ background: "linear-gradient(var(--to-end), transparent, var(--blue) 6% 72%, var(--orange) 72% 100%)" }}
         />
         <span
           aria-hidden="true"
@@ -137,14 +137,17 @@ export function Path({ c }: { c: Content }) {
         />
 
         <ol className="relative grid gap-14 lg:grid-cols-3 lg:gap-12">
-          {path.experience.map((job, i) => (
+          {path.experience.map((job, i) => {
+            // Earlier roles are blue; the current one (the last) glows orange.
+            const past = i < path.experience.length - 1;
+            return (
             <Reveal as="li" key={job.role} delay={i * 0.15} className="relative flex flex-col gap-2.5 ps-10 lg:ps-0 lg:pt-12">
               <span
                 aria-hidden="true"
                 className="absolute start-0 top-0 h-4 w-4 rounded-full"
-                style={i === 0 ? { background: "var(--label-blue)" } : { background: "#FFB15C", boxShadow: "0 0 18px #FF8A2B" }}
+                style={past ? { background: "var(--label-blue)" } : { background: "#FFB15C", boxShadow: "0 0 18px #FF8A2B" }}
               />
-              <span className={`label text-[12px] tracking-[0.3em] ${i === 0 ? "text-label-blue" : "text-label-orange"}`}>
+              <span className={`label text-[12px] tracking-[0.3em] ${past ? "text-label-blue" : "text-label-orange"}`}>
                 {job.dates}
               </span>
               <h3 className="font-display text-[26px] font-normal leading-tight text-ink">{job.role}</h3>
@@ -156,14 +159,15 @@ export function Path({ c }: { c: Content }) {
                     <span
                       aria-hidden="true"
                       className="absolute start-0 top-[0.75em] h-px w-2.5"
-                      style={{ background: i === 0 ? "var(--label-blue)" : "var(--label-orange)" }}
+                      style={{ background: past ? "var(--label-blue)" : "var(--label-orange)" }}
                     />
                     {point}
                   </li>
                 ))}
               </ul>}
             </Reveal>
-          ))}
+            );
+          })}
         </ol>
       </div>
 

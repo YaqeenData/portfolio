@@ -442,3 +442,201 @@ export function FalconsArt({ id, labels }: { id: string; labels: FalconsLabels }
     </svg>
   );
 }
+
+type TourLabels = { cafe: string; restaurant: string; museum: string; route: string };
+
+/** A map pin centred on (cx, cy) with its point 26px below. */
+function pinPath(cx: number, cy: number) {
+  return `M${cx} ${cy + 26} C ${cx - 6} ${cy + 17}, ${cx - 15} ${cy + 10}, ${cx - 15} ${cy} A 15 15 0 1 1 ${cx + 15} ${cy} C ${cx + 15} ${cy + 10}, ${cx + 6} ${cy + 17}, ${cx} ${cy + 26} Z`;
+}
+
+/**
+ * Riyadh Hotel Guide, "the tour": the skyline (Al Faisaliah's golden globe, Kingdom Centre's arch),
+ * a guide raising a flag outside the hotel, and the day's stops (café, restaurant, museum)
+ * pinned along a route. Illustrative, not a map.
+ */
+export function RiyadhArt({ id, labels }: { id: string; labels: TourLabels }) {
+  const ground = 318;
+  const stops = [
+    { x: 430, y: 206, label: labels.cafe, color: "#FFA04D", icon: "cup" as const },
+    { x: 500, y: 190, label: labels.restaurant, color: "var(--stream-pink)", icon: "dine" as const },
+    { x: 594, y: 180, label: labels.museum, color: "var(--label-blue)", icon: "museum" as const },
+  ];
+  const skyline: [number, number, number][] = [
+    [150, 252, 30], [262, 232, 24], [376, 262, 22], [446, 240, 18], [640, 266, 14],
+  ];
+  const awning = (x: number, w: number, y: number, color: string) => (
+    <path
+      d={`M${x - 3} ${y} H ${x + w + 3} V ${y + 8} ${Array.from({ length: Math.round(w / 10) }, (_, k) => {
+        const step = (w + 6) / Math.round(w / 10);
+        const right = x + w + 3 - k * step;
+        return `Q ${right - step / 2} ${y + 16}, ${right - step} ${y + 8}`;
+      }).join(" ")} Z`}
+      style={{ fill: color }}
+      opacity="0.85"
+    />
+  );
+
+  return (
+    <svg viewBox="0 0 660 360" className="h-auto w-full" aria-hidden="true" focusable="false">
+      <defs>
+        <radialGradient id={`${id}-glow`}>
+          <stop offset="0" stopColor="#FF8A2B" stopOpacity="0.24" />
+          <stop offset="1" stopColor="#FF8A2B" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id={`${id}-glass`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" style={{ stopColor: "var(--glass-1)" }} />
+          <stop offset="1" style={{ stopColor: "var(--glass-2)" }} />
+        </linearGradient>
+        <radialGradient id={`${id}-globe`} cx="0.35" cy="0.35">
+          <stop offset="0" stopColor="#FFE2B8" />
+          <stop offset="0.55" stopColor="#FFB15C" />
+          <stop offset="1" stopColor="#E0701A" />
+        </radialGradient>
+      </defs>
+      <ellipse cx="330" cy="170" rx="320" ry="170" fill={`url(#${id}-glow)`} />
+
+      {/* Sun over the city. */}
+      <circle cx="604" cy="62" r="20" fill="#FFB15C" opacity="0.9" className="anim-twinkle" style={{ animationDuration: "6s" }} />
+      <circle cx="604" cy="62" r="32" fill="none" stroke="#FFB15C" strokeOpacity="0.3" />
+
+      {/* Low skyline behind everything. */}
+      {skyline.map(([x, y, w]) => (
+        <rect key={x} x={x} y={y} width={w} height={ground - y} rx="2" style={{ fill: "var(--band)", stroke: "var(--line)" }} />
+      ))}
+
+      {/* Kingdom Centre: the tapering tower with the arch cut out of its crown. */}
+      <path
+        d="M200 318 C 202 220, 207 140, 212 78 Q 225 156 238 78 C 243 140, 248 220, 250 318 Z"
+        fill={`url(#${id}-glass)`}
+        style={{ stroke: "var(--glass-border)" }}
+        strokeWidth="1.5"
+      />
+      <path d="M218 104 H 232" style={{ stroke: "var(--glass-border)" }} strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M225 132 V 312 M214 160 L 212 312 M236 160 L 238 312" style={{ stroke: "var(--line)" }} />
+
+      {/* Al Faisaliah: the pyramid frame, its golden globe and the spire. */}
+      <polygon points="296,318 364,318 330,62" fill={`url(#${id}-glass)`} style={{ stroke: "var(--glass-border)" }} strokeWidth="1.5" />
+      <polygon points="314,318 346,318 330,150" fill="none" style={{ stroke: "var(--line-strong)" }} />
+      {[160, 200, 240, 280].map((y) => {
+        const half = (34 * (y - 62)) / 256;
+        return <path key={y} d={`M${330 - half} ${y} H ${330 + half}`} style={{ stroke: "var(--line-strong)" }} />;
+      })}
+      <path d="M330 62 V 26" stroke="#FFC596" strokeWidth="2" strokeLinecap="round" />
+      <circle
+        cx="330"
+        cy="112"
+        r="15"
+        fill={`url(#${id}-globe)`}
+        className="anim-breathe"
+        style={{ filter: "drop-shadow(0 0 14px rgba(255,138,43,0.7))" }}
+      />
+      <rect x="286" y="304" width="88" height="14" rx="3" style={{ fill: "var(--band)", stroke: "var(--line-strong)" }} />
+
+      {/* The hotel. */}
+      <rect x="34" y="196" width="80" height={ground - 196} rx="5" fill={`url(#${id}-glass)`} style={{ stroke: "var(--glass-border)" }} />
+      {[0, 1, 2, 3, 4].map((row) =>
+        [0, 1, 2].map((col) => (
+          <rect
+            key={`${row}-${col}`}
+            x={46 + col * 20}
+            y={226 + row * 16}
+            width="12"
+            height="8"
+            rx="1.5"
+            fill="#FFB15C"
+            opacity={(row + col) % 3 === 0 ? 0.75 : 0.22}
+          />
+        )),
+      )}
+      <circle cx="74" cy="210" r="9" fill="#FFA04D" />
+      <text x="74" y="214" fontSize="11" textAnchor="middle" style={{ fontFamily: "var(--font-label)", fill: "#2A1206" }}>
+        H
+      </text>
+      <rect x="66" y="302" width="16" height="16" rx="2" style={{ fill: "var(--line-strong)" }} />
+
+      {/* The tour guide, flag raised. */}
+      <g>
+        <path d="M131 318 L 133 296 M141 318 L 139 296" style={{ stroke: "var(--ink-2)" }} strokeWidth="3" strokeLinecap="round" />
+        <path d="M126 298 L 146 298 L 142 268 L 130 268 Z" fill="#FFA04D" />
+        <circle cx="136" cy="259" r="7.5" style={{ fill: "var(--ink-2)" }} />
+        <path d="M127 256 Q 136 246 145 256 Z" fill="#E0701A" />
+        <path d="M130 274 L 124 292" style={{ stroke: "var(--ink-2)" }} strokeWidth="3" strokeLinecap="round" />
+        <path d="M142 273 L 154 252" style={{ stroke: "var(--ink-2)" }} strokeWidth="3" strokeLinecap="round" />
+        <path d="M154 254 V 212" style={{ stroke: "var(--ink-3)" }} strokeWidth="2" strokeLinecap="round" />
+        <g className="anim-bob" style={{ animationDuration: "3s" }}>
+          <polygon points="154,212 180,219 154,226" fill="#FF8A2B" />
+        </g>
+      </g>
+
+      {/* The day's stops: café, restaurant, museum. */}
+      <rect x="410" y="276" width="44" height={ground - 276} rx="3" fill={`url(#${id}-glass)`} style={{ stroke: "var(--glass-border)" }} />
+      {awning(410, 44, 276, "#FFA04D")}
+      <rect x="426" y="300" width="12" height="18" rx="2" style={{ fill: "var(--line-strong)" }} />
+      <rect x="472" y="264" width="56" height={ground - 264} rx="3" fill={`url(#${id}-glass)`} style={{ stroke: "var(--glass-border)" }} />
+      {awning(472, 56, 264, "var(--stream-pink)")}
+      <rect x="478" y="290" width="18" height="12" rx="2" fill="#FFB15C" opacity="0.5" />
+      <rect x="506" y="294" width="14" height="24" rx="2" style={{ fill: "var(--line-strong)" }} />
+      <polygon points="548,262 594,238 640,262" fill={`url(#${id}-glass)`} style={{ stroke: "var(--glass-border)" }} />
+      <rect x="552" y="262" width="84" height={ground - 262} fill={`url(#${id}-glass)`} style={{ stroke: "var(--glass-border)" }} />
+      {[562, 582, 602, 622].map((x) => (
+        <rect key={x} x={x - 3} y="270" width="6" height="40" rx="1" style={{ fill: "var(--label-blue)" }} opacity="0.55" />
+      ))}
+      <path d="M548 312 H 640" style={{ stroke: "var(--line-strong)" }} strokeWidth="3" />
+
+      {stops.map((stop, i) => (
+        <g key={stop.label} className="anim-bob" style={{ animationDuration: `${4 + i}s`, animationDelay: `${-i * 0.9}s` }}>
+          <path d={pinPath(stop.x, stop.y)} style={{ fill: stop.color, filter: "drop-shadow(0 4px 10px rgba(0,0,0,0.25))" }} />
+          <g stroke="#FFFFFF" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round">
+            {stop.icon === "cup" ? (
+              <>
+                <path d={`M${stop.x - 7} ${stop.y - 3} H ${stop.x + 4} V ${stop.y + 3} A 4 4 0 0 1 ${stop.x} ${stop.y + 7} H ${stop.x - 3} A 4 4 0 0 1 ${stop.x - 7} ${stop.y + 3} Z`} />
+                <path d={`M${stop.x + 4} ${stop.y - 1} H ${stop.x + 6} A 2.5 2.5 0 0 1 ${stop.x + 6} ${stop.y + 4} H ${stop.x + 4}`} />
+                <path d={`M${stop.x - 4} ${stop.y - 7} V ${stop.y - 9} M${stop.x} ${stop.y - 7} V ${stop.y - 10}`} />
+              </>
+            ) : stop.icon === "dine" ? (
+              <>
+                <path d={`M${stop.x - 5} ${stop.y - 9} V ${stop.y + 9} M${stop.x - 8} ${stop.y - 9} V ${stop.y - 3} Q ${stop.x - 5} ${stop.y} ${stop.x - 2} ${stop.y - 3} V ${stop.y - 9}`} />
+                <path d={`M${stop.x + 5} ${stop.y + 9} V ${stop.y - 9} Q ${stop.x + 10} ${stop.y - 4} ${stop.x + 5} ${stop.y + 1}`} />
+              </>
+            ) : (
+              <>
+                <path d={`M${stop.x - 9} ${stop.y - 3} L ${stop.x} ${stop.y - 9} L ${stop.x + 9} ${stop.y - 3} Z`} />
+                <path d={`M${stop.x - 6} ${stop.y - 1} V ${stop.y + 6} M${stop.x} ${stop.y - 1} V ${stop.y + 6} M${stop.x + 6} ${stop.y - 1} V ${stop.y + 6} M${stop.x - 9} ${stop.y + 8} H ${stop.x + 9}`} />
+              </>
+            )}
+          </g>
+          <text
+            x={stop.x}
+            y={stop.y - 24}
+            fontSize="10"
+            textAnchor="middle"
+            style={{ fontFamily: "var(--font-label)", letterSpacing: "2px", fill: stop.color }}
+          >
+            {stop.label}
+          </text>
+        </g>
+      ))}
+
+      {/* Ground and the day's route from the hotel through each stop. */}
+      <path d={`M20 ${ground} H 650`} style={{ stroke: "var(--line-strong)" }} />
+      <path
+        d="M136 336 H 600"
+        fill="none"
+        stroke="#FFA04D"
+        strokeWidth="2"
+        strokeDasharray="4 6"
+        className="anim-flow"
+        pathLength={1000}
+        style={{ animationDuration: "14s" }}
+      />
+      <circle cx="136" cy="336" r="5" fill="#FFA04D" />
+      {stops.map((stop) => (
+        <circle key={stop.x} cx={stop.x} cy="336" r="5" style={{ fill: stop.color }} />
+      ))}
+      <text x="34" y="354" fontSize="10" style={{ fontFamily: "var(--font-label)", letterSpacing: "3px", fill: "var(--ink-3)" }}>
+        {labels.route}
+      </text>
+    </svg>
+  );
+}

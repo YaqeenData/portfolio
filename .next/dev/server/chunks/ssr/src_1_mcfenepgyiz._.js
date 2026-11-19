@@ -696,6 +696,105 @@ const projects = [
                 ]
             }
         }
+    },
+    // ── Playground ──────────────────────────────────────────────
+    {
+        slug: "falcons-analysis",
+        type: "playground",
+        order: 10,
+        status: "in-progress",
+        categories: [
+            "data-engineering",
+            "analytics"
+        ],
+        accent: "blue",
+        illustration: "dive",
+        technologies: [
+            "DuckDB",
+            "Power BI",
+            "Sentiment analysis",
+            "YouTube"
+        ],
+        resources: {},
+        text: {
+            en: {
+                title: "Falcons Analysis",
+                subtitle: "Team Falcons on YouTube",
+                category: "Data Pipeline / Analytics",
+                summary: "Analyzing Team Falcons' YouTube content: video performance, creator channels, and what the comments are really saying.",
+                inspiration: "Curiosity about what drives Team Falcons' YouTube content: which videos perform, how each content creator's channel is doing, and how the audience responds in the comments.",
+                built: "A pipeline that collects video, channel, and comment data into DuckDB, comment sentiment analysis that also classifies intent (requests, sarcasm, abuse), and a Power BI dashboard on top.",
+                learned: "Still in progress. Lessons will land here as the project grows."
+            },
+            ar: {
+                title: "تحليل Falcons",
+                altName: "Falcons Analysis",
+                altLang: "en",
+                subtitle: "فريق Falcons على YouTube",
+                category: "خط بيانات / تحليلات",
+                summary: "تحليل محتوى فريق Falcons على YouTube: أداء المقاطع، وقنوات صنّاع المحتوى، وما تقوله التعليقات فعلًا.",
+                inspiration: "فضول لفهم ما يحرّك محتوى فريق Falcons على YouTube: أي المقاطع تحقق أداءً أفضل، وكيف تسير قناة كل صانع محتوى، وكيف يتفاعل الجمهور في التعليقات.",
+                built: "خط بيانات يجمع بيانات المقاطع والقنوات والتعليقات في DuckDB، وتحليل لمشاعر التعليقات يصنّف نيّتها أيضًا (طلب، سخرية، إساءة)، ولوحة Power BI مبنية فوقها.",
+                learned: "المشروع ما زال قيد التطوير، وستُضاف الدروس هنا مع تقدّمه."
+            }
+        }
+    },
+    {
+        slug: "riyadh-hotel-guide",
+        type: "playground",
+        order: 11,
+        categories: [
+            "data-engineering",
+            "ai-ml"
+        ],
+        accent: "amber",
+        illustration: "tour",
+        technologies: [
+            "Python",
+            "OpenStreetMap",
+            "scikit-learn",
+            "JavaScript"
+        ],
+        resources: {
+            github: "https://github.com/mega-eng/riyadh-hotel-guide",
+            demo: "https://mega-eng.github.io/riyadh-hotel-guide/"
+        },
+        text: {
+            en: {
+                title: "Riyadh Hotel Guide",
+                altName: "أقرب خدمة للفندق",
+                altLang: "ar",
+                subtitle: "Nearest services and a tour-guide planner for hotel guests",
+                category: "Data Collection / NLP",
+                summary: "An Arabic-first, in-browser assistant for Riyadh hotel guests: ask in plain dialect for the nearest café or a full day-by-day trip plan.",
+                inspiration: "Arriving at a hotel in Riyadh usually means juggling Google Maps, restaurant apps and long travel articles. We wanted one page where a guest asks in their own words, in Saudi dialect or English, and gets an answer straight away.",
+                built: "Built with Mohammed Al Hamoud. The guide covers 162 hotels and serviced apartments, over 23,000 places, and 250 landmarks, entertainment spots, malls and parks from OpenStreetMap. It answers in plain dialect with the nearest places or a full day-by-day trip plan, and everything runs in the browser, with no server or API.",
+                learned: "Open data has gaps: OpenStreetMap places carry no ratings and few opening hours, so the guide says so plainly instead of guessing.",
+                links: [
+                    {
+                        text: "Mohammed Al Hamoud",
+                        href: "https://mega-eng.github.io/My-life-/"
+                    }
+                ]
+            },
+            ar: {
+                title: "أقرب خدمة للفندق",
+                altName: "Riyadh Hotel Guide",
+                altLang: "en",
+                subtitle: "أقرب الخدمات ومرشد سياحي لنزلاء فنادق الرياض",
+                category: "جمع البيانات / معالجة اللغة",
+                summary: "مساعد يعمل داخل المتصفح لنزلاء فنادق الرياض: اسأل باللهجة عن أقرب كوفي أو اطلب جدولًا كاملًا لأيامك.",
+                inspiration: "الوصول إلى فندق في الرياض يعني غالبًا التنقل بين خرائط Google وتطبيقات المطاعم ومقالات السياحة الطويلة. أردنا صفحة واحدة يسأل فيها النزيل بكلامه، باللهجة السعودية أو بالإنجليزية، ويحصل على جوابه مباشرة.",
+                built: "بنيته مع محمد ال حمود. يغطي المرشد 162 فندقًا وشقة مفروشة، وأكثر من 23 ألف مكان، و250 معلمًا ومكان ترفيه ومولًا وحديقة من OpenStreetMap. يجيب باللهجة بأقرب الأماكن أو بجدول كامل لكل يوم، وكل شيء يعمل داخل المتصفح، بلا سيرفر ولا API.",
+                learned: "للبيانات المفتوحة ثغرات: أماكن OpenStreetMap بلا تقييمات وأوقات دوامها قليلة، لذلك يوضّح المرشد ذلك بصراحة بدل أن يخمّن.",
+                links: [
+                    {
+                        text: "محمد ال حمود",
+                        href: "https://mega-eng.github.io/My-life-/"
+                    }
+                ]
+            }
+        }
     }
 ];
 function sortedProjects() {

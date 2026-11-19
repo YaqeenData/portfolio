@@ -448,6 +448,10 @@ export const site = {
       positive: "POSITIVE",
       neutral: "NEUTRAL",
       negative: "NEGATIVE",
+      cafe: "CAFÉ",
+      restaurant: "RESTAURANT",
+      museum: "MUSEUM",
+      route: "DAY 1 · YOUR ROUTE",
     },
   },
 } as const;

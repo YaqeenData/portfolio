@@ -93,6 +93,8 @@ export type PlaygroundText = BaseText & {
   built: string;
   /** What did I learn? One sentence or a few short points. */
   learned: string | string[];
+  /** Optional: words in the notes that become links, e.g. a collaborator's name. */
+  links?: { text: string; href: string }[];
 };
 
 /** @deprecated name kept for older imports — engineering text. */
@@ -112,7 +114,7 @@ export type ProjectResources = {
 export type ProjectImage = { src: string; alt: Record<Locale, string> };
 
 /** The drawn illustrations that ship with the site. */
-export type Illustration = "archive" | "watch" | "sky" | "dive";
+export type Illustration = "archive" | "watch" | "sky" | "dive" | "tour";
 
 type BaseProject = {
   slug: string;
@@ -475,6 +477,52 @@ export const projects: Project[] = [
         built:
           "خط بيانات يجمع بيانات المقاطع والقنوات والتعليقات في DuckDB، وتحليل لمشاعر التعليقات يصنّف نيّتها أيضًا (طلب، سخرية، إساءة)، ولوحة Power BI مبنية فوقها.",
         learned: "المشروع ما زال قيد التطوير، وستُضاف الدروس هنا مع تقدّمه.",
+      },
+    },
+  },
+  {
+    slug: "riyadh-hotel-guide",
+    type: "playground",
+    order: 11,
+    categories: ["data-engineering", "ai-ml"],
+    accent: "amber",
+    illustration: "tour",
+    technologies: ["Python", "OpenStreetMap", "scikit-learn", "JavaScript"],
+    resources: {
+      github: "https://github.com/mega-eng/riyadh-hotel-guide",
+      demo: "https://mega-eng.github.io/riyadh-hotel-guide/",
+    },
+    text: {
+      en: {
+        title: "Riyadh Hotel Guide",
+        altName: "أقرب خدمة للفندق",
+        altLang: "ar",
+        subtitle: "Nearest services and a tour-guide planner for hotel guests",
+        category: "Data Collection / NLP",
+        summary:
+          "An Arabic-first, in-browser assistant for Riyadh hotel guests: ask in plain dialect for the nearest café or a full day-by-day trip plan.",
+        inspiration:
+          "Arriving at a hotel in Riyadh usually means juggling Google Maps, restaurant apps and long travel articles. We wanted one page where a guest asks in their own words, in Saudi dialect or English, and gets an answer straight away.",
+        built:
+          "Built with Mohammed Al Hamoud. The guide covers 162 hotels and serviced apartments, over 23,000 places, and 250 landmarks, entertainment spots, malls and parks from OpenStreetMap. It answers in plain dialect with the nearest places or a full day-by-day trip plan, and everything runs in the browser, with no server or API.",
+        learned:
+          "Open data has gaps: OpenStreetMap places carry no ratings and few opening hours, so the guide says so plainly instead of guessing.",
+        links: [{ text: "Mohammed Al Hamoud", href: "https://mega-eng.github.io/My-life-/" }],
+      },
+      ar: {
+        title: "أقرب خدمة للفندق",
+        altName: "Riyadh Hotel Guide",
+        altLang: "en",
+        subtitle: "أقرب الخدمات ومرشد سياحي لنزلاء فنادق الرياض",
+        category: "جمع البيانات / معالجة اللغة",
+        summary: "مساعد يعمل داخل المتصفح لنزلاء فنادق الرياض: اسأل باللهجة عن أقرب كوفي أو اطلب جدولًا كاملًا لأيامك.",
+        inspiration:
+          "الوصول إلى فندق في الرياض يعني غالبًا التنقل بين خرائط Google وتطبيقات المطاعم ومقالات السياحة الطويلة. أردنا صفحة واحدة يسأل فيها النزيل بكلامه، باللهجة السعودية أو بالإنجليزية، ويحصل على جوابه مباشرة.",
+        built:
+          "بنيته مع محمد ال حمود. يغطي المرشد 162 فندقًا وشقة مفروشة، وأكثر من 23 ألف مكان، و250 معلمًا ومكان ترفيه ومولًا وحديقة من OpenStreetMap. يجيب باللهجة بأقرب الأماكن أو بجدول كامل لكل يوم، وكل شيء يعمل داخل المتصفح، بلا سيرفر ولا API.",
+        learned:
+          "للبيانات المفتوحة ثغرات: أماكن OpenStreetMap بلا تقييمات وأوقات دوامها قليلة، لذلك يوضّح المرشد ذلك بصراحة بدل أن يخمّن.",
+        links: [{ text: "محمد ال حمود", href: "https://mega-eng.github.io/My-life-/" }],
       },
     },
   },

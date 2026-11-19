@@ -583,6 +583,13 @@ const siteAr = {
                     "بنيت خطوط ETL وجدولت تشغيلها باستخدام Apache Airflow.",
                     "طوّرت واجهات API آمنة باستخدام Python وFastAPI وWSO2 API Manager، لدعم مبادرات مشاركة البيانات ومراقبتها وتحقيق عائد منها."
                 ]
+            },
+            {
+                role: "مهندسة بيانات مبتدئة",
+                org: "Apex AI Arabia",
+                dates: "نوفمبر 2026 – حتى الآن",
+                place: "الرياض، المملكة العربية السعودية",
+                points: []
             }
         ],
         credentials: {
@@ -807,7 +814,18 @@ const siteAr = {
             drift: "انحراف",
             schema: "SCHEMA V2",
             detected: "تم الرصد",
-            report: "البلاغ"
+            report: "البلاغ",
+            request: "طلب",
+            sarcasm: "سخرية",
+            abuse: "إساءة",
+            other: "أخرى",
+            positive: "إيجابي",
+            neutral: "محايد",
+            negative: "سلبي",
+            cafe: "كوفي",
+            restaurant: "مطعم",
+            museum: "متحف",
+            route: "اليوم الأول · مسارك"
         }
     }
 };
@@ -1084,6 +1102,13 @@ const site = {
                     "Built and orchestrated ETL pipelines using Apache Airflow.",
                     "Developed secure APIs using Python, FastAPI, and WSO2 API Manager for data sharing, monitoring, and monetization initiatives."
                 ]
+            },
+            {
+                role: "Junior Data Engineer",
+                org: "Apex AI Arabia",
+                dates: "Nov 2026 – Present",
+                place: "Riyadh, Saudi Arabia",
+                points: []
             }
         ],
         credentials: {
@@ -1351,7 +1376,18 @@ const site = {
             drift: "DRIFT",
             schema: "SCHEMA V2",
             detected: "DETECTED",
-            report: "REPORT"
+            report: "REPORT",
+            request: "REQUEST",
+            sarcasm: "SARCASM",
+            abuse: "ABUSE",
+            other: "OTHER",
+            positive: "POSITIVE",
+            neutral: "NEUTRAL",
+            negative: "NEGATIVE",
+            cafe: "CAFÉ",
+            restaurant: "RESTAURANT",
+            museum: "MUSEUM",
+            route: "DAY 1 · YOUR ROUTE"
         }
     }
 };

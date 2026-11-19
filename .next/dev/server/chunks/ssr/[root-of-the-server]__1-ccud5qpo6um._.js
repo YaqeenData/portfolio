@@ -1774,8 +1774,12 @@ function ThemeToggle({ size = 46 }) {
 __turbopack_context__.s([
     "BayanArt",
     ()=>BayanArt,
+    "FalconsArt",
+    ()=>FalconsArt,
     "NajmArt",
     ()=>NajmArt,
+    "RiyadhArt",
+    ()=>RiyadhArt,
     "SentinelArt",
     ()=>SentinelArt
 ]);
@@ -2954,6 +2958,1439 @@ function NajmArt({ id, labels }) {
         columnNumber: 5
     }, this);
 }
+/**
+ * A peregrine in a stoop, drawn facing right around (0, 0): wings half folded and swept
+ * back, hooked beak, yellow cere and eye ring, the dark "moustache" stripe, and a narrow
+ * tail. A generic bird, not the team's mark.
+ */ function DivingFalcon({ transform }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+        transform: transform,
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M 24 -8 C 8 -22, -16 -32, -46 -36 L -40 -32 L -46 -31 L -38 -27 L -43 -25 C -28 -18, -14 -12, -2 -7 Z",
+                style: {
+                    fill: "var(--ink-3)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 286,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M -28 -3 L -66 -7 Q -71 0 -66 7 L -28 4 Z",
+                style: {
+                    fill: "var(--ink-2)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 291,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M -60 -6.4 L -66 -7 Q -71 0 -66 7 L -60 6.4 Q -64 0 -60 -6.4 Z",
+                style: {
+                    fill: "var(--ink-3)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 292,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M 56 -6 C 46 -12, 28 -13, 10 -11 C -8 -8, -22 -5, -32 -2 L -32 4 C -22 6, -8 9, 10 11 C 28 12, 46 10, 56 6 Z",
+                style: {
+                    fill: "var(--ink-2)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 294,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M 30 6 q 3 2 6 0 M 20 7 q 3 2 6 0 M 10 7.5 q 3 2 6 0 M 25 2 q 3 2 6 0 M 15 2.5 q 3 2 6 0",
+                fill: "none",
+                style: {
+                    stroke: "var(--ink-3)"
+                },
+                strokeWidth: "1",
+                strokeLinecap: "round",
+                opacity: "0.7"
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 299,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M 26 2 C 12 18, -14 34, -54 44 L -46 39 L -55 39 L -45 34 L -52 33 L -42 29 C -26 22, -12 14, -2 6 Z",
+                style: {
+                    fill: "var(--ink-2)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 308,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M -20 20 C -30 27, -40 32, -54 44 L -46 39 L -55 39 L -45 34 L -52 33 L -42 29 C -34 26, -27 23, -20 20 Z",
+                style: {
+                    fill: "var(--ink-3)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 312,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M 18 6 C 6 16, -10 26, -30 34 M 10 6 C -2 14, -14 20, -26 25",
+                fill: "none",
+                style: {
+                    stroke: "var(--ink-3)"
+                },
+                strokeWidth: "1",
+                opacity: "0.6"
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 316,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M 40 -10 C 48 -14, 58 -11, 62 -5 C 60 -1, 54 0, 48 -1 C 44 -3, 41 -6, 40 -10 Z",
+                style: {
+                    fill: "var(--ink-3)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 324,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M 52 -2 C 51 2, 49 5, 46 7 L 49 7 C 52 5, 54 2, 54 -1 Z",
+                style: {
+                    fill: "var(--ink-3)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 325,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "55",
+                cy: "-5",
+                r: "2.6",
+                style: {
+                    fill: "var(--label-orange)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 326,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "55.4",
+                cy: "-5",
+                r: "1.4",
+                fill: "#0B1026"
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 327,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M 61 -5 L 64 -4.5 L 63 -1.5 Z",
+                style: {
+                    fill: "var(--label-orange)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 328,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M 63.5 -4.6 C 67 -4, 68.4 -1.6, 67 1.6 C 66 0, 64.6 -0.8, 63 -1.4 Z",
+                style: {
+                    fill: "var(--ink-3)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 329,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+        lineNumber: 284,
+        columnNumber: 5
+    }, this);
+}
+function FalconsArt({ id, labels }) {
+    const circumference = 2 * Math.PI * 36;
+    const lanes = [
+        {
+            y: 138,
+            label: labels.request,
+            color: "var(--label-blue)",
+            share: 0.28,
+            chips: [
+                470,
+                520
+            ]
+        },
+        {
+            y: 168,
+            label: labels.sarcasm,
+            color: "var(--label-orange)",
+            share: 0.18,
+            chips: [
+                496
+            ]
+        },
+        {
+            y: 198,
+            label: labels.abuse,
+            color: "var(--stream-pink)",
+            share: 0.14,
+            chips: [
+                530
+            ]
+        },
+        {
+            y: 228,
+            label: labels.other,
+            color: "var(--ink-4)",
+            share: 0.4,
+            chips: [
+                462,
+                500,
+                530
+            ]
+        }
+    ];
+    // Sentiment bar under the video: x from 170 to 390, 3px gaps between segments.
+    const sentiment = [
+        {
+            label: labels.positive,
+            color: "#14B26C",
+            share: 0.46
+        },
+        {
+            label: labels.neutral,
+            color: "var(--ink-4)",
+            share: 0.32
+        },
+        {
+            label: labels.negative,
+            color: "var(--stream-pink)",
+            share: 0.22
+        }
+    ];
+    let barX = 170;
+    let offset = 0;
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        viewBox: "0 0 660 360",
+        className: "h-auto w-full",
+        "aria-hidden": "true",
+        focusable: "false",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("defs", {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("radialGradient", {
+                        id: `${id}-glow`,
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
+                                offset: "0",
+                                stopColor: "#6E95FF",
+                                stopOpacity: "0.24"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 360,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
+                                offset: "1",
+                                stopColor: "#6E95FF",
+                                stopOpacity: "0"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 361,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 359,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("linearGradient", {
+                        id: `${id}-glass`,
+                        x1: "0",
+                        y1: "0",
+                        x2: "1",
+                        y2: "1",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
+                                offset: "0",
+                                style: {
+                                    stopColor: "var(--glass-1)"
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 364,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
+                                offset: "1",
+                                style: {
+                                    stopColor: "var(--glass-2)"
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 365,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 363,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 358,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ellipse", {
+                cx: "330",
+                cy: "190",
+                rx: "320",
+                ry: "170",
+                fill: `url(#${id}-glow)`
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 368,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                transform: "translate(0 22)",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                        style: {
+                            stroke: "var(--label-blue)"
+                        },
+                        strokeOpacity: "0.45",
+                        strokeLinecap: "round",
+                        strokeWidth: "1.5",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                d: "M22 18 L 62 50",
+                                className: "anim-twinkle",
+                                style: {
+                                    animationDuration: "3s"
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 372,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                d: "M48 6 L 86 36",
+                                className: "anim-twinkle",
+                                style: {
+                                    animationDuration: "3s",
+                                    animationDelay: "-1s"
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 373,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                d: "M12 42 L 48 70",
+                                className: "anim-twinkle",
+                                style: {
+                                    animationDuration: "3s",
+                                    animationDelay: "-2s"
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 374,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 371,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                        className: "anim-bob",
+                        style: {
+                            animationDuration: "5s"
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(DivingFalcon, {
+                            transform: "translate(110 70) rotate(36) scale(1.05)"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                            lineNumber: 377,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 376,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                        x: "170",
+                        y: "110",
+                        width: "220",
+                        height: "132",
+                        rx: "16",
+                        fill: `url(#${id}-glass)`,
+                        style: {
+                            stroke: "var(--glass-border)"
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 381,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polygon", {
+                        points: "266,152 266,200 304,176",
+                        style: {
+                            fill: "var(--stream-pink)"
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 382,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        d: "M188 226 H 372",
+                        style: {
+                            stroke: "var(--line-strong)"
+                        },
+                        strokeWidth: "3",
+                        strokeLinecap: "round"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 383,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        d: "M188 226 H 300",
+                        style: {
+                            stroke: "var(--label-blue)"
+                        },
+                        strokeWidth: "3",
+                        strokeLinecap: "round"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 384,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("image", {
+                        href: "/assets/projects/falcons-analysis/team-falcons-logo.png",
+                        x: "348",
+                        y: "120",
+                        width: "30",
+                        height: "36",
+                        opacity: "0.95"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 385,
+                        columnNumber: 9
+                    }, this),
+                    sentiment.map((part)=>{
+                        const width = part.share * 220 - 3;
+                        const x = barX;
+                        barX += part.share * 220;
+                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                                    x: x,
+                                    y: "256",
+                                    width: width,
+                                    height: "7",
+                                    rx: "3.5",
+                                    style: {
+                                        fill: part.color
+                                    }
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                    lineNumber: 394,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("text", {
+                                    x: x,
+                                    y: "280",
+                                    fontSize: "10",
+                                    style: {
+                                        fontFamily: "var(--font-label)",
+                                        letterSpacing: "2px",
+                                        fill: part.color
+                                    },
+                                    children: part.label
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                    lineNumber: 395,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, part.color, true, {
+                            fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                            lineNumber: 393,
+                            columnNumber: 13
+                        }, this);
+                    }),
+                    lanes.map((lane, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                    d: `M390 ${152 + i * 16} C 404 ${152 + i * 16}, 406 ${lane.y}, 420 ${lane.y} H 552`,
+                                    fill: "none",
+                                    style: {
+                                        stroke: "var(--line-strong)"
+                                    },
+                                    strokeDasharray: "3 6"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                    lineNumber: 405,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("text", {
+                                    x: "420",
+                                    y: lane.y - 9,
+                                    fontSize: "11",
+                                    style: {
+                                        fontFamily: "var(--font-label)",
+                                        letterSpacing: "3px",
+                                        fill: lane.color
+                                    },
+                                    children: lane.label
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                    lineNumber: 411,
+                                    columnNumber: 13
+                                }, this),
+                                lane.chips.map((x, j)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                                        className: "anim-bob",
+                                        style: {
+                                            animationDuration: `${4 + i + j}s`,
+                                            animationDelay: `${-(i + j) * 0.8}s`
+                                        },
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                                            x: x,
+                                            y: lane.y - 7,
+                                            width: "22",
+                                            height: "14",
+                                            rx: "5",
+                                            style: {
+                                                fill: lane.color
+                                            }
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                            lineNumber: 416,
+                                            columnNumber: 17
+                                        }, this)
+                                    }, x, false, {
+                                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                        lineNumber: 415,
+                                        columnNumber: 15
+                                    }, this))
+                            ]
+                        }, lane.y, true, {
+                            fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                            lineNumber: 404,
+                            columnNumber: 11
+                        }, this)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                        transform: "rotate(-90 604 186)",
+                        fill: "none",
+                        strokeWidth: "14",
+                        children: lanes.map((lane)=>{
+                            const length = lane.share * circumference;
+                            const arc = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                                cx: "604",
+                                cy: "186",
+                                r: "36",
+                                style: {
+                                    stroke: lane.color
+                                },
+                                strokeDasharray: `${(length - 3).toFixed(1)} ${(circumference - length + 3).toFixed(1)}`,
+                                strokeDashoffset: (-offset).toFixed(1)
+                            }, lane.y, false, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 427,
+                                columnNumber: 15
+                            }, this);
+                            offset += length;
+                            return arc;
+                        })
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 423,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 369,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+        lineNumber: 357,
+        columnNumber: 5
+    }, this);
+}
+/** A map pin centred on (cx, cy) with its point 26px below. */ function pinPath(cx, cy) {
+    return `M${cx} ${cy + 26} C ${cx - 6} ${cy + 17}, ${cx - 15} ${cy + 10}, ${cx - 15} ${cy} A 15 15 0 1 1 ${cx + 15} ${cy} C ${cx + 15} ${cy + 10}, ${cx + 6} ${cy + 17}, ${cx} ${cy + 26} Z`;
+}
+function RiyadhArt({ id, labels }) {
+    const ground = 318;
+    const stops = [
+        {
+            x: 430,
+            y: 206,
+            label: labels.cafe,
+            color: "#FFA04D",
+            icon: "cup"
+        },
+        {
+            x: 500,
+            y: 190,
+            label: labels.restaurant,
+            color: "var(--stream-pink)",
+            icon: "dine"
+        },
+        {
+            x: 594,
+            y: 180,
+            label: labels.museum,
+            color: "var(--label-blue)",
+            icon: "museum"
+        }
+    ];
+    const skyline = [
+        [
+            150,
+            252,
+            30
+        ],
+        [
+            262,
+            232,
+            24
+        ],
+        [
+            376,
+            262,
+            22
+        ],
+        [
+            446,
+            240,
+            18
+        ],
+        [
+            640,
+            266,
+            14
+        ]
+    ];
+    const awning = (x, w, y, color)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+            d: `M${x - 3} ${y} H ${x + w + 3} V ${y + 8} ${Array.from({
+                length: Math.round(w / 10)
+            }, (_, k)=>{
+                const step = (w + 6) / Math.round(w / 10);
+                const right = x + w + 3 - k * step;
+                return `Q ${right - step / 2} ${y + 16}, ${right - step} ${y + 8}`;
+            }).join(" ")} Z`,
+            style: {
+                fill: color
+            },
+            opacity: "0.85"
+        }, void 0, false, {
+            fileName: "[project]/src/components/projects/ProjectArt.tsx",
+            lineNumber: 469,
+            columnNumber: 5
+        }, this);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        viewBox: "0 0 660 360",
+        className: "h-auto w-full",
+        "aria-hidden": "true",
+        focusable: "false",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("defs", {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("radialGradient", {
+                        id: `${id}-glow`,
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
+                                offset: "0",
+                                stopColor: "#FF8A2B",
+                                stopOpacity: "0.24"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 484,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
+                                offset: "1",
+                                stopColor: "#FF8A2B",
+                                stopOpacity: "0"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 485,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 483,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("linearGradient", {
+                        id: `${id}-glass`,
+                        x1: "0",
+                        y1: "0",
+                        x2: "1",
+                        y2: "1",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
+                                offset: "0",
+                                style: {
+                                    stopColor: "var(--glass-1)"
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 488,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
+                                offset: "1",
+                                style: {
+                                    stopColor: "var(--glass-2)"
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 489,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 487,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("radialGradient", {
+                        id: `${id}-globe`,
+                        cx: "0.35",
+                        cy: "0.35",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
+                                offset: "0",
+                                stopColor: "#FFE2B8"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 492,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
+                                offset: "0.55",
+                                stopColor: "#FFB15C"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 493,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
+                                offset: "1",
+                                stopColor: "#E0701A"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 494,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 491,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 482,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ellipse", {
+                cx: "330",
+                cy: "170",
+                rx: "320",
+                ry: "170",
+                fill: `url(#${id}-glow)`
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 497,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "604",
+                cy: "62",
+                r: "20",
+                fill: "#FFB15C",
+                opacity: "0.9",
+                className: "anim-twinkle",
+                style: {
+                    animationDuration: "6s"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 500,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "604",
+                cy: "62",
+                r: "32",
+                fill: "none",
+                stroke: "#FFB15C",
+                strokeOpacity: "0.3"
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 501,
+                columnNumber: 7
+            }, this),
+            skyline.map(([x, y, w])=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                    x: x,
+                    y: y,
+                    width: w,
+                    height: ground - y,
+                    rx: "2",
+                    style: {
+                        fill: "var(--band)",
+                        stroke: "var(--line)"
+                    }
+                }, x, false, {
+                    fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                    lineNumber: 505,
+                    columnNumber: 9
+                }, this)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M200 318 C 202 220, 207 140, 212 78 Q 225 156 238 78 C 243 140, 248 220, 250 318 Z",
+                fill: `url(#${id}-glass)`,
+                style: {
+                    stroke: "var(--glass-border)"
+                },
+                strokeWidth: "1.5"
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 509,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M218 104 H 232",
+                style: {
+                    stroke: "var(--glass-border)"
+                },
+                strokeWidth: "2.5",
+                strokeLinecap: "round"
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 515,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M225 132 V 312 M214 160 L 212 312 M236 160 L 238 312",
+                style: {
+                    stroke: "var(--line)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 516,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polygon", {
+                points: "296,318 364,318 330,62",
+                fill: `url(#${id}-glass)`,
+                style: {
+                    stroke: "var(--glass-border)"
+                },
+                strokeWidth: "1.5"
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 519,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polygon", {
+                points: "314,318 346,318 330,150",
+                fill: "none",
+                style: {
+                    stroke: "var(--line-strong)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 520,
+                columnNumber: 7
+            }, this),
+            [
+                160,
+                200,
+                240,
+                280
+            ].map((y)=>{
+                const half = 34 * (y - 62) / 256;
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                    d: `M${330 - half} ${y} H ${330 + half}`,
+                    style: {
+                        stroke: "var(--line-strong)"
+                    }
+                }, y, false, {
+                    fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                    lineNumber: 523,
+                    columnNumber: 16
+                }, this);
+            }),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M330 62 V 26",
+                stroke: "#FFC596",
+                strokeWidth: "2",
+                strokeLinecap: "round"
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 525,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "330",
+                cy: "112",
+                r: "15",
+                fill: `url(#${id}-globe)`,
+                className: "anim-breathe",
+                style: {
+                    filter: "drop-shadow(0 0 14px rgba(255,138,43,0.7))"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 526,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                x: "286",
+                y: "304",
+                width: "88",
+                height: "14",
+                rx: "3",
+                style: {
+                    fill: "var(--band)",
+                    stroke: "var(--line-strong)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 534,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                x: "34",
+                y: "196",
+                width: "80",
+                height: ground - 196,
+                rx: "5",
+                fill: `url(#${id}-glass)`,
+                style: {
+                    stroke: "var(--glass-border)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 537,
+                columnNumber: 7
+            }, this),
+            [
+                0,
+                1,
+                2,
+                3,
+                4
+            ].map((row)=>[
+                    0,
+                    1,
+                    2
+                ].map((col)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                        x: 46 + col * 20,
+                        y: 226 + row * 16,
+                        width: "12",
+                        height: "8",
+                        rx: "1.5",
+                        fill: "#FFB15C",
+                        opacity: (row + col) % 3 === 0 ? 0.75 : 0.22
+                    }, `${row}-${col}`, false, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 540,
+                        columnNumber: 11
+                    }, this))),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "74",
+                cy: "210",
+                r: "9",
+                fill: "#FFA04D"
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 552,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("text", {
+                x: "74",
+                y: "214",
+                fontSize: "11",
+                textAnchor: "middle",
+                style: {
+                    fontFamily: "var(--font-label)",
+                    fill: "#2A1206"
+                },
+                children: "H"
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 553,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                x: "66",
+                y: "302",
+                width: "16",
+                height: "16",
+                rx: "2",
+                style: {
+                    fill: "var(--line-strong)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 556,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        d: "M131 318 L 133 296 M141 318 L 139 296",
+                        style: {
+                            stroke: "var(--ink-2)"
+                        },
+                        strokeWidth: "3",
+                        strokeLinecap: "round"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 560,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        d: "M126 298 L 146 298 L 142 268 L 130 268 Z",
+                        fill: "#FFA04D"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 561,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                        cx: "136",
+                        cy: "259",
+                        r: "7.5",
+                        style: {
+                            fill: "var(--ink-2)"
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 562,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        d: "M127 256 Q 136 246 145 256 Z",
+                        fill: "#E0701A"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 563,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        d: "M130 274 L 124 292",
+                        style: {
+                            stroke: "var(--ink-2)"
+                        },
+                        strokeWidth: "3",
+                        strokeLinecap: "round"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 564,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        d: "M142 273 L 154 252",
+                        style: {
+                            stroke: "var(--ink-2)"
+                        },
+                        strokeWidth: "3",
+                        strokeLinecap: "round"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 565,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        d: "M154 254 V 212",
+                        style: {
+                            stroke: "var(--ink-3)"
+                        },
+                        strokeWidth: "2",
+                        strokeLinecap: "round"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 566,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                        className: "anim-bob",
+                        style: {
+                            animationDuration: "3s"
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polygon", {
+                            points: "154,212 180,219 154,226",
+                            fill: "#FF8A2B"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                            lineNumber: 568,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                        lineNumber: 567,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 559,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                x: "410",
+                y: "276",
+                width: "44",
+                height: ground - 276,
+                rx: "3",
+                fill: `url(#${id}-glass)`,
+                style: {
+                    stroke: "var(--glass-border)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 573,
+                columnNumber: 7
+            }, this),
+            awning(410, 44, 276, "#FFA04D"),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                x: "426",
+                y: "300",
+                width: "12",
+                height: "18",
+                rx: "2",
+                style: {
+                    fill: "var(--line-strong)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 575,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                x: "472",
+                y: "264",
+                width: "56",
+                height: ground - 264,
+                rx: "3",
+                fill: `url(#${id}-glass)`,
+                style: {
+                    stroke: "var(--glass-border)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 576,
+                columnNumber: 7
+            }, this),
+            awning(472, 56, 264, "var(--stream-pink)"),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                x: "478",
+                y: "290",
+                width: "18",
+                height: "12",
+                rx: "2",
+                fill: "#FFB15C",
+                opacity: "0.5"
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 578,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                x: "506",
+                y: "294",
+                width: "14",
+                height: "24",
+                rx: "2",
+                style: {
+                    fill: "var(--line-strong)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 579,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polygon", {
+                points: "548,262 594,238 640,262",
+                fill: `url(#${id}-glass)`,
+                style: {
+                    stroke: "var(--glass-border)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 580,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                x: "552",
+                y: "262",
+                width: "84",
+                height: ground - 262,
+                fill: `url(#${id}-glass)`,
+                style: {
+                    stroke: "var(--glass-border)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 581,
+                columnNumber: 7
+            }, this),
+            [
+                562,
+                582,
+                602,
+                622
+            ].map((x)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                    x: x - 3,
+                    y: "270",
+                    width: "6",
+                    height: "40",
+                    rx: "1",
+                    style: {
+                        fill: "var(--label-blue)"
+                    },
+                    opacity: "0.55"
+                }, x, false, {
+                    fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                    lineNumber: 583,
+                    columnNumber: 9
+                }, this)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M548 312 H 640",
+                style: {
+                    stroke: "var(--line-strong)"
+                },
+                strokeWidth: "3"
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 585,
+                columnNumber: 7
+            }, this),
+            stops.map((stop, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                    className: "anim-bob",
+                    style: {
+                        animationDuration: `${4 + i}s`,
+                        animationDelay: `${-i * 0.9}s`
+                    },
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                            d: pinPath(stop.x, stop.y),
+                            style: {
+                                fill: stop.color,
+                                filter: "drop-shadow(0 4px 10px rgba(0,0,0,0.25))"
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                            lineNumber: 589,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                            stroke: "#FFFFFF",
+                            strokeWidth: "1.8",
+                            fill: "none",
+                            strokeLinecap: "round",
+                            strokeLinejoin: "round",
+                            children: stop.icon === "cup" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                        d: `M${stop.x - 7} ${stop.y - 3} H ${stop.x + 4} V ${stop.y + 3} A 4 4 0 0 1 ${stop.x} ${stop.y + 7} H ${stop.x - 3} A 4 4 0 0 1 ${stop.x - 7} ${stop.y + 3} Z`
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                        lineNumber: 593,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                        d: `M${stop.x + 4} ${stop.y - 1} H ${stop.x + 6} A 2.5 2.5 0 0 1 ${stop.x + 6} ${stop.y + 4} H ${stop.x + 4}`
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                        lineNumber: 594,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                        d: `M${stop.x - 4} ${stop.y - 7} V ${stop.y - 9} M${stop.x} ${stop.y - 7} V ${stop.y - 10}`
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                        lineNumber: 595,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 592,
+                                columnNumber: 15
+                            }, this) : stop.icon === "dine" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                        d: `M${stop.x - 5} ${stop.y - 9} V ${stop.y + 9} M${stop.x - 8} ${stop.y - 9} V ${stop.y - 3} Q ${stop.x - 5} ${stop.y} ${stop.x - 2} ${stop.y - 3} V ${stop.y - 9}`
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                        lineNumber: 599,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                        d: `M${stop.x + 5} ${stop.y + 9} V ${stop.y - 9} Q ${stop.x + 10} ${stop.y - 4} ${stop.x + 5} ${stop.y + 1}`
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                        lineNumber: 600,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 598,
+                                columnNumber: 15
+                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                        d: `M${stop.x - 9} ${stop.y - 3} L ${stop.x} ${stop.y - 9} L ${stop.x + 9} ${stop.y - 3} Z`
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                        lineNumber: 604,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                        d: `M${stop.x - 6} ${stop.y - 1} V ${stop.y + 6} M${stop.x} ${stop.y - 1} V ${stop.y + 6} M${stop.x + 6} ${stop.y - 1} V ${stop.y + 6} M${stop.x - 9} ${stop.y + 8} H ${stop.x + 9}`
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                        lineNumber: 605,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                                lineNumber: 603,
+                                columnNumber: 15
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                            lineNumber: 590,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("text", {
+                            x: stop.x,
+                            y: stop.y - 24,
+                            fontSize: "10",
+                            textAnchor: "middle",
+                            style: {
+                                fontFamily: "var(--font-label)",
+                                letterSpacing: "2px",
+                                fill: stop.color
+                            },
+                            children: stop.label
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                            lineNumber: 609,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, stop.label, true, {
+                    fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                    lineNumber: 588,
+                    columnNumber: 9
+                }, this)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: `M20 ${ground} H 650`,
+                style: {
+                    stroke: "var(--line-strong)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 622,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M136 336 H 600",
+                fill: "none",
+                stroke: "#FFA04D",
+                strokeWidth: "2",
+                strokeDasharray: "4 6",
+                className: "anim-flow",
+                pathLength: 1000,
+                style: {
+                    animationDuration: "14s"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 623,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "136",
+                cy: "336",
+                r: "5",
+                fill: "#FFA04D"
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 633,
+                columnNumber: 7
+            }, this),
+            stops.map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                    cx: stop.x,
+                    cy: "336",
+                    r: "5",
+                    style: {
+                        fill: stop.color
+                    }
+                }, stop.x, false, {
+                    fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                    lineNumber: 635,
+                    columnNumber: 9
+                }, this)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("text", {
+                x: "34",
+                y: "354",
+                fontSize: "10",
+                style: {
+                    fontFamily: "var(--font-label)",
+                    letterSpacing: "3px",
+                    fill: "var(--ink-3)"
+                },
+                children: labels.route
+            }, void 0, false, {
+                fileName: "[project]/src/components/projects/ProjectArt.tsx",
+                lineNumber: 637,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/components/projects/ProjectArt.tsx",
+        lineNumber: 481,
+        columnNumber: 5
+    }, this);
+}
 }),
 "[project]/src/components/projects/ProjectCard.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -3377,6 +4814,22 @@ function ProjectIllustration({ project, locale, instance = "page" }) {
         lineNumber: 36,
         columnNumber: 46
     }, this);
+    if (project.illustration === "dive") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$projects$2f$ProjectArt$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["FalconsArt"], {
+        id: id,
+        labels: labels
+    }, void 0, false, {
+        fileName: "[project]/src/components/projects/ProjectIllustration.tsx",
+        lineNumber: 37,
+        columnNumber: 47
+    }, this);
+    if (project.illustration === "tour") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$projects$2f$ProjectArt$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RiyadhArt"], {
+        id: id,
+        labels: labels
+    }, void 0, false, {
+        fileName: "[project]/src/components/projects/ProjectIllustration.tsx",
+        lineNumber: 38,
+        columnNumber: 47
+    }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "flex w-full items-center justify-center py-6",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3385,17 +4838,17 @@ function ProjectIllustration({ project, locale, instance = "page" }) {
                 name: "curious"
             }, void 0, false, {
                 fileName: "[project]/src/components/projects/ProjectIllustration.tsx",
-                lineNumber: 40,
+                lineNumber: 42,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/projects/ProjectIllustration.tsx",
-            lineNumber: 39,
+            lineNumber: 41,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/projects/ProjectIllustration.tsx",
-        lineNumber: 38,
+        lineNumber: 40,
         columnNumber: 5
     }, this);
 }
@@ -5787,6 +7240,105 @@ const projects = [
                 ]
             }
         }
+    },
+    // ── Playground ──────────────────────────────────────────────
+    {
+        slug: "falcons-analysis",
+        type: "playground",
+        order: 10,
+        status: "in-progress",
+        categories: [
+            "data-engineering",
+            "analytics"
+        ],
+        accent: "blue",
+        illustration: "dive",
+        technologies: [
+            "DuckDB",
+            "Power BI",
+            "Sentiment analysis",
+            "YouTube"
+        ],
+        resources: {},
+        text: {
+            en: {
+                title: "Falcons Analysis",
+                subtitle: "Team Falcons on YouTube",
+                category: "Data Pipeline / Analytics",
+                summary: "Analyzing Team Falcons' YouTube content: video performance, creator channels, and what the comments are really saying.",
+                inspiration: "Curiosity about what drives Team Falcons' YouTube content: which videos perform, how each content creator's channel is doing, and how the audience responds in the comments.",
+                built: "A pipeline that collects video, channel, and comment data into DuckDB, comment sentiment analysis that also classifies intent (requests, sarcasm, abuse), and a Power BI dashboard on top.",
+                learned: "Still in progress. Lessons will land here as the project grows."
+            },
+            ar: {
+                title: "تحليل Falcons",
+                altName: "Falcons Analysis",
+                altLang: "en",
+                subtitle: "فريق Falcons على YouTube",
+                category: "خط بيانات / تحليلات",
+                summary: "تحليل محتوى فريق Falcons على YouTube: أداء المقاطع، وقنوات صنّاع المحتوى، وما تقوله التعليقات فعلًا.",
+                inspiration: "فضول لفهم ما يحرّك محتوى فريق Falcons على YouTube: أي المقاطع تحقق أداءً أفضل، وكيف تسير قناة كل صانع محتوى، وكيف يتفاعل الجمهور في التعليقات.",
+                built: "خط بيانات يجمع بيانات المقاطع والقنوات والتعليقات في DuckDB، وتحليل لمشاعر التعليقات يصنّف نيّتها أيضًا (طلب، سخرية، إساءة)، ولوحة Power BI مبنية فوقها.",
+                learned: "المشروع ما زال قيد التطوير، وستُضاف الدروس هنا مع تقدّمه."
+            }
+        }
+    },
+    {
+        slug: "riyadh-hotel-guide",
+        type: "playground",
+        order: 11,
+        categories: [
+            "data-engineering",
+            "ai-ml"
+        ],
+        accent: "amber",
+        illustration: "tour",
+        technologies: [
+            "Python",
+            "OpenStreetMap",
+            "scikit-learn",
+            "JavaScript"
+        ],
+        resources: {
+            github: "https://github.com/mega-eng/riyadh-hotel-guide",
+            demo: "https://mega-eng.github.io/riyadh-hotel-guide/"
+        },
+        text: {
+            en: {
+                title: "Riyadh Hotel Guide",
+                altName: "أقرب خدمة للفندق",
+                altLang: "ar",
+                subtitle: "Nearest services and a tour-guide planner for hotel guests",
+                category: "Data Collection / NLP",
+                summary: "An Arabic-first, in-browser assistant for Riyadh hotel guests: ask in plain dialect for the nearest café or a full day-by-day trip plan.",
+                inspiration: "Arriving at a hotel in Riyadh usually means juggling Google Maps, restaurant apps and long travel articles. We wanted one page where a guest asks in their own words, in Saudi dialect or English, and gets an answer straight away.",
+                built: "Built with Mohammed Al Hamoud. The guide covers 162 hotels and serviced apartments, over 23,000 places, and 250 landmarks, entertainment spots, malls and parks from OpenStreetMap. It answers in plain dialect with the nearest places or a full day-by-day trip plan, and everything runs in the browser, with no server or API.",
+                learned: "Open data has gaps: OpenStreetMap places carry no ratings and few opening hours, so the guide says so plainly instead of guessing.",
+                links: [
+                    {
+                        text: "Mohammed Al Hamoud",
+                        href: "https://mega-eng.github.io/My-life-/"
+                    }
+                ]
+            },
+            ar: {
+                title: "أقرب خدمة للفندق",
+                altName: "Riyadh Hotel Guide",
+                altLang: "en",
+                subtitle: "أقرب الخدمات ومرشد سياحي لنزلاء فنادق الرياض",
+                category: "جمع البيانات / معالجة اللغة",
+                summary: "مساعد يعمل داخل المتصفح لنزلاء فنادق الرياض: اسأل باللهجة عن أقرب كوفي أو اطلب جدولًا كاملًا لأيامك.",
+                inspiration: "الوصول إلى فندق في الرياض يعني غالبًا التنقل بين خرائط Google وتطبيقات المطاعم ومقالات السياحة الطويلة. أردنا صفحة واحدة يسأل فيها النزيل بكلامه، باللهجة السعودية أو بالإنجليزية، ويحصل على جوابه مباشرة.",
+                built: "بنيته مع محمد ال حمود. يغطي المرشد 162 فندقًا وشقة مفروشة، وأكثر من 23 ألف مكان، و250 معلمًا ومكان ترفيه ومولًا وحديقة من OpenStreetMap. يجيب باللهجة بأقرب الأماكن أو بجدول كامل لكل يوم، وكل شيء يعمل داخل المتصفح، بلا سيرفر ولا API.",
+                learned: "للبيانات المفتوحة ثغرات: أماكن OpenStreetMap بلا تقييمات وأوقات دوامها قليلة، لذلك يوضّح المرشد ذلك بصراحة بدل أن يخمّن.",
+                links: [
+                    {
+                        text: "محمد ال حمود",
+                        href: "https://mega-eng.github.io/My-life-/"
+                    }
+                ]
+            }
+        }
     }
 ];
 function sortedProjects() {
@@ -6105,6 +7657,13 @@ const siteAr = {
                     "بنيت خطوط ETL وجدولت تشغيلها باستخدام Apache Airflow.",
                     "طوّرت واجهات API آمنة باستخدام Python وFastAPI وWSO2 API Manager، لدعم مبادرات مشاركة البيانات ومراقبتها وتحقيق عائد منها."
                 ]
+            },
+            {
+                role: "مهندسة بيانات مبتدئة",
+                org: "Apex AI Arabia",
+                dates: "نوفمبر 2026 – حتى الآن",
+                place: "الرياض، المملكة العربية السعودية",
+                points: []
             }
         ],
         credentials: {
@@ -6329,7 +7888,18 @@ const siteAr = {
             drift: "انحراف",
             schema: "SCHEMA V2",
             detected: "تم الرصد",
-            report: "البلاغ"
+            report: "البلاغ",
+            request: "طلب",
+            sarcasm: "سخرية",
+            abuse: "إساءة",
+            other: "أخرى",
+            positive: "إيجابي",
+            neutral: "محايد",
+            negative: "سلبي",
+            cafe: "كوفي",
+            restaurant: "مطعم",
+            museum: "متحف",
+            route: "اليوم الأول · مسارك"
         }
     }
 };
@@ -6606,6 +8176,13 @@ const site = {
                     "Built and orchestrated ETL pipelines using Apache Airflow.",
                     "Developed secure APIs using Python, FastAPI, and WSO2 API Manager for data sharing, monitoring, and monetization initiatives."
                 ]
+            },
+            {
+                role: "Junior Data Engineer",
+                org: "Apex AI Arabia",
+                dates: "Nov 2026 – Present",
+                place: "Riyadh, Saudi Arabia",
+                points: []
             }
         ],
         credentials: {
@@ -6873,7 +8450,18 @@ const site = {
             drift: "DRIFT",
             schema: "SCHEMA V2",
             detected: "DETECTED",
-            report: "REPORT"
+            report: "REPORT",
+            request: "REQUEST",
+            sarcasm: "SARCASM",
+            abuse: "ABUSE",
+            other: "OTHER",
+            positive: "POSITIVE",
+            neutral: "NEUTRAL",
+            negative: "NEGATIVE",
+            cafe: "CAFÉ",
+            restaurant: "RESTAURANT",
+            museum: "MUSEUM",
+            route: "DAY 1 · YOUR ROUTE"
         }
     }
 };

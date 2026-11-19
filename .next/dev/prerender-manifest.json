@@ -1,6 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": []
-}
+{"version":4,"routes":{"/projects/bayan":{},"/projects/sentinel":{},"/projects/najm":{},"/projects/falcons-analysis":{},"/projects/riyadh-hotel-guide":{},"/ar/projects/bayan":{},"/ar/projects/sentinel":{},"/ar/projects/najm":{},"/ar/projects/falcons-analysis":{},"/ar/projects/riyadh-hotel-guide":{}},"dynamicRoutes":{"/projects/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":false,"fallbackRevalidate":false,"fallbackSourceRoute":"/projects/[slug]","routeRegex":"^\\/projects\\/([^/]+?)(?:\\/)?$","allowHeader":[]},"/ar/projects/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":false,"fallbackRevalidate":false,"fallbackSourceRoute":"/ar/projects/[slug]","routeRegex":"^\\/ar\\/projects\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[]}

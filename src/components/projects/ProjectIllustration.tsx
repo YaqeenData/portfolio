@@ -1,7 +1,7 @@
 import { content, type Locale } from "@/content";
 import type { Project } from "@/content/projects";
 import { SketchSvg } from "@/components/sections/Sketches";
-import { BayanArt, FalconsArt, NajmArt, SentinelArt } from "./ProjectArt";
+import { BayanArt, FalconsArt, NajmArt, RiyadhArt, SentinelArt } from "./ProjectArt";
 
 /**
  * A project's picture: its cover image if it has one, otherwise one of the built-in drawings,
@@ -35,6 +35,7 @@ export function ProjectIllustration({
   if (project.illustration === "watch") return <SentinelArt id={id} labels={labels} />;
   if (project.illustration === "sky") return <NajmArt id={id} labels={labels} />;
   if (project.illustration === "dive") return <FalconsArt id={id} labels={labels} />;
+  if (project.illustration === "tour") return <RiyadhArt id={id} labels={labels} />;
   return (
     <div className="flex w-full items-center justify-center py-6">
       <div className="w-[min(60%,220px)]">

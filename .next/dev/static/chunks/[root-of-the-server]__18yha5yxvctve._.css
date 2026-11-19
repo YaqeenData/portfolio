@@ -2083,6 +2083,18 @@
     text-decoration-line: none;
   }
 
+  .underline {
+    text-decoration-line: underline;
+  }
+
+  .decoration-1 {
+    text-decoration-thickness: 1px;
+  }
+
+  .underline-offset-4 {
+    text-underline-offset: 4px;
+  }
+
   .opacity-50 {
     opacity: .5;
   }
@@ -2157,6 +2169,10 @@
   @media (hover: hover) {
     .hover\:text-accent:hover {
       color: var(--accent);
+    }
+
+    .hover\:text-ink:hover {
+      color: var(--ink);
     }
 
     .hover\:text-italic:hover {
@@ -2457,8 +2473,8 @@
       max-width: 230px;
     }
 
-    .lg\:grid-cols-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .lg\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .lg\:grid-cols-5 {
@@ -2515,10 +2531,6 @@
 
     .lg\:gap-12 {
       gap: calc(var(--spacing) * 12);
-    }
-
-    .lg\:gap-16 {
-      gap: calc(var(--spacing) * 16);
     }
 
     .lg\:gap-20 {

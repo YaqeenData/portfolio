@@ -1,9 +1,29 @@
+import type { ReactNode } from "react";
 import { content, type Locale } from "@/content";
 import type { PlaygroundProject } from "@/content/projects";
 import { Reveal } from "@/components/ui/Reveal";
 import { SketchSvg } from "@/components/sections/Sketches";
 import { ACCENT } from "./accent";
 import { ProjectIllustration } from "./ProjectIllustration";
+
+type Link = { text: string; href: string };
+
+/** Turns the first appearance of each link's text in `body` into an outbound link. */
+function withLinks(body: string, links: Link[] | undefined, className: string): ReactNode {
+  const link = links?.find((l) => body.includes(l.text));
+  if (!link) return body;
+  const at = body.indexOf(link.text);
+  const rest = links!.filter((l) => l !== link);
+  return (
+    <>
+      {withLinks(body.slice(0, at), rest, className)}
+      <a href={link.href} target="_blank" rel="noopener noreferrer" className={className}>
+        {link.text}
+      </a>
+      {withLinks(body.slice(at + link.text.length), links, className)}
+    </>
+  );
+}
 
 /**
  * A playground experiment's page — deliberately light: what sparked it, what I built,
@@ -62,7 +82,9 @@ export function PlaygroundStory({ project, locale }: { project: PlaygroundProjec
             </div>
             <h2 className={`label text-[12px] tracking-[0.3em] ${accent.label}`}>{note.title}</h2>
             {note.body.length === 1 ? (
-              <p className="text-[16px] leading-relaxed text-ink-2">{note.body[0]}</p>
+              <p className="text-[16px] leading-relaxed text-ink-2">
+                {withLinks(note.body[0], t.links, `underline decoration-1 underline-offset-4 hover:text-ink ${accent.label}`)}
+              </p>
             ) : (
               <ul className="flex flex-col gap-2">
                 {note.body.map((item) => (

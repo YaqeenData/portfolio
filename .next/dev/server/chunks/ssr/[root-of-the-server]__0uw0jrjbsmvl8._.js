@@ -3002,7 +3002,7 @@ function Path({ c }) {
                         "aria-hidden": "true",
                         className: "absolute bottom-0 start-[7px] top-0 w-0.5 lg:hidden",
                         style: {
-                            background: "linear-gradient(180deg, var(--blue) 0 45%, var(--orange) 45% 85%, transparent)"
+                            background: "linear-gradient(180deg, var(--blue) 0 64%, var(--orange) 64% 88%, transparent)"
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/components/sections/Path.tsx",
@@ -3013,7 +3013,7 @@ function Path({ c }) {
                         "aria-hidden": "true",
                         className: "absolute start-0 end-[14%] top-[7px] hidden h-0.5 lg:block",
                         style: {
-                            background: "linear-gradient(var(--to-end), transparent, var(--blue) 6% 54%, var(--orange) 54% 100%)"
+                            background: "linear-gradient(var(--to-end), transparent, var(--blue) 6% 72%, var(--orange) 72% 100%)"
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/components/sections/Path.tsx",
@@ -3029,8 +3029,11 @@ function Path({ c }) {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("ol", {
-                        className: "relative grid gap-14 lg:grid-cols-2 lg:gap-16",
-                        children: path.experience.map((job, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Reveal$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Reveal"], {
+                        className: "relative grid gap-14 lg:grid-cols-3 lg:gap-12",
+                        children: path.experience.map((job, i)=>{
+                            // Earlier roles are blue; the current one (the last) glows orange.
+                            const past = i < path.experience.length - 1;
+                            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Reveal$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Reveal"], {
                                 as: "li",
                                 delay: i * 0.15,
                                 className: "relative flex flex-col gap-2.5 ps-10 lg:ps-0 lg:pt-12",
@@ -3038,7 +3041,7 @@ function Path({ c }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         "aria-hidden": "true",
                                         className: "absolute start-0 top-0 h-4 w-4 rounded-full",
-                                        style: i === 0 ? {
+                                        style: past ? {
                                             background: "var(--label-blue)"
                                         } : {
                                             background: "#FFB15C",
@@ -3046,15 +3049,15 @@ function Path({ c }) {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/Path.tsx",
-                                        lineNumber: 142,
+                                        lineNumber: 145,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: `label text-[12px] tracking-[0.3em] ${i === 0 ? "text-label-blue" : "text-label-orange"}`,
+                                        className: `label text-[12px] tracking-[0.3em] ${past ? "text-label-blue" : "text-label-orange"}`,
                                         children: job.dates
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/Path.tsx",
-                                        lineNumber: 147,
+                                        lineNumber: 150,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -3062,7 +3065,7 @@ function Path({ c }) {
                                         children: job.role
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/Path.tsx",
-                                        lineNumber: 150,
+                                        lineNumber: 153,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3070,7 +3073,7 @@ function Path({ c }) {
                                         children: job.org
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/Path.tsx",
-                                        lineNumber: 151,
+                                        lineNumber: 154,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3078,10 +3081,10 @@ function Path({ c }) {
                                         children: job.place
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/Path.tsx",
-                                        lineNumber: 152,
+                                        lineNumber: 155,
                                         columnNumber: 15
                                     }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                    job.points.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                                         className: "mt-2 flex max-w-[54ch] flex-col gap-2",
                                         children: job.points.map((point)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                 className: "relative ps-5 text-[15px] leading-[1.6] text-ink-2",
@@ -3090,31 +3093,32 @@ function Path({ c }) {
                                                         "aria-hidden": "true",
                                                         className: "absolute start-0 top-[0.75em] h-px w-2.5",
                                                         style: {
-                                                            background: i === 0 ? "var(--label-blue)" : "var(--label-orange)"
+                                                            background: past ? "var(--label-blue)" : "var(--label-orange)"
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/sections/Path.tsx",
-                                                        lineNumber: 156,
+                                                        lineNumber: 159,
                                                         columnNumber: 21
                                                     }, this),
                                                     point
                                                 ]
                                             }, point, true, {
                                                 fileName: "[project]/src/components/sections/Path.tsx",
-                                                lineNumber: 155,
+                                                lineNumber: 158,
                                                 columnNumber: 19
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/Path.tsx",
-                                        lineNumber: 153,
-                                        columnNumber: 15
+                                        lineNumber: 156,
+                                        columnNumber: 41
                                     }, this)
                                 ]
                             }, job.role, true, {
                                 fileName: "[project]/src/components/sections/Path.tsx",
-                                lineNumber: 141,
+                                lineNumber: 144,
                                 columnNumber: 13
-                            }, this))
+                            }, this);
+                        })
                     }, void 0, false, {
                         fileName: "[project]/src/components/sections/Path.tsx",
                         lineNumber: 139,
@@ -3130,7 +3134,7 @@ function Path({ c }) {
                 c: c
             }, void 0, false, {
                 fileName: "[project]/src/components/sections/Path.tsx",
-                lineNumber: 170,
+                lineNumber: 174,
                 columnNumber: 7
             }, this)
         ]
