@@ -52,6 +52,8 @@ export type Experience = {
   dates: string;
   place: string;
   points: string[];
+  /** Roles still in progress glow orange on the stream. */
+  current?: boolean;
 };
 
 export type Credential = {
@@ -152,6 +154,14 @@ export const site = {
         line: "Strengthening my engineering skills through cloud infrastructure, orchestration, and end-to-end pipeline development.",
         sketch: "cloud",
         recognition: "Champion of the Week",
+      },
+      {
+        chapter: "Building My Own",
+        title: "Founder & Freelance Data Engineer",
+        place: "Yaqeen Data",
+        when: "Nov 2026 – Present",
+        line: "Turning everything I've learned into data solutions for real clients, under a name of my own.",
+        sketch: "pipeline",
       },
       {
         chapter: "Still Curious",
@@ -255,6 +265,18 @@ export const site = {
         dates: "Nov 2026 – Present",
         place: "Riyadh, Saudi Arabia",
         points: [],
+        current: true,
+      },
+      {
+        role: "Founder & Freelance Data Engineer",
+        org: "Yaqeen Data",
+        dates: "Nov 2026 – Present",
+        place: "Saudi Arabia",
+        points: [
+          "Design and build end-to-end data pipelines for clients, from data collection and APIs to orchestrated ETL / ELT workflows.",
+          "Deliver data quality checks, data modeling and cloud-ready infrastructure that turn raw data into reliable data products.",
+        ],
+        current: true,
       },
     ] satisfies Experience[],
     credentials: {
